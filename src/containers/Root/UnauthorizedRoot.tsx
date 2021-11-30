@@ -1,7 +1,13 @@
 import React from 'react';
 
-export const UnauthorizedRoot: React.FC = () => {
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
+import { Authorization } from '../Authorization/Authorization';
+
+export const UnauthorizedRoot = () => {
+
   return (
-    <></>
+    <Switch>
+      <Route exact path='/' component={Authorization} />
+    </Switch>
   );
-};
+}
