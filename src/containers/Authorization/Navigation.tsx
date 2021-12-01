@@ -1,18 +1,18 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
+import { styled } from '../../styles';
 import { ButtonText } from '../../components';
+
 import { TabConst } from './Authorization';
 
 const Menu = styled.div`
     padding: 0 40px;
-    margin-top: 20px;
+    margin-top: 16px;
     display: flex;
     justify-content: space-between;
 
     @media screen and (max-width: 430px) {
-        padding: 0 10px;
+        padding: 0 8px;
     }
 `;
 
@@ -23,24 +23,24 @@ const Tab = styled.div<ITabProps>`
 `;
 
 interface INavigationProps {
-    setActiveTab: (value: TabConst) => void;
-    activeTab: TabConst;
+  setActiveTab: (value: TabConst) => void;
+  activeTab: TabConst;
 }
 
 interface ITabProps {
-    isActive: boolean;
+  isActive: boolean;
 }
 
 export const Navigation: React.FC<INavigationProps> = ({ setActiveTab, activeTab }) => {
 
-    return (
-        <Menu>
-            <Tab isActive={activeTab === TabConst.SignIn} onClick={() => setActiveTab(TabConst.SignIn)}>
-                <ButtonText>Sign In</ButtonText>
-            </Tab>
-            <Tab isActive={activeTab === TabConst.SignUp} onClick={() => setActiveTab(TabConst.SignUp)}>
-                <ButtonText>Sign Up</ButtonText>
-            </Tab>
-        </Menu>
-    );
+  return (
+    <Menu>
+      <Tab isActive={activeTab === TabConst.SignIn} onClick={() => setActiveTab(TabConst.SignIn)}>
+        <ButtonText>Sign In</ButtonText>
+      </Tab>
+      <Tab isActive={activeTab === TabConst.SignUp} onClick={() => setActiveTab(TabConst.SignUp)}>
+        <ButtonText>Sign Up</ButtonText>
+      </Tab>
+    </Menu>
+  );
 }

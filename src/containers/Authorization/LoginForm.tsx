@@ -1,7 +1,6 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
+import { styled } from '../../styles';
 import { H2 } from '../../components';
 
 const Title = styled(H2)`
@@ -10,9 +9,10 @@ const Title = styled(H2)`
 
 export const LoginForm = () => {
 
-    return (
-        <>
-            <Title>Login</Title>
-        </>
-    );
-}
+
+  return (
+    <>
+      <Title>Login</Title>
+    </>
+  );
+};

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import styled from 'styled-components';
+import { styled } from '../../styles';
+import backgroundImage from '../../images/background.jpg';
 
 import { RegistrationForm } from './RegistrationForm';
 import { LoginForm } from './LoginForm';
 import { Navigation } from './Navigation';
-import backgroundImage from '../../images/background.jpg';
-import { theme } from '../../styles';
 
 const Main = styled.div`
     width: 100vw;
@@ -23,10 +22,10 @@ const Main = styled.div`
 const Container = styled.div`
     min-width: 400px;
     min-height: 100px;
-    background-color: ${theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.white};
     opacity: 0.85;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(119,92,58, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 0 24px rgba(119,92,58, 0.4);
     padding: 40px;
 
     @media screen and (max-width: 430px) {
@@ -41,8 +40,8 @@ export enum TabConst {
 }
 
 export const Authorization = () => {
-  const [activeTab, setActiveTab] = useState<TabConst>(TabConst.SignIn);
-
+  const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
+  
   return (
     <Main>
       <Container>

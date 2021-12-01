@@ -12,8 +12,8 @@ export const Root = () => {
   return (
     <>
       {isLoggedIn 
-      ? (<AuthorizedRoot />) 
-      : (<UnauthorizedRoot />)}
+      ? <AuthorizedRoot /> 
+      : <UnauthorizedRoot />}
     </>
   );
 };
