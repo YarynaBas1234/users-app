@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { styled } from '../../styles';
-
 import { H2 } from '../../components';
 
 const Title = styled(H2)`
@@ -15,4 +14,4 @@ export const RegistrationForm = () => {
       <Title>Registration</Title>
     </>
   );
-}
+};

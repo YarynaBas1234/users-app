@@ -1,2 +1,2 @@
 export * from './LanguagesConst';
-export * from './Path';
+export * from './RoutePathConst';

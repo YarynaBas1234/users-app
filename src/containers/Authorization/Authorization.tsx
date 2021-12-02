@@ -53,4 +53,4 @@ export const Authorization = () => {
       </Container>
     </Main>
   );
-}
+};

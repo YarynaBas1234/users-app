@@ -9,7 +9,6 @@ const Title = styled(H2)`
 
 export const LoginForm = () => {
 
-
   return (
     <>
       <Title>Login</Title>

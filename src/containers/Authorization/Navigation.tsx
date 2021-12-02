@@ -43,4 +43,4 @@ export const Navigation: React.FC<INavigationProps> = ({ setActiveTab, activeTab
       </Tab>
     </Menu>
   );
-}
+};
