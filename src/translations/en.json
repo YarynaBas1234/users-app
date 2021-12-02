@@ -1,5 +1,19 @@
 {
   "translation": {
-    "FIELD_REQUIRED": "Field is required"
+    "ERRORS": {
+      "FIELD_REQUIRED": "Field is required"
+    },
+    "AUTH": {
+      "TITLE_LOGIN_FORM": "Login",
+      "FORGOT_PASSWORD": "Forgot password?",
+      "TITLE_REGISTRATION_FORM": "Registration",
+      "SIGN_IN": "Sign in",
+      "SIGN_UP": "Sign up",
+      "LOGIN": "Login"
+    },
+    "LABELS": {
+      "PASSWORD": "Password",
+      "NAME": "Name"
+    }
   }
 }

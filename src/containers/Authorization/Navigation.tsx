@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 import { styled } from '../../styles';
 import { ButtonText } from '../../components';
@@ -19,7 +20,12 @@ const Menu = styled.div`
 const Tab = styled.div<ITabProps>`
     ${({ isActive, theme }) => isActive && `
         border-bottom: 1px solid ${theme.colors.black};
+        font-weight: bold;
     `}
+`;
+
+const ButtonTextStyled = styled(ButtonText)`
+    cursor: pointer;
 `;
 
 interface INavigationProps {
@@ -32,14 +38,14 @@ interface ITabProps {
 }
 
 export const Navigation: React.FC<INavigationProps> = ({ setActiveTab, activeTab }) => {
-
+  const { t } = useTranslation();
   return (
     <Menu>
       <Tab isActive={activeTab === TabConst.SignIn} onClick={() => setActiveTab(TabConst.SignIn)}>
-        <ButtonText>Sign In</ButtonText>
+      <ButtonTextStyled>{t('AUTH.SIGN_IN')}</ButtonTextStyled>
       </Tab>
       <Tab isActive={activeTab === TabConst.SignUp} onClick={() => setActiveTab(TabConst.SignUp)}>
-        <ButtonText>Sign Up</ButtonText>
+      <ButtonTextStyled>{t('AUTH.SIGN_UP')}</ButtonTextStyled>
       </Tab>
     </Menu>
   );

@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 import { styled } from '../../styles';
+import { H2 } from '../../components';
 import backgroundImage from '../../images/background.jpg';
 
-import { RegistrationForm } from './RegistrationForm';
-import { LoginForm } from './LoginForm';
+import { SignUpForm } from './SignUpForm';
+import { SignInForm } from './SignInForm';
 import { Navigation } from './Navigation';
 
 const Main = styled.div`
@@ -34,6 +36,10 @@ const Container = styled.div`
     }
 `;
 
+const Title = styled(H2)`
+  font-weight: bold;
+`;
+
 export enum TabConst {
   SignIn = 'SIGN_IN',
   SignUp = 'SIGN_UP',
@@ -41,13 +47,20 @@ export enum TabConst {
 
 export const Authorization = () => {
   const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
-  
+  const { t } = useTranslation();
+
   return (
     <Main>
       <Container>
         {activeTab === TabConst.SignIn
-          ? <LoginForm />
-          : <RegistrationForm />
+          ? <>
+              <Title>{t('AUTH.TITLE_LOGIN_FORM')}</Title>
+              <SignInForm />
+          </>
+          : <>
+              <Title>{t('AUTH.TITLE_REGISTRATION_FORM')}</Title>
+              <SignUpForm />
+          </>
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </Container>

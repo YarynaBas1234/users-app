@@ -19,7 +19,7 @@ const ButtonTextStyled = styled(ButtonText)<IButtonTextStyledProps>`
 `;
 
 const ButtonBase = styled.button<IButtonTextStyledProps>`
-  height: 52px;
+  height: 40px;
   background-color: ${({ theme, disabled, isSecondary }) =>
   disabled
     ? theme.colors.gray5
@@ -46,7 +46,7 @@ interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   text: string;
   isDisabled?: boolean;
   isSecondary?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
 }
 
