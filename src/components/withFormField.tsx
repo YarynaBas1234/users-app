@@ -16,11 +16,11 @@ export interface IFormComponent<Values = any, Value = any> {
   className?: string;
   isInvalid?: boolean;
   name: string;
-  setFocus: (val: boolean) => void;
-  setFieldValue: FormikProps<Values>['setFieldValue'];
-  setTouched: FormikProps<Values>['setTouched'];
+  setFocus?: (val: boolean) => void;
+  setFieldValue?: FormikProps<Values>['setFieldValue'];
+  setTouched?: FormikProps<Values>['setTouched'];
   onChange: FormikHandlers['handleChange'];
-  onBlur: FormikHandlers['handleBlur'];
+  onBlur?: FormikHandlers['handleBlur'];
   value: Value;
   disabled?: boolean;
   onFocus?: (e: any) => void;

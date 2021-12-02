@@ -6,13 +6,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Root } from 'containers';
 import { queryClient } from 'services';
 import store from 'store';
-import { theme, ThemeProvider } from 'styles';
+import { theme, ThemeProvider, GlobalStyles } from 'styles';
 
 const App = () => (
   <Provider store={ store }>
     <ThemeProvider theme={ theme }>
       <Router>
         <QueryClientProvider client={queryClient}>
+          <GlobalStyles />
           <Root/>
         </QueryClientProvider>
       </Router>
