@@ -13,7 +13,9 @@
     },
     "LABELS": {
       "PASSWORD": "Password",
-      "NAME": "Name"
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "REPEAT_PASSWORD": "Repeat Password"
     }
   }
 }
