@@ -15,17 +15,38 @@ export const SignUpForm = () => {
   return (
     <FormWrapper text={t('AUTH.TITLE_REGISTRATION_FORM')}>
       <Formik
-        initialValues={{ userName: '', email: '', password: '', repeatPassword: '', }}
+        initialValues={{
+          userName: '',
+          email: '',
+          password: '',
+          repeatPassword: '',
+        }}
         onSubmit={(_, { resetForm }) => {
           resetForm();
         }}
       >
         {({ handleSubmit }) =>
           <Form>
-            <Field name='userName' label={t('LABELS.NAME')} component={InputField} />
-            <Field name='email' label={t('LABELS.EMAIL')} component={InputField} />
-            <Field name='password' label={t('LABELS.PASSWORD')} component={PasswordInputField} />
-            <Field name='repeatPassword' label={t('LABELS.REPEAT_PASSWORD')} component={PasswordInputField} />
+            <Field
+              name='userName'
+              label={t('LABELS.NAME')}
+              component={InputField}
+            />
+            <Field
+              name='email'
+              label={t('LABELS.EMAIL')}
+              component={InputField}
+            />
+            <Field
+              name='password'
+              label={t('LABELS.PASSWORD')}
+              component={PasswordInputField}
+            />
+            <Field
+              name='repeatPassword'
+              label={t('LABELS.REPEAT_PASSWORD')}
+              component={PasswordInputField}
+            />
             <ButtonLong text={t('AUTH.SIGN_UP')} onClick={handleSubmit} />
           </Form>
         }

@@ -13,7 +13,9 @@
     },
     "LABELS": {
       "PASSWORD": "Пароль",
-      "NAME": "Ім'я"
+      "NAME": "Ім'я",
+      "EMAIL": "Логін",
+      "REPEAT_PASSWORD": "Повторіть пароль"
     }
   }
 }
