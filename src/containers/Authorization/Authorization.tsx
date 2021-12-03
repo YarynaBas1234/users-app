@@ -44,11 +44,7 @@ export const Authorization = () => {
   return (
     <Main>
       <Container>
-        {activeTab === TabConst.SignIn
-          && <>
-              <SignInForm />
-          </>
-        }
+        {activeTab === TabConst.SignIn && <SignInForm />}
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </Container>
     </Main>

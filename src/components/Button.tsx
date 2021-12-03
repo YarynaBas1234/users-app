@@ -47,7 +47,7 @@ interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   text: string;
   isDisabled?: boolean;
   isSecondary?: boolean;
-  onClick?: () => void;
+  onClick: () => void;
   className?: string;
 }
 

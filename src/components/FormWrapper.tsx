@@ -10,9 +10,9 @@ export const FormWrapper: React.FC<IFormWrapper> = props => {
   const { children, text } = props;
 
   return (
-    <>
+    <div>
       <H2 isBold={true}>{text}</H2>
-      { children}
-    </>
+      {children}
+    </div>
   );
 };
