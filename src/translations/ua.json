@@ -1,5 +1,19 @@
 {
   "translation": {
-    "FIELD_REQUIRED": "Обов'язкове поле"
+    "ERRORS": {
+      "FIELD_REQUIRED": "Поле є обов'язковим"
+    },
+    "AUTH": {
+      "TITLE_LOGIN_FORM": "Вхід",
+      "FORGOT_PASSWORD": "Забули пароль?",
+      "TITLE_REGISTRATION_FORM": "Реєстрація",
+      "SIGN_IN": "Увійти",
+      "SIGN_UP": "Зареєструватись",
+      "LOGIN": "Вхід"
+    },
+    "LABELS": {
+      "PASSWORD": "Пароль",
+      "NAME": "Ім'я"
+    }
   }
 }

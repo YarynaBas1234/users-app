@@ -3,8 +3,7 @@ import React from 'react';
 import { styled } from '../../styles';
 import backgroundImage from '../../images/background.jpg';
 
-import { RegistrationForm } from './RegistrationForm';
-import { LoginForm } from './LoginForm';
+import { SignInForm } from './SignInForm';
 import { Navigation } from './Navigation';
 
 const Main = styled.div`
@@ -41,14 +40,11 @@ export enum TabConst {
 
 export const Authorization = () => {
   const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
-  
+
   return (
     <Main>
       <Container>
-        {activeTab === TabConst.SignIn
-          ? <LoginForm />
-          : <RegistrationForm />
-        }
+        {activeTab === TabConst.SignIn && <SignInForm />}
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </Container>
     </Main>

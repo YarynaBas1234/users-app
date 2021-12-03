@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { styled, theme } from 'styles';
 
-import { H4 } from './Text';
+import { H4, H5 } from './Text';
 
 export interface IFormFieldProps {
   label?: string;
@@ -36,6 +36,7 @@ interface IWrapperProps {
 const Wrapper = styled.div<IWrapperProps>`
   width: 100%;
   padding-top: 20px;
+  margin-top: 8px;
 
   ${ ({ disabled, isInvalid, isFocused, hasLabel }) =>
           hasLabel &&
@@ -110,11 +111,11 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
         { ...field }
         { ...rest }
       />
-      { label && <H4 className="label media-label">{ label }</H4> }
+      { label && <H5 className="label media-label">{ label }</H5> }
       { !isInvalid && hint && <H4 className="hint">{ hint }</H4> }
       { form.errors[field.name] && form.touched[field.name] && (
         <div className="error-wrapper">
-          <H4 className="error">{ t(form.errors[field.name]?.toString() || '') }</H4>
+          <H5 className="error">{ t(form.errors[field.name]?.toString() || '') }</H5>
         </div>
       ) }
     </Wrapper>
