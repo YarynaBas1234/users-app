@@ -20,6 +20,7 @@ const ButtonTextStyled = styled(ButtonText)<IButtonTextStyledProps>`
 
 const ButtonBase = styled.button<IButtonTextStyledProps>`
   height: 40px;
+  margin-top: 8px;
   background-color: ${({ theme, disabled, isSecondary }) =>
   disabled
     ? theme.colors.gray5

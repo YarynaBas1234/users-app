@@ -39,3 +39,10 @@ export const H4 = styled.span<IButtonTextProps>`
   font-size: 20px;
   line-height: 26px;
 `;
+
+export const H5 = styled.span<IButtonTextProps>`
+  font-style: normal;
+  ${({ isBold }) => isBold && 'font-weight: bold'};
+  font-size: 16px;
+  line-height: 20px;
+`;
