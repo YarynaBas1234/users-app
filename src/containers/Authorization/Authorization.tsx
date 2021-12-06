@@ -4,6 +4,7 @@ import { styled } from '../../styles';
 import backgroundImage from '../../images/background.jpg';
 
 import { SignInForm } from './SignInForm';
+import { SignUpForm } from './SignUpForm';
 import { Navigation } from './Navigation';
 
 const Main = styled.div`
@@ -44,7 +45,10 @@ export const Authorization = () => {
   return (
     <Main>
       <Container>
-        {activeTab === TabConst.SignIn && <SignInForm />}
+        {activeTab === TabConst.SignIn
+          ? <SignInForm />
+          : <SignUpForm />
+        }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </Container>
     </Main>
