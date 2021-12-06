@@ -1,7 +1,14 @@
 {
   "translation": {
     "ERRORS": {
-      "FIELD_REQUIRED": "Field is required"
+      "FIELD_REQUIRED": "Field is required",
+      "PASSWORD": {
+        "INVALID_PASSWORD": "Password shoul have at least one uppercase letter, one lowercase letter and one digit",
+        "PASSWORD_LENGTH": "Please enter at least 6 characters"
+      },
+      "USERNAME": {
+          "UPPERCASE": "First letter should be uppercase"
+      }
     },
     "AUTH": {
       "TITLE_LOGIN_FORM": "Login",

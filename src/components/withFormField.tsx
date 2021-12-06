@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { styled, theme } from 'styles';
 
-import { H4, H5 } from './Text';
+import { H4, H5, H6 } from './Text';
 
 export interface IFormFieldProps {
   label?: string;
@@ -67,7 +67,6 @@ const Wrapper = styled.div<IWrapperProps>`
   .error-wrapper {
     display: flex;
     align-items: flex-start;
-    padding-top: 5px;
 
     .error {
       color: ${ theme.colors.red };
@@ -115,7 +114,7 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
       { !isInvalid && hint && <H4 className="hint">{ hint }</H4> }
       { form.errors[field.name] && form.touched[field.name] && (
         <div className="error-wrapper">
-          <H5 className="error">{ t(form.errors[field.name]?.toString() || '') }</H5>
+          <H6 className="error">{ t(form.errors[field.name]?.toString() || '') }</H6>
         </div>
       ) }
     </Wrapper>

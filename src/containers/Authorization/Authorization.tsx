@@ -19,7 +19,8 @@ const Main = styled.div`
 `;
 
 const Container = styled.div`
-    min-width: 400px;
+    width: 100%;
+    max-width: 400px;
     min-height: 100px;
     background-color: ${({ theme }) => theme.colors.white};
     opacity: 0.85;
