@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { styled, theme } from 'styles';
+import { CommonConsts } from '../consts';
 
 import { H4, H5, H6 } from './Text';
 
@@ -114,7 +115,9 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
       { !isInvalid && hint && <H4 className="hint">{ hint }</H4> }
       { form.errors[field.name] && form.touched[field.name] && (
         <div className="error-wrapper">
-          <H6 className="error">{ t(form.errors[field.name]?.toString() || '') }</H6>
+          <H6 className="error">
+            { t(form.errors[field.name]?.toString()  || '', { length: CommonConsts.LENGTH_PASSWORD }) }
+          </H6>
         </div>
       ) }
     </Wrapper>
