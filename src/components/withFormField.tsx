@@ -1,9 +1,8 @@
-import { FieldProps, FormikHandlers, FormikProps, getIn } from 'formik';
+import { FieldProps, FormikErrors, FormikHandlers, FormikProps, getIn } from 'formik';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { styled, theme } from 'styles';
-import { CommonConsts } from '../consts';
+import { styled, theme } from '../styles';
 
 import { H4, H5, H6 } from './Text';
 
@@ -83,6 +82,11 @@ const Wrapper = styled.div<IWrapperProps>`
 interface IWithFormFieldProps extends IFormFieldProps, FieldProps {
 }
 
+export type IFieldError = {
+  error: string;
+  param: number;
+}
+
 export const withFormField = <OriginalProps extends {}>(Component: React.ComponentType<IFormComponent | OriginalProps>) => (props: IWithFormFieldProps) => {
   const {
     field,
@@ -94,7 +98,8 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
   const { t } = useTranslation();
   const [isFocused, setFocus] = React.useState(false);
   const isInvalid = getIn(form.errors, field.name) && getIn(form.touched, field.name);
-
+  const fieldError = form.errors[field.name] as FormikErrors<IFieldError>;
+  
   return (
     <Wrapper
       className="form-field"
@@ -113,13 +118,13 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
       />
       { label && <H5 className="label media-label">{ label }</H5> }
       { !isInvalid && hint && <H4 className="hint">{ hint }</H4> }
-      { form.errors[field.name] && form.touched[field.name] && (
-        <div className="error-wrapper">
-          <H6 className="error">
-            { t(form.errors[field.name]?.toString()  || '', { length: CommonConsts.LENGTH_PASSWORD }) }
-          </H6>
-        </div>
-      ) }
+      <div className="error-wrapper">
+        <H6 className="error">
+          {typeof form.errors[field.name] === 'string' && form.touched[field.name]
+            ? t(fieldError?.toString() || '')
+            : t(fieldError?.error || '', { length: fieldError?.param })}
+        </H6>
+      </div>
     </Wrapper>
   );
 };

@@ -1,8 +1,12 @@
 import * as validation from './formErrorUtil';
 
-type IValidation = (value: string) => string | undefined;
+type IValidation = (value: string) => string | undefined | object;
 
-type ICombineValidators = (...validations: IValidation[]) => (value: string) => string | undefined;
+type IValidationWithParamNumber = (param: number) => (value: string) => string | undefined | object;
+
+type IValidationWithParamString = (param: string) => (value: string) => string | undefined | object; 
+
+type ICombineValidators = (...validations: IValidation[]) => (value: string) => string | undefined | object;
 
 export const combineValidators: ICombineValidators = (...validations) => (value) => {
   for (let i = 0; i < validations.length; i++) {
@@ -29,18 +33,18 @@ export const lowerCase: IValidation = value => {
   return validation.hasLowerCase(value) ? undefined : 'ERRORS.LOWER_CASE';
 };
 
-export const lengthBiggerThen = (param: number) => (value: string) => {
-  return validation.hasLengthBiggerThen(param, value) ? undefined : 'ERRORS.LENGTH_BIGGER_THEN';
+export const lengthBiggerThen: IValidationWithParamNumber = (param) => (value) => {
+  return validation.hasLengthBiggerThen(param, value) ? undefined : { error: 'ERRORS.LENGTH_BIGGER_THEN', param };
 };
 
-export const startFromUpperCase: IValidation = value => {
-  return validation.isStartFromUpperCase(value) ? undefined : 'ERRORS.START_FROM_UPPERCASE';
+export const startsFromUpperCase: IValidation = value => {
+  return validation.isStartsFromUpperCase(value) ? undefined : 'ERRORS.START_FROM_UPPERCASE';
 };
 
 export const email: IValidation = value => {
   return validation.isEmail(value) ? undefined : 'ERRORS.EMAIL';
 };
 
-export const equalPasswords = (password: string) => (value: string) => {
-  return validation.isEqual(password, value) ? undefined : 'ERRORS.SAME_PASSWORDS';
+export const passwords: IValidationWithParamString = (param) => (value) => {
+  return validation.isEqual(param, value) ? undefined : 'ERRORS.SAME_PASSWORDS';
 };
