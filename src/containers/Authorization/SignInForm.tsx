@@ -6,7 +6,6 @@ import { Field, Form, Formik } from 'formik';
 import { styled } from '../../styles';
 import { validationUtil } from '../../utils';
 import { RoutePathConst } from '../../consts';
-import { CommonConsts } from '../../consts';
 import {
   ButtonLong,
   FormWrapper,
@@ -38,7 +37,6 @@ export const SignInForm = () => {
               validate={
                 validationUtil.combineValidators(
                 validationUtil.required,
-                validationUtil.startFromUpperCase
               )}
               label={t('LABELS.NAME')}
               component={InputField}
@@ -47,10 +45,6 @@ export const SignInForm = () => {
               name='password'
               validate={validationUtil.combineValidators(
                 validationUtil.required,
-                validationUtil.number,
-                validationUtil.upperCase,
-                validationUtil.lowerCase,
-                validationUtil.lengthBiggerThen(CommonConsts.LENGTH_PASSWORD)
               )}
               label={t('LABELS.PASSWORD')}
               component={PasswordInputField}
