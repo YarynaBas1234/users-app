@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Field, Formik, Form } from 'formik';
 
 import { validationUtil } from '../../utils';
-import { CommonConsts } from '../../consts';
+import { CommonConst } from '../../consts';
 import {
   FormWrapper,
   ButtonLong,
@@ -33,7 +33,7 @@ export const SignUpForm = () => {
               name='userName'
               validate={validationUtil.combineValidators(
                 validationUtil.required,
-                validationUtil.startFromUpperCase
+                validationUtil.startsFromUpperCase
               )}
               label={t('LABELS.NAME')}
               component={InputField}
@@ -54,7 +54,7 @@ export const SignUpForm = () => {
                 validationUtil.number,
                 validationUtil.upperCase,
                 validationUtil.lowerCase,
-                validationUtil.lengthBiggerThen(CommonConsts.LENGTH_PASSWORD),
+                validationUtil.lengthBiggerThen(CommonConst.LENGTH_PASSWORD),
               )}
               label={t('LABELS.PASSWORD')}
               component={PasswordInputField}
@@ -62,7 +62,7 @@ export const SignUpForm = () => {
             <Field
               name='repeatPassword'
               validate={validationUtil.combineValidators(
-                validationUtil.equalPasswords(values.password)
+                validationUtil.passwords(values.password)
               )}
               label={t('LABELS.REPEAT_PASSWORD')}
               component={PasswordInputField}
