@@ -4,13 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
 
 import { styled } from '../../styles';
+import { validationUtil } from '../../utils';
+import { RoutePathConst } from '../../consts';
 import {
   ButtonLong,
   FormWrapper,
   InputField,
   PasswordInputField
 } from '../../components';
-import { RoutePathConst } from '../../consts';
 
 const LinkWrapper = styled.div`
     display: flex;
@@ -31,8 +32,23 @@ export const SignInForm = () => {
       >
         {({ handleSubmit }) => (
           <Form>
-            <Field name='userName' label={t('LABELS.NAME')} component={InputField} />
-            <Field name='password' label={t('LABELS.PASSWORD')} component={PasswordInputField} />
+            <Field
+              name='userName'
+              validate={
+                validationUtil.combineValidators(
+                validationUtil.required,
+              )}
+              label={t('LABELS.NAME')}
+              component={InputField}
+            />
+            <Field
+              name='password'
+              validate={validationUtil.combineValidators(
+                validationUtil.required,
+              )}
+              label={t('LABELS.PASSWORD')}
+              component={PasswordInputField}
+            />
             <ButtonLong text={t('AUTH.LOGIN')} onClick={handleSubmit} />
             <LinkWrapper>
               <Link to={RoutePathConst.ForgotPassword}>{t('AUTH.FORGOT_PASSWORD')}</Link>
