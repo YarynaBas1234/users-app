@@ -1,6 +1,6 @@
-import { FieldProps, FormikErrors, FormikHandlers, FormikProps, getIn } from 'formik';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
+import { FieldProps, FormikErrors, FormikHandlers, FormikProps, getIn } from 'formik';
 
 import { styled, theme } from '../styles';
 
@@ -32,6 +32,14 @@ interface IWrapperProps {
   isInvalid?: boolean;
   isFocused: boolean;
 }
+
+interface IWithFormFieldProps extends IFormFieldProps, FieldProps {
+}
+
+export type IFieldError = {
+  error: string;
+  parameters: object;
+};
 
 const Wrapper = styled.div<IWrapperProps>`
   width: 100%;
@@ -79,14 +87,6 @@ const Wrapper = styled.div<IWrapperProps>`
   }
 `;
 
-interface IWithFormFieldProps extends IFormFieldProps, FieldProps {
-}
-
-export type IFieldError = {
-  error: string;
-  param: number;
-}
-
 export const withFormField = <OriginalProps extends {}>(Component: React.ComponentType<IFormComponent | OriginalProps>) => (props: IWithFormFieldProps) => {
   const {
     field,
@@ -122,7 +122,7 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
         <H6 className="error">
           {typeof form.errors[field.name] === 'string' && form.touched[field.name]
             ? t(fieldError?.toString() || '')
-            : t(fieldError?.error || '', { length: fieldError?.param })}
+            : t(fieldError?.error || '', { ...fieldError?.parameters })}
         </H6>
       </div>
     </Wrapper>

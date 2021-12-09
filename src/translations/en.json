@@ -2,13 +2,13 @@
   "translation": {
     "ERRORS": {
       "FIELD_REQUIRED": "Field is required",
-      "NUMBER": "Password shoul have at least one digit",
-      "UPPER_CASE": "Password should have at least one uppercase letter",
-      "LOWER_CASE": "Password should have at least one lowercase letter",
+      "NUMBER": "Field should have at least one digit",
+      "UPPER_CASE": "Field should have at least one uppercase letter",
+      "LOWER_CASE": "Field should have at least one lowercase letter",
       "LENGTH_BIGGER_THEN": "Please enter at least {{length}} characters",
       "START_FROM_UPPERCASE": "First letter should be uppercase",
       "EMAIL": "Invalid email address",
-      "SAME_PASSWORDS": "Passwords are not the same"
+      "SAME_FIELDS": "Fields {{label}} and {{labelConfirm}} are not the same"
     },
     "AUTH": {
       "TITLE_LOGIN_FORM": "Login",
