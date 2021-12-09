@@ -3,13 +3,13 @@ import { BrowserRouter as Switch, Route } from 'react-router-dom';
 
 import { RoutePathConst } from '../../consts';
 
-import { Authorization } from '../Authorization';
+import { UnAuthorizedUser } from '../Authorization/UnAuthorizedUser';
 
 export const UnauthorizedRoot = () => {
 
   return (
     <Switch>
-      <Route exact path={RoutePathConst.Authorization} component={Authorization} />
+      <Route exact path={RoutePathConst.UnAuthorization} component={UnAuthorizedUser} />
     </Switch>
   );
 };

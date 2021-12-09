@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { styled } from '../../styles';
-import backgroundImage from '../../images/background.jpg';
+import { styled } from '../../../styles';
+import backgroundImage from '../../../images/background.jpg';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
@@ -39,7 +39,7 @@ export enum TabConst {
   SignUp = 'SIGN_UP',
 }
 
-export const Authorization = () => {
+export const UnAuthorizedUser = () => {
   const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
 
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { styled } from '../../styles';
-import { ButtonText } from '../../components';
+import { styled } from '../../../styles';
+import { ButtonText } from '../../../components';
 
-import { TabConst } from './Authorization';
+import { TabConst } from './UnAuthorizedUser';
 
 const Menu = styled.div`
     padding: 0 40px;

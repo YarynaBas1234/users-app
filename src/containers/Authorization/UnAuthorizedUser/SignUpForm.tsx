@@ -1,16 +1,26 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Field, Formik, Form } from 'formik';
 
+import { handleRegisterAction } from '../../../store/auth/handlers';
 import {
   FormWrapper,
   ButtonLong,
   InputField,
   PasswordInputField
-} from '../../components';
+} from '../../../components';
+
+interface IValues {
+  userName: string,
+  email: string,
+  password: string,
+  repeatPassword: string,
+}
 
 export const SignUpForm = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   return (
     <FormWrapper text={t('AUTH.TITLE_REGISTRATION_FORM')}>
@@ -21,8 +31,13 @@ export const SignUpForm = () => {
           password: '',
           repeatPassword: '',
         }}
-        onSubmit={(_, { resetForm }) => {
-          resetForm();
+        onSubmit={(values: IValues) => {
+          dispatch(handleRegisterAction(
+            values.userName,
+            values.email,
+            values.password,
+            values.repeatPassword
+          ));
         }}
       >
         {({ handleSubmit }) =>

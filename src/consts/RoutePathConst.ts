@@ -1,4 +1,4 @@
 export enum RoutePathConst {
-  Authorization = '/',
+  UnAuthorization = '/',
   ForgotPassword = '/forgot-password',
 };
