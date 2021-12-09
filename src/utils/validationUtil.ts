@@ -2,9 +2,9 @@ import * as validation from './formErrorUtil';
 
 type IValidation = (value: string) => string | undefined | object;
 
-type IValidationWithParamNumber = (param: number) => (value: string) => string | undefined | object;
+type IValidationLengthBiggerThen = (length: number) => (value: string) => string | undefined | object;
 
-type IValidationWithParamString = (param: string) => (value: string) => string | undefined | object; 
+type IValidationLabels = (valueConfirm: string, label: string, labelConfirm: string) => (value: string) => string | undefined | object;
 
 type ICombineValidators = (...validations: IValidation[]) => (value: string) => string | undefined | object;
 
@@ -33,8 +33,8 @@ export const lowerCase: IValidation = value => {
   return validation.hasLowerCase(value) ? undefined : 'ERRORS.LOWER_CASE';
 };
 
-export const lengthBiggerThen: IValidationWithParamNumber = (param) => (value) => {
-  return validation.hasLengthBiggerThen(param, value) ? undefined : { error: 'ERRORS.LENGTH_BIGGER_THEN', param };
+export const lengthBiggerThen: IValidationLengthBiggerThen = length => value => {
+  return validation.hasLengthBiggerThen(value, length) ? undefined : { error: 'ERRORS.LENGTH_BIGGER_THEN', parameters: { length } };
 };
 
 export const startsFromUpperCase: IValidation = value => {
@@ -45,6 +45,6 @@ export const email: IValidation = value => {
   return validation.isEmail(value) ? undefined : 'ERRORS.EMAIL';
 };
 
-export const passwords: IValidationWithParamString = (param) => (value) => {
-  return validation.isEqual(param, value) ? undefined : 'ERRORS.SAME_PASSWORDS';
+export const checkEquality: IValidationLabels = (valueConfirm, label, labelConfirm) => value => {
+  return validation.isEqual(value, valueConfirm) ? undefined : { error: 'ERRORS.SAME_FIELDS', parameters: { label, labelConfirm } };
 };

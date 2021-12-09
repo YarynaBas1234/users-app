@@ -62,7 +62,11 @@ export const SignUpForm = () => {
             <Field
               name='repeatPassword'
               validate={validationUtil.combineValidators(
-                validationUtil.passwords(values.password)
+                validationUtil.checkEquality(
+                  values.password,
+                  t('LABELS.PASSWORD'),
+                  t('LABELS.REPEAT_PASSWORD')
+                )
               )}
               label={t('LABELS.REPEAT_PASSWORD')}
               component={PasswordInputField}
