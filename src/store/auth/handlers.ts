@@ -14,3 +14,9 @@ type IHandleLogoutActionType = () => void;
 export const handleLogoutAction: IHandleLogoutActionType = () => {
   api.logoutApi().then(() => authActions.logoutSuccess());
 };
+
+type IHandleRegisterAction = (userName: string, email: string, password: string, repeatPassword: string) => (dispatch: Dispatch) => void;
+
+export const handleRegisterAction: IHandleRegisterAction = (userName, password) => dispatch => {
+  api.registerApi(userName, password);
+};

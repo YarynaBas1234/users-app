@@ -48,7 +48,7 @@ export const UnAuthorizedUser = () => {
       <Container>
         {activeTab === TabConst.SignIn
           ? <SignInForm />
-          : <SignUpForm />
+          : <SignUpForm setActiveTab={setActiveTab}/>
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </Container>

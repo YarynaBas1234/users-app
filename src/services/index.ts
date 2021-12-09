@@ -8,3 +8,5 @@ export const queryClient = new QueryClient();
 export const mockApiService = mockApiServiceCreator();
 
 export * as languageService from './languageService';
+
+export * from './storageService';

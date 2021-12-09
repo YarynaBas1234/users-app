@@ -5,12 +5,15 @@ import { Field, Formik, Form } from 'formik';
 
 import { validationUtil } from '../../../utils';
 import { CommonConst } from '../../../consts';
+import { handleRegisterAction } from '../../../store/auth/handlers';
 import {
   FormWrapper,
   ButtonLong,
   InputField,
   PasswordInputField
 } from '../../../components';
+
+import { TabConst } from './UnAuthorizedUser';
 
 interface IValues {
   userName: string,
@@ -19,7 +22,13 @@ interface IValues {
   repeatPassword: string,
 }
 
-export const SignUpForm = () => {
+interface ISignUpForm {
+  setActiveTab: (value: TabConst) => void;
+}
+
+export const SignUpForm: React.FC<ISignUpForm> = (props) => {
+  const { setActiveTab } = props;
+
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -32,8 +41,15 @@ export const SignUpForm = () => {
           password: '',
           repeatPassword: '',
         }}
-        onSubmit={(_, { resetForm }) => {
+        onSubmit={(values: IValues, { resetForm }) => {
+          dispatch(handleRegisterAction(
+            values.userName,
+            values.email,
+            values.password,
+            values.repeatPassword
+          ));
           resetForm();
+          setActiveTab(TabConst.SignIn);
         }}
       >
         {({ handleSubmit, values }) =>
