@@ -21,17 +21,16 @@ const ContainerStyles = styled(Container)`
   width: 100%;
   max-width: 600px;
   height: 100%;
-  align-items: center;
   justify-content: space-between;
 `;
 
-const ContactUS = styled.div`
+const Footer = styled.div`
   width: 100%;
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.lightGreen};
 `;
 
-const Footer = styled.div`
+const ContactUs = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
@@ -66,14 +65,14 @@ export const AboutUs = () => {
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE')}</H1>
           <Description>{t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY')}</Description>
         </AboutOurCompany>
-        <ContactUS>
+        <Footer>
           <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
-          <Footer>
+          <ContactUs>
             <Contact>{t('ABOUT_US_PAGE.PHONE')}</Contact>
             <Contact>{t('ABOUT_US_PAGE.SKYPE')}</Contact>
             <Contact>{t('ABOUT_US_PAGE.FACEBOOK')}</Contact>
-          </Footer>
-        </ContactUS>
+          </ContactUs>
+        </Footer>
       </ContainerStyles>
     </Main>
   );

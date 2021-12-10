@@ -14,7 +14,7 @@ export const Container = styled.div`
   box-shadow: 0 0 24px rgba(119,92,58, 0.4);
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 32px;
   opacity: 0.9;
   background-color: ${({ theme }) => theme.colors.white};
 `;
