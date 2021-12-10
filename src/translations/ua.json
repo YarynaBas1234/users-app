@@ -22,8 +22,15 @@
       "PASSWORD": "Пароль",
       "NAME": "Ім'я",
       "EMAIL": "Логін",
-      "REPEAT_PASSWORD": "Повторіть пароль",
-      "ABOUT_US_PAGE": "Про нас"
+      "REPEAT_PASSWORD": "Повторіть пароль"
+    },
+    "ABOUT_US_PAGE": {
+      "TITLE": "Хто ми",
+      "ABOUT_OUR_COMPANY": "Тут повинен міститись текст про нашу компанію",
+      "CONTACT_US": "Зв'яжіться з нами",
+      "PHONE": "Телефон: 06792112**",
+      "SKYPE": "Skype: my_skype",
+      "FACEBOOK": "Facebook: My Facebook"
     }
   }
 }
