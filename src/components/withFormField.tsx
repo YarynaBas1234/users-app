@@ -1,10 +1,10 @@
-import { FieldProps, FormikHandlers, FormikProps, getIn } from 'formik';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
+import { FieldProps, FormikErrors, FormikHandlers, FormikProps, getIn } from 'formik';
 
-import { styled, theme } from 'styles';
+import { styled, theme } from '../styles';
 
-import { H4, H5 } from './Text';
+import { H4, H5, H6 } from './Text';
 
 export interface IFormFieldProps {
   label?: string;
@@ -32,6 +32,14 @@ interface IWrapperProps {
   isInvalid?: boolean;
   isFocused: boolean;
 }
+
+interface IWithFormFieldProps extends IFormFieldProps, FieldProps {
+}
+
+export type IFieldError = {
+  error: string;
+  parameters: object;
+};
 
 const Wrapper = styled.div<IWrapperProps>`
   width: 100%;
@@ -67,7 +75,6 @@ const Wrapper = styled.div<IWrapperProps>`
   .error-wrapper {
     display: flex;
     align-items: flex-start;
-    padding-top: 5px;
 
     .error {
       color: ${ theme.colors.red };
@@ -80,9 +87,6 @@ const Wrapper = styled.div<IWrapperProps>`
   }
 `;
 
-interface IWithFormFieldProps extends IFormFieldProps, FieldProps {
-}
-
 export const withFormField = <OriginalProps extends {}>(Component: React.ComponentType<IFormComponent | OriginalProps>) => (props: IWithFormFieldProps) => {
   const {
     field,
@@ -94,7 +98,8 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
   const { t } = useTranslation();
   const [isFocused, setFocus] = React.useState(false);
   const isInvalid = getIn(form.errors, field.name) && getIn(form.touched, field.name);
-
+  const fieldError = form.errors[field.name] as FormikErrors<IFieldError>;
+  
   return (
     <Wrapper
       className="form-field"
@@ -113,11 +118,13 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
       />
       { label && <H5 className="label media-label">{ label }</H5> }
       { !isInvalid && hint && <H4 className="hint">{ hint }</H4> }
-      { form.errors[field.name] && form.touched[field.name] && (
-        <div className="error-wrapper">
-          <H5 className="error">{ t(form.errors[field.name]?.toString() || '') }</H5>
-        </div>
-      ) }
+      <div className="error-wrapper">
+        <H6 className="error">
+          {typeof fieldError === 'string' && form.touched[field.name]
+            ? t(fieldError || '')
+            : t(fieldError?.error || '', { ...fieldError?.parameters })}
+        </H6>
+      </div>
     </Wrapper>
   );
 };

@@ -4,6 +4,7 @@ import { styled } from '../../styles';
 import backgroundImage from '../../images/background.jpg';
 
 import { SignInForm } from './SignInForm';
+import { SignUpForm } from './SignUpForm';
 import { Navigation } from './Navigation';
 
 const Main = styled.div`
@@ -19,7 +20,8 @@ const Main = styled.div`
 `;
 
 const Container = styled.div`
-    min-width: 400px;
+    width: 100%;
+    max-width: 400px;
     min-height: 100px;
     background-color: ${({ theme }) => theme.colors.white};
     opacity: 0.85;
@@ -44,7 +46,10 @@ export const Authorization = () => {
   return (
     <Main>
       <Container>
-        {activeTab === TabConst.SignIn && <SignInForm />}
+        {activeTab === TabConst.SignIn
+          ? <SignInForm />
+          : <SignUpForm />
+        }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </Container>
     </Main>

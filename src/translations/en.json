@@ -1,7 +1,14 @@
 {
   "translation": {
     "ERRORS": {
-      "FIELD_REQUIRED": "Field is required"
+      "FIELD_REQUIRED": "Field is required",
+      "NUMBER": "Field should have at least one digit",
+      "UPPER_CASE": "Field should have at least one uppercase letter",
+      "LOWER_CASE": "Field should have at least one lowercase letter",
+      "LENGTH_BIGGER_THEN": "Field length should be more than {{length}} character(s)",
+      "START_FROM_UPPERCASE": "First letter should be uppercase",
+      "EMAIL": "Invalid email address",
+      "SAME_FIELDS": "Fields {{label}} and {{labelConfirm}} are not the same"
     },
     "AUTH": {
       "TITLE_LOGIN_FORM": "Login",
@@ -13,7 +20,9 @@
     },
     "LABELS": {
       "PASSWORD": "Password",
-      "NAME": "Name"
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "REPEAT_PASSWORD": "Repeat Password"
     },
     "ABOUT_US_PAGE": "About Us"
   }
