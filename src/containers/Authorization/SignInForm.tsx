@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
 
-import { styled } from '../../../styles';
-import { validationUtil } from '../../../utils';
-import { RoutePathConst } from '../../../consts';
+import { styled } from '../../styles';
+import { validationUtil } from '../../utils';
+import { RoutePathConst } from '../../consts';
 import {
   ButtonLong,
   FormWrapper,
   InputField,
   PasswordInputField
-} from '../../../components';
+} from '../../components';
 
 const LinkWrapper = styled.div`
     display: flex;

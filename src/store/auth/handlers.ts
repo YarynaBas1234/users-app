@@ -17,6 +17,6 @@ export const handleLogoutAction: IHandleLogoutActionType = () => {
 
 type IHandleRegisterAction = (userName: string, email: string, password: string, repeatPassword: string) => (dispatch: Dispatch) => void;
 
-export const handleRegisterAction: IHandleRegisterAction = (userName, password) => dispatch => {
+export const handleRegisterAction: IHandleRegisterAction = (userName, email, password, repeatPassword) => dispatch => {
   api.registerApi(userName, password);
 };

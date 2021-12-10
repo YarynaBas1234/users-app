@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { styled } from '../../../styles';
-import backgroundImage from '../../../images/background.jpg';
+import { styled } from '../../styles';
+import backgroundImage from '../../images/background.jpg';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
@@ -35,20 +35,20 @@ const Container = styled.div`
     }
 `;
 
-export enum TabConst {
+export enum SwitchTabConst {
   SignIn = 'SIGN_IN',
   SignUp = 'SIGN_UP',
 }
 
-export const UnAuthorizedUser = () => {
-  const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
+export const Authorization = () => {
+  const [activeTab, setActiveTab] = React.useState<SwitchTabConst>(SwitchTabConst.SignIn);
 
   return (
     <Main>
       <Container>
-        {activeTab === TabConst.SignIn
+        {activeTab === SwitchTabConst.SignIn
           ? <SignInForm />
-          : <SignUpForm setActiveTab={setActiveTab}/>
+          : <SignUpForm switchTab={setActiveTab}/>
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </Container>

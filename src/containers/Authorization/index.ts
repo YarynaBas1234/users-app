@@ -1,3 +1,3 @@
 export * from './SignInForm';
-export * from './UnAuthorizedUser';
+export * from './Authorization';
 export * from './Navigation';

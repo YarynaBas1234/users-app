@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { styled } from '../../../styles';
-import { ButtonText } from '../../../components';
+import { styled } from '../../styles';
+import { ButtonText } from '../../components';
 
-import { TabConst } from './UnAuthorizedUser';
+import { SwitchTabConst } from './Authorization';
 
 const Menu = styled.div`
     padding: 0 40px;
@@ -26,8 +26,8 @@ const Tab = styled.div<ITabProps>`
 `;
 
 interface INavigationProps {
-  setActiveTab: (value: TabConst) => void;
-  activeTab: TabConst;
+  setActiveTab: (value: SwitchTabConst) => void;
+  activeTab: SwitchTabConst;
 }
 
 interface ITabProps {
@@ -39,10 +39,10 @@ export const Navigation: React.FC<INavigationProps> = ({ setActiveTab, activeTab
   
   return (
     <Menu>
-      <Tab isActive={activeTab === TabConst.SignIn} onClick={() => setActiveTab(TabConst.SignIn)}>
+      <Tab isActive={activeTab === SwitchTabConst.SignIn} onClick={() => setActiveTab(SwitchTabConst.SignIn)}>
         <ButtonText>{t('AUTH.SIGN_IN')}</ButtonText>
       </Tab>
-      <Tab isActive={activeTab === TabConst.SignUp} onClick={() => setActiveTab(TabConst.SignUp)}>
+      <Tab isActive={activeTab === SwitchTabConst.SignUp} onClick={() => setActiveTab(SwitchTabConst.SignUp)}>
         <ButtonText>{t('AUTH.SIGN_UP')}</ButtonText>
       </Tab>
     </Menu>

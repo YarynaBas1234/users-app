@@ -3,17 +3,17 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Field, Formik, Form } from 'formik';
 
-import { validationUtil } from '../../../utils';
-import { CommonConst } from '../../../consts';
-import { handleRegisterAction } from '../../../store/auth/handlers';
+import { validationUtil } from '../../utils';
+import { CommonConst } from '../../consts';
+import { handleRegisterAction } from '../../store/auth/handlers';
 import {
   FormWrapper,
   ButtonLong,
   InputField,
   PasswordInputField
-} from '../../../components';
+} from '../../components';
 
-import { TabConst } from './UnAuthorizedUser';
+import { SwitchTabConst } from './Authorization';
 
 interface IValues {
   userName: string,
@@ -23,11 +23,11 @@ interface IValues {
 }
 
 interface ISignUpForm {
-  setActiveTab: (value: TabConst) => void;
+  switchTab: (value: SwitchTabConst) => void;
 }
 
 export const SignUpForm: React.FC<ISignUpForm> = (props) => {
-  const { setActiveTab } = props;
+  const { switchTab } = props;
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ export const SignUpForm: React.FC<ISignUpForm> = (props) => {
             values.repeatPassword
           ));
           resetForm();
-          setActiveTab(TabConst.SignIn);
+          switchTab(SwitchTabConst.SignIn);
         }}
       >
         {({ handleSubmit, values }) =>
