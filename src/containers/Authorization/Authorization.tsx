@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { styled, Container } from '../../styles';
+import { styled } from '../../styles';
+import { Container } from '../../components';
 import backgroundImage from '../../images/background.jpg';
 
 import { SignInForm } from './SignInForm';
@@ -19,12 +20,13 @@ const Main = styled.div`
   background-repeat: no-repeat;
 `;
 
-const ContainerStyles = styled(Container)`
+const ContainerStyled = styled(Container)`
   width: 100%;
   max-width: 400px;
   min-height: 100px;
   border-radius: 8px;
   justify-content: center;
+  padding: 32px;
 `;
 
 export enum TabConst {
@@ -37,13 +39,13 @@ export const Authorization = () => {
 
   return (
     <Main>
-      <ContainerStyles>
+      <ContainerStyled>
         {activeTab === TabConst.SignIn
           ? <SignInForm />
           : <SignUpForm />
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
-      </ContainerStyles>
+      </ContainerStyled>
     </Main>
   );
 };

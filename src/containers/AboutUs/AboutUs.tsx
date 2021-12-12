@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { H1, H3, H5 } from '../../components';
-import { styled, Container } from '../../styles';
+import { H1, H3, H5, H6, Container } from '../../components';
+import { styled } from '../../styles';
+import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
 
 const Main = styled.div`
@@ -17,11 +18,12 @@ const Main = styled.div`
   background-repeat: no-repeat;
 `;
 
-const ContainerStyles = styled(Container)`
+const ContainerStyled = styled(Container)`
   width: 100%;
   max-width: 600px;
   height: 100%;
   justify-content: space-between;
+  padding: 16px;
 `;
 
 const Footer = styled.div`
@@ -51,16 +53,23 @@ const Description = styled(H5)`
   margin-top: 8px;
 `;
 
-const Contact = styled(H5)`
+const Contact = styled.div`
   padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
 `;
 
 export const AboutUs = () => {
   const { t } = useTranslation();
+  const faceBook = envConfigs.FACEBOOK_LINK;
+  const skype = envConfigs.SKYPE;
+  const phone = envConfigs.PHONE;
 
   return (
     <Main>
-      <ContainerStyles>
+      <ContainerStyled>
         <AboutOurCompany>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE')}</H1>
           <Description>{t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY')}</Description>
@@ -68,12 +77,21 @@ export const AboutUs = () => {
         <Footer>
           <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
           <ContactUs>
-            <Contact>{t('ABOUT_US_PAGE.PHONE')}</Contact>
-            <Contact>{t('ABOUT_US_PAGE.SKYPE')}</Contact>
-            <Contact>{t('ABOUT_US_PAGE.FACEBOOK')}</Contact>
+            <Contact>
+              <H5>{t('ABOUT_US_PAGE.PHONE')}</H5>
+              <H6>{phone}</H6>
+            </Contact>
+            <Contact>
+              <H5>{t('ABOUT_US_PAGE.SKYPE')}</H5>
+              <H5>{skype}</H5>
+            </Contact>
+            <Contact>
+              <H5>{t('ABOUT_US_PAGE.FACEBOOK')}</H5>
+              <H5>{faceBook}</H5>
+            </Contact>
           </ContactUs>
         </Footer>
-      </ContainerStyles>
+      </ContainerStyled>
     </Main>
   );
 };

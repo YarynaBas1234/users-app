@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { styled } from '../styles';
-
 export const GlobalStyles = createGlobalStyle`
   * {
       margin: 0;
@@ -10,11 +8,3 @@ export const GlobalStyles = createGlobalStyle`
   },
 `;
 
-export const Container = styled.div`
-  box-shadow: 0 0 24px rgba(119,92,58, 0.4);
-  display: flex;
-  flex-direction: column;
-  padding: 32px;
-  opacity: 0.9;
-  background-color: ${({ theme }) => theme.colors.white};
-`;
