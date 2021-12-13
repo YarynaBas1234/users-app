@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { H1, H3, H5, H6, Container } from '../../components';
+import { H1, H3, H4, H5, Container, ContactData } from '../../components';
 import { styled } from '../../styles';
 import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
@@ -49,46 +49,53 @@ const AboutOurCompany = styled.div`
   flex-direction: column;
 `;
 
-const Description = styled(H5)`
+const TitleToDescription = styled(H4)`
+  display: block;
+  margin-bottom: 8px;
+`;
+
+const AboutUsContainer = styled.div`
   margin-top: 8px;
 `;
 
-const Contact = styled.div`
-  padding: 0 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 170px;
+const Description = styled(H5)`
+  text-indent: 20px;
 `;
 
 export const AboutUs = () => {
   const { t } = useTranslation();
-  const faceBook = envConfigs.FACEBOOK_LINK;
-  const skype = envConfigs.SKYPE;
-  const phone = envConfigs.PHONE;
+  const { FACEBOOK_LINK, SKYPE, PHONE } = envConfigs;
 
   return (
     <Main>
       <ContainerStyled>
         <AboutOurCompany>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE')}</H1>
-          <Description>{t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY')}</Description>
+          <div>
+            <AboutUsContainer>
+              <Description>
+                {t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY.PARAGRAPH_1')}
+              </Description>
+              <Description>
+                {t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY.PARAGRAPH_2')}
+              </Description>
+            </AboutUsContainer>
+            <AboutUsContainer>
+              <TitleToDescription isBold={true}>
+                {t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY.TITLE_3')}
+              </TitleToDescription>
+              <Description>
+                {t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY.PARAGRAPH_3')}
+              </Description>
+            </AboutUsContainer>
+          </div>
         </AboutOurCompany>
         <Footer>
           <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
           <ContactUs>
-            <Contact>
-              <H5>{t('ABOUT_US_PAGE.PHONE')}</H5>
-              <H6>{phone}</H6>
-            </Contact>
-            <Contact>
-              <H5>{t('ABOUT_US_PAGE.SKYPE')}</H5>
-              <H5>{skype}</H5>
-            </Contact>
-            <Contact>
-              <H5>{t('ABOUT_US_PAGE.FACEBOOK')}</H5>
-              <H5>{faceBook}</H5>
-            </Contact>
+            <ContactData title='ABOUT_US_PAGE.CONTACT_US' data={PHONE} />
+            <ContactData title='ABOUT_US_PAGE.SKYPE' data={SKYPE} />
+            <ContactData title='ABOUT_US_PAGE.FACEBOOK' data={FACEBOOK_LINK} />
           </ContactUs>
         </Footer>
       </ContainerStyled>
