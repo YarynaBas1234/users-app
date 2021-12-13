@@ -30,7 +30,7 @@ export const SignInForm = () => {
           resetForm();
         }}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, isValid, dirty }) => (
           <Form>
             <Field
               name='userName'
@@ -49,7 +49,7 @@ export const SignInForm = () => {
               label={t('LABELS.PASSWORD')}
               component={PasswordInputField}
             />
-            <ButtonLong text={t('AUTH.LOGIN')} onClick={handleSubmit} />
+            <ButtonLong text={t('AUTH.LOGIN')} onClick={handleSubmit} isDisabled={!isValid || !dirty}/>
             <LinkWrapper>
               <Link to={RoutePathConst.ForgotPassword}>{t('AUTH.FORGOT_PASSWORD')}</Link>
             </LinkWrapper>
