@@ -1,11 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Field, Formik, Form } from 'formik';
 
 import { validationUtil } from '../../utils';
 import { CommonConst } from '../../consts';
-import { handleRegisterAction } from '../../store/auth/handlers';
 import {
   FormWrapper,
   ButtonLong,
@@ -13,9 +11,9 @@ import {
   PasswordInputField
 } from '../../components';
 
-import { SwitchTabConst } from './Authorization';
+import { IOnRegisterAction } from './types';
 
-interface IValues {
+interface IValuesFromInputs {
   userName: string,
   email: string,
   password: string,
@@ -23,14 +21,13 @@ interface IValues {
 }
 
 interface ISignUpForm {
-  switchTab: (value: SwitchTabConst) => void;
+  switchOnSignInTab: () => void;
+  onRegisterAction: IOnRegisterAction;
 }
 
 export const SignUpForm: React.FC<ISignUpForm> = (props) => {
-  const { switchTab } = props;
-
+  const { switchOnSignInTab, onRegisterAction } = props;
   const { t } = useTranslation();
-  const dispatch = useDispatch();
 
   return (
     <FormWrapper text={t('AUTH.TITLE_REGISTRATION_FORM')}>
@@ -41,15 +38,17 @@ export const SignUpForm: React.FC<ISignUpForm> = (props) => {
           password: '',
           repeatPassword: '',
         }}
-        onSubmit={(values: IValues, { resetForm }) => {
-          dispatch(handleRegisterAction(
-            values.userName,
-            values.email,
-            values.password,
-            values.repeatPassword
-          ));
+        onSubmit={(values: IValuesFromInputs, { resetForm }) => {
+          const { userName, email, password, repeatPassword } = values;
+          onRegisterAction(
+            userName,
+            email,
+            password,
+            repeatPassword
+          );
+
           resetForm();
-          switchTab(SwitchTabConst.SignIn);
+          switchOnSignInTab();
         }}
       >
         {({ handleSubmit, values }) =>
