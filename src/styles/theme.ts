@@ -6,6 +6,7 @@ type ITheme = {
     white: string;
     gray: string;
     lightGreen: string;
+    primaryGray: string;
   }
 };
 
@@ -17,5 +18,6 @@ export const theme: ITheme = {
     white: '#FFFFFF',
     gray: '#A3A3A3',
     lightGreen: '#e6f0e6',
+    primaryGray: '#53697f',
   }
 }

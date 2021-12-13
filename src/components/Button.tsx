@@ -12,7 +12,7 @@ interface IButtonTextStyledProps {
 
 const ButtonTextStyled = styled(ButtonText)<IButtonTextStyledProps>`
   color: ${({ theme, isSecondary, isDisabled }) => isDisabled
-  ? theme.colors.gray2
+  ? theme.colors.white
   : isSecondary
     ? theme.colors.black
     : theme.colors.white};
@@ -21,9 +21,9 @@ const ButtonTextStyled = styled(ButtonText)<IButtonTextStyledProps>`
 const ButtonBase = styled.button<IButtonTextStyledProps>`
   height: 40px;
   margin-top: 8px;
-  background-color: ${({ theme, disabled, isSecondary }) =>
-  disabled
-    ? theme.colors.gray5
+  background-color: ${({ theme, isDisabled, isSecondary }) =>
+  isDisabled
+    ? theme.colors.gray
     : isSecondary
     ? theme.colors.white
     : theme.colors.primary};
@@ -39,7 +39,7 @@ const ButtonBase = styled.button<IButtonTextStyledProps>`
   border: ${({ theme, isSecondary }) => isSecondary ? `1px solid ${theme.colors.gray5}` : '0'};
   outline: 0;
   &:hover {
-    opacity: ${({ disabled }) => disabled ? '1' : '0.8'};
+    opacity: ${({ isDisabled }) => isDisabled ? '1' : '0.8'};
   }
 `;
 
