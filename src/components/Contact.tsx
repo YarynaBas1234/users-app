@@ -14,7 +14,7 @@ const Contact = styled.div`
 
 interface IContactData {
   title: string;
-  data: string | undefined;
+  data?: string;
 }
 
 export const ContactData: React.FC<IContactData> = (props) => {
