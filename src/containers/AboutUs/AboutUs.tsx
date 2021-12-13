@@ -70,25 +70,23 @@ export const AboutUs = () => {
     <Main>
       <ContainerStyled>
         <AboutOurCompany>
-          <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE')}</H1>
-          <div>
-            <AboutUsContainer>
-              <Description>
-                {t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY.PARAGRAPH_1')}
-              </Description>
-              <Description>
-                {t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY.PARAGRAPH_2')}
-              </Description>
-            </AboutUsContainer>
-            <AboutUsContainer>
-              <TitleToDescription isBold={true}>
-                {t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY.TITLE_3')}
-              </TitleToDescription>
-              <Description>
-                {t('ABOUT_US_PAGE.ABOUT_OUR_COMPANY.PARAGRAPH_3')}
-              </Description>
-            </AboutUsContainer>
-          </div>
+          <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
+          <AboutUsContainer>
+            <Description>
+              {t('ABOUT_US_PAGE.PARAGRAPH_1')}
+            </Description>
+            <Description>
+              {t('ABOUT_US_PAGE.PARAGRAPH_2')}
+            </Description>
+          </AboutUsContainer>
+          <AboutUsContainer>
+            <TitleToDescription isBold={true}>
+              {t('ABOUT_US_PAGE.TITLE_1_1')}
+            </TitleToDescription>
+            <Description>
+              {t('ABOUT_US_PAGE.PARAGRAPH_3')}
+            </Description>
+          </AboutUsContainer>
         </AboutOurCompany>
         <Footer>
           <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
