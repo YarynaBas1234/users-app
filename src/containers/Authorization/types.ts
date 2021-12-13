@@ -1,10 +1,13 @@
-import { SwitchTabConst } from './index';
+import { TabConst } from '.';
+
+export interface IRegisterActionValues {
+  userName: string,
+  password: string,
+}
 
 export type IOnRegisterAction = (
   userName: string,
-  email: string,
   password: string,
-  repeatPassword: string
 ) => void;
 
-export type ISetActiveTab = (value: SwitchTabConst) => void;
+export type ISetActiveTab = (value: TabConst) => void;
