@@ -28,9 +28,9 @@
       "TITLE": "Who we are",
       "ABOUT_OUR_COMPANY": "Here should be some text about our company",
       "CONTACT_US": "Contact us",
-      "PHONE": "Phone: 06792112**",
-      "SKYPE": "Skype: my_skype",
-      "FACEBOOK": "Facebook: My Facebook"
+      "PHONE": "Phone:",
+      "SKYPE": "Skype:",
+      "FACEBOOK": "Facebook:"
     }
   }
 }
