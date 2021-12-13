@@ -6,8 +6,8 @@ import backgroundImage from '../../images/background.jpg';
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 import { Navigation } from './Navigation';
-import { IOnRegisterAction, ISetActiveTab } from './types';
-import { SwitchTabConst } from './index';
+import { IOnRegisterAction, ISetActiveTab } from '.';
+import { TabConst } from '.';
 
 const Main = styled.div`
     width: 100vw;
@@ -39,7 +39,7 @@ const Container = styled.div`
 
 interface IAuthorization {
   setActiveTab: ISetActiveTab;
-  activeTab: SwitchTabConst;
+  activeTab: TabConst;
   switchOnSignInTab: () => void;
   onRegisterAction: IOnRegisterAction;
 }
@@ -50,7 +50,7 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
   return (
     <Main>
       <Container>
-        {activeTab === SwitchTabConst.SignIn
+        {activeTab === TabConst.SignIn
           ? <SignInForm />
           : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegisterAction={onRegisterAction}/>
         }
