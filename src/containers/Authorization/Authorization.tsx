@@ -2,12 +2,12 @@ import React from 'react';
 
 import { styled } from '../../styles';
 import backgroundImage from '../../images/background.jpg';
+import { IHandlerRegistrationAction } from '../../store/auth/types';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 import { Navigation } from './Navigation';
-import { IOnRegisterAction, ISetActiveTab } from '.';
-import { TabConst } from '.';
+import { ISetActiveTab, TabConst } from './types';
 
 const Main = styled.div`
     width: 100vw;
@@ -41,7 +41,7 @@ interface IAuthorization {
   setActiveTab: ISetActiveTab;
   activeTab: TabConst;
   switchOnSignInTab: () => void;
-  onRegisterAction: IOnRegisterAction;
+  onRegisterAction: IHandlerRegistrationAction;
 }
 
 export const Authorization: React.FC<IAuthorization> = (props) => {

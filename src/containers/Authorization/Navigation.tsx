@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { styled } from '../../styles';
 import { ButtonText } from '../../components';
 
-import { TabConst } from '.';
-import { ISetActiveTab } from './types';
+import { ISetActiveTab, TabConst } from './types';
 
 const Menu = styled.div`
     padding: 0 40px;
