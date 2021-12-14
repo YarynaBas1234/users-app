@@ -5,4 +5,3 @@ export * from './Text';
 export * from './icons';
 export * from './Container';
 export * from './FormWrapper';
-export * from './Contact';

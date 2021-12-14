@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { H1, H3, H4, H5, Container, ContactData } from '../../components';
+import { H1, H3, H4, H5, Container } from '../../components';
 import { styled } from '../../styles';
 import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
@@ -62,6 +62,31 @@ const Description = styled(H5)`
   text-indent: 20px;
 `;
 
+const Contact = styled.div`
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 160px;
+`;
+
+interface IContactData {
+  title: string;
+  data?: string;
+}
+
+const ContactData: React.FC<IContactData> = (props) => {
+  const { title, data } = props;
+  const { t } = useTranslation();
+
+  return (
+    <Contact>
+      <H5 isBold={true}>{t(title)}</H5>
+      <H5>{data}</H5>
+    </Contact>
+  );
+};
+
 export const AboutUs = () => {
   const { t } = useTranslation();
   const { FACEBOOK_LINK, SKYPE, PHONE } = envConfigs;
@@ -72,20 +97,12 @@ export const AboutUs = () => {
         <AboutOurCompany>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
           <AboutUsContainer>
-            <Description>
-              {t('ABOUT_US_PAGE.PARAGRAPH_1')}
-            </Description>
-            <Description>
-              {t('ABOUT_US_PAGE.PARAGRAPH_2')}
-            </Description>
+            <Description>{t('ABOUT_US_PAGE.PARAGRAPH_1')}</Description>
+            <Description>{t('ABOUT_US_PAGE.PARAGRAPH_2')}</Description>
           </AboutUsContainer>
           <AboutUsContainer>
-            <TitleToDescription isBold={true}>
-              {t('ABOUT_US_PAGE.TITLE_1_1')}
-            </TitleToDescription>
-            <Description>
-              {t('ABOUT_US_PAGE.PARAGRAPH_3')}
-            </Description>
+            <TitleToDescription isBold={true}>{t('ABOUT_US_PAGE.SUBTITLE_1')}</TitleToDescription>
+            <Description>{t('ABOUT_US_PAGE.PARAGRAPH_3')}</Description>
           </AboutUsContainer>
         </AboutOurCompany>
         <Footer>
