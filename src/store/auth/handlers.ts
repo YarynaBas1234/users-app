@@ -17,6 +17,6 @@ export const handleLogoutAction: IHandleLogoutActionType = () => {
   api.logoutApi().then(() => authActions.logoutSuccess());
 };
 
-export const handleRegisterAction: IHandleRegistrationAction = ({userName, password}) => {
+export const handleRegistrationAction: IHandleRegistrationAction = ({userName, password}) => {
   api.registerApi({userName, password});
 };

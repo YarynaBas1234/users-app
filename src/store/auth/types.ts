@@ -7,6 +7,4 @@ export interface IRegistrationActionValues {
   password: string,
 }
 
-export type IHandleRegistrationAction = (
-  registrationData: IRegistrationActionValues
-) => void;
+export type IHandleRegistrationAction = (registrationData: IRegistrationActionValues) => void;
