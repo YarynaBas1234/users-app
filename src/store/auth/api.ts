@@ -1,6 +1,6 @@
 import { mockApiService, localStorageService } from "services";
 
-import { IHandlerRegistrationAction } from './types';
+import { IHandleRegistrationAction } from './types';
 
 type ILoginApiType = (email: string, password: string) => Promise<any>;
 
@@ -12,6 +12,6 @@ type ILogoutApiType = () => Promise<any>;
 export const logoutApi: ILogoutApiType = () =>
   mockApiService({});
 
-export const registerApi: IHandlerRegistrationAction = ({userName, password}) => {
+export const registerApi: IHandleRegistrationAction = ({userName, password}) => {
   localStorageService.addToLocalStorage(userName, password);
 };

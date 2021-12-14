@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { handleRegisterAction } from '../../store/auth';
-import { IHandlerRegistrationAction } from '../../store/auth/types';
+import { IHandleRegistrationAction } from '../../store/auth';
 
 import { Authorization } from './Authorization';
 import { TabConst } from './types';
@@ -13,7 +13,7 @@ export const AuthorizationContainer = () => {
     setActiveTab(TabConst.SignIn);
   }, []);
 
-  const onRegisterAction: IHandlerRegistrationAction = React.useCallback(({userName, password}) => {
+  const onRegisterAction: IHandleRegistrationAction = React.useCallback(({userName, password}) => {
     handleRegisterAction({userName, password});
   }, []);
 

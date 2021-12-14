@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import * as api from './api';
 import authActions from './slice';
 
-import { IHandlerRegistrationAction } from './types';
+import { IHandleRegistrationAction } from './types';
 
 type IHandleLoginActionType = (email: string, password: string) => (dispatch: Dispatch) => void;
 
@@ -17,6 +17,6 @@ export const handleLogoutAction: IHandleLogoutActionType = () => {
   api.logoutApi().then(() => authActions.logoutSuccess());
 };
 
-export const handleRegisterAction: IHandlerRegistrationAction = ({userName, password}) => {
+export const handleRegisterAction: IHandleRegistrationAction = ({userName, password}) => {
   api.registerApi({userName, password});
 };

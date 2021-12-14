@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled } from '../../styles';
 import backgroundImage from '../../images/background.jpg';
-import { IHandlerRegistrationAction } from '../../store/auth/types';
+import { IHandleRegistrationAction } from '../../store/auth';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
@@ -41,7 +41,7 @@ interface IAuthorization {
   setActiveTab: ISetActiveTab;
   activeTab: TabConst;
   switchOnSignInTab: () => void;
-  onRegisterAction: IHandlerRegistrationAction;
+  onRegisterAction: IHandleRegistrationAction;
 }
 
 export const Authorization: React.FC<IAuthorization> = (props) => {
