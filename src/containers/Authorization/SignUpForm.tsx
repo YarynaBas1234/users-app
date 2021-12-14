@@ -37,7 +37,7 @@ export const SignUpForm: React.FC<ISignUpForm> = (props) => {
           switchOnSignInTab();
         }}
       >
-        {({ handleSubmit, values }) =>
+        {({ handleSubmit, values, isValid, dirty }) =>
           <Form>
             <Field
               name='userName'
@@ -81,7 +81,7 @@ export const SignUpForm: React.FC<ISignUpForm> = (props) => {
               label={t('LABELS.REPEAT_PASSWORD')}
               component={PasswordInputField}
             />
-            <ButtonLong text={t('AUTH.SIGN_UP')} onClick={handleSubmit} />
+            <ButtonLong text={t('AUTH.SIGN_UP')} onClick={handleSubmit} isDisabled={!isValid || !dirty}/>
           </Form>
         }
       </Formik>
