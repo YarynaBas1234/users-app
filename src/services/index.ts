@@ -8,3 +8,5 @@ export const apiService = apiServiceCreator("");
 export const queryClient = new QueryClient();
 
 export const mockApiService = mockApiServiceCreator();
+
+export * from './storageService';

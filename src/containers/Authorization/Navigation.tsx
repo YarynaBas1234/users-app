@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { styled } from '../../styles';
 import { ButtonText } from '../../components';
 
-import { TabConst } from './Authorization';
+import { ISetActiveTab, TabConst } from './types';
 
 const Menu = styled.div`
     padding: 0 40px;
@@ -26,7 +26,7 @@ const Tab = styled.div<ITabProps>`
 `;
 
 interface INavigationProps {
-  setActiveTab: (value: TabConst) => void;
+  setActiveTab: ISetActiveTab;
   activeTab: TabConst;
 }
 
@@ -34,7 +34,8 @@ interface ITabProps {
   isActive: boolean;
 }
 
-export const Navigation: React.FC<INavigationProps> = ({ setActiveTab, activeTab }) => {
+export const Navigation: React.FC<INavigationProps> = (props) => {
+  const { setActiveTab, activeTab } = props;
   const { t } = useTranslation();
   
   return (

@@ -3,10 +3,12 @@ import React from 'react';
 import { styled } from '../../styles';
 import { Container } from '../../components';
 import backgroundImage from '../../images/background.jpg';
+import { IHandleRegistrationAction } from '../../store/auth';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 import { Navigation } from './Navigation';
+import { ISetActiveTab, TabConst } from './types';
 
 const Main = styled.div`
   width: 100vw;
@@ -29,20 +31,22 @@ const ContainerStyled = styled(Container)`
   padding: 32px;
 `;
 
-export enum TabConst {
-  SignIn = 'SIGN_IN',
-  SignUp = 'SIGN_UP',
+interface IAuthorization {
+  setActiveTab: ISetActiveTab;
+  activeTab: TabConst;
+  switchOnSignInTab: () => void;
+  onRegisterAction: IHandleRegistrationAction;
 }
 
-export const Authorization = () => {
-  const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
+export const Authorization: React.FC<IAuthorization> = (props) => {
+  const { setActiveTab, activeTab, switchOnSignInTab, onRegisterAction } = props;
 
   return (
     <Main>
       <ContainerStyled>
         {activeTab === TabConst.SignIn
           ? <SignInForm />
-          : <SignUpForm />
+          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegisterAction={onRegisterAction}/>
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </ContainerStyled>
