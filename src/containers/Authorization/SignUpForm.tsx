@@ -11,11 +11,11 @@ import {
   PasswordInputField
 } from '../../components';
 
-import { IRegistrationActionValues, IHandlerRegistrationAction } from '../../store/auth/types';
+import { IRegistrationActionValues, IHandleRegistrationAction } from '../../store/auth';
 
 interface ISignUpForm {
   switchOnSignInTab: () => void;
-  onRegisterAction: IHandlerRegistrationAction;
+  onRegisterAction: IHandleRegistrationAction;
 }
 
 export const SignUpForm: React.FC<ISignUpForm> = (props) => {
