@@ -1,13 +1,6 @@
-import { TabConst } from '.';
-
-export interface IRegisterActionValues {
-  userName: string,
-  password: string,
+export enum TabConst {
+  SignIn = 'SIGN_IN',
+  SignUp = 'SIGN_UP',
 }
-
-export type IOnRegisterAction = (
-  userName: string,
-  password: string,
-) => void;
 
 export type ISetActiveTab = (value: TabConst) => void;
