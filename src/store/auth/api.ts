@@ -10,7 +10,7 @@ export const loginApi: ILoginApiType = (userName, password) => {
   if (userPassword && userPassword === password) {
     return mockApiService({ userName, password });
   }
-  return mockApiService({ error: 'LABELS.USER_NOT_EXIST' });
+  return mockApiService({ error: 'ERRORS.USER_NOT_EXIST' });
 };
 
 type ILogoutApiType = () => Promise<any>;
@@ -18,7 +18,7 @@ type ILogoutApiType = () => Promise<any>;
 export const logoutApi: ILogoutApiType = () =>
   mockApiService({});
 
-type IRegistrationApiType = (registrationData: IAuthorisationActionValues) => Promise<any>;
+type IRegistrationApiType = (authorisationData: IAuthorisationActionValues) => Promise<any>;
 
 export const registerApi: IRegistrationApiType = ({ userName, password }) => {
   localStorageService.addToLocalStorage(userName, password);

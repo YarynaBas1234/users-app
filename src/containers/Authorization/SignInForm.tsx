@@ -6,7 +6,7 @@ import { Field, Form, Formik } from 'formik';
 import { styled } from '../../styles';
 import { validationUtil } from '../../utils';
 import { RoutePathConst } from '../../consts';
-import { IHandleRegistrationAction } from '../../store/auth';
+import { IHandleAuthorisationAction } from '../../store/auth';
 import {
   ButtonLong,
   FormWrapper,
@@ -32,8 +32,8 @@ const Error = styled(H6)`
 `;
 
 interface ISignInForm {
-  onLoginAction: IHandleRegistrationAction;
-  loginError: string;
+  onLoginAction: IHandleAuthorisationAction;
+  loginError: string | null;
 }
 
 export const SignInForm: React.FC<ISignInForm> = (props) => {
@@ -44,26 +44,19 @@ export const SignInForm: React.FC<ISignInForm> = (props) => {
     <FormWrapper text={t('AUTH.TITLE_LOGIN_FORM')}>
       <Formik
         initialValues={{ userName: '', password: '' }}
-        onSubmit={({ userName, password }) => {
-          onLoginAction({ userName, password });
-        }}
+        onSubmit={({ userName, password }) => onLoginAction({ userName, password })}
       >
         {({ handleSubmit, isValid, dirty }) => (
           <Form>
             <Field
               name='userName'
-              validate={
-                validationUtil.combineValidators(
-                  validationUtil.required,
-                )}
+              validate={ validationUtil.required }
               label={t('LABELS.NAME')}
               component={InputField}
             />
             <Field
               name='password'
-              validate={validationUtil.combineValidators(
-                validationUtil.required,
-              )}
+              validate={ validationUtil.required }
               label={t('LABELS.PASSWORD')}
               component={PasswordInputField}
             />

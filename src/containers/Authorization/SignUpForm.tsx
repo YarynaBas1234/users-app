@@ -4,6 +4,7 @@ import { Field, Formik, Form } from 'formik';
 
 import { validationUtil } from '../../utils';
 import { CommonConst } from '../../consts';
+import { IAuthorisationActionValues, IHandleAuthorisationAction } from '../../store/auth';
 import {
   FormWrapper,
   ButtonLong,
@@ -11,11 +12,9 @@ import {
   PasswordInputField
 } from '../../components';
 
-import { IAuthorisationActionValues, IHandleRegistrationAction } from '../../store/auth';
-
 interface ISignUpForm {
   switchOnSignInTab: () => void;
-  onRegisterAction: IHandleRegistrationAction;
+  onRegisterAction: IHandleAuthorisationAction;
 }
 
 export const SignUpForm: React.FC<ISignUpForm> = (props) => {

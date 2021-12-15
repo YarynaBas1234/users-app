@@ -3,7 +3,7 @@ import React from 'react';
 import { styled } from '../../styles';
 import { Container } from '../../components';
 import backgroundImage from '../../images/background.jpg';
-import { IHandleRegistrationAction } from '../../store/auth';
+import { IHandleAuthorisationAction } from '../../store/auth';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
@@ -35,9 +35,9 @@ interface IAuthorization {
   setActiveTab: ISetActiveTab;
   activeTab: TabConst;
   switchOnSignInTab: () => void;
-  onRegisterAction: IHandleRegistrationAction;
-  onLoginAction: IHandleRegistrationAction;
-  loginError: string;
+  onRegisterAction: IHandleAuthorisationAction;
+  onLoginAction: IHandleAuthorisationAction;
+  loginError: string | null;
 }
 
 export const Authorization: React.FC<IAuthorization> = (props) => {

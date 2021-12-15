@@ -8,4 +8,4 @@ export interface IAuthorisationActionValues {
   password: string,
 }
 
-export type IHandleRegistrationAction = (registrationData: IAuthorisationActionValues) => void;
+export type IHandleAuthorisationAction = (authorisationData: IAuthorisationActionValues) => void;
