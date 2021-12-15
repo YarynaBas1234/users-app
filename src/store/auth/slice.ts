@@ -6,9 +6,11 @@ const slice = createSlice({
   name: 'auth',
   initialState: {
     isLoggedIn: false,
+    currentUser: null,
   } as IAuthStore,
   reducers: {
     loginSuccess: (state, action) => {
+      state.currentUser = action.payload.userName;
       state.isLoggedIn = true;
     },
     logoutSuccess: (state) => {

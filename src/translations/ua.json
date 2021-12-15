@@ -22,7 +22,8 @@
       "PASSWORD": "Пароль",
       "NAME": "Ім'я",
       "EMAIL": "Логін",
-      "REPEAT_PASSWORD": "Повторіть пароль"
+      "REPEAT_PASSWORD": "Повторіть пароль",
+      "USER_NOT_EXIST": "Користувача не знайдено"
     },
     "ABOUT_US_PAGE": {
       "TITLE_1": "Хто ми",

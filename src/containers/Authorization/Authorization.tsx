@@ -36,17 +36,26 @@ interface IAuthorization {
   activeTab: TabConst;
   switchOnSignInTab: () => void;
   onRegisterAction: IHandleRegistrationAction;
+  onLoginAction: IHandleRegistrationAction;
+  loginError: string;
 }
 
 export const Authorization: React.FC<IAuthorization> = (props) => {
-  const { setActiveTab, activeTab, switchOnSignInTab, onRegisterAction } = props;
+  const {
+    setActiveTab,
+    activeTab,
+    switchOnSignInTab,
+    onRegisterAction,
+    onLoginAction,
+    loginError
+  } = props;
 
   return (
     <Main>
       <ContainerStyled>
         {activeTab === TabConst.SignIn
-          ? <SignInForm />
-          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegisterAction={onRegisterAction}/>
+          ? <SignInForm onLoginAction={onLoginAction} loginError={loginError} />
+          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegisterAction={onRegisterAction} />
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </ContainerStyled>

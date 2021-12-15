@@ -11,7 +11,7 @@ import {
   PasswordInputField
 } from '../../components';
 
-import { IRegistrationActionValues, IHandleRegistrationAction } from '../../store/auth';
+import { IAuthorisationActionValues, IHandleRegistrationAction } from '../../store/auth';
 
 interface ISignUpForm {
   switchOnSignInTab: () => void;
@@ -31,7 +31,7 @@ export const SignUpForm: React.FC<ISignUpForm> = (props) => {
           password: '',
           repeatPassword: '',
         }}
-        onSubmit={({ userName, password }: IRegistrationActionValues, { resetForm }) => {
+        onSubmit={({ userName, password }: IAuthorisationActionValues, { resetForm }) => {
           onRegisterAction({userName, password});
           resetForm();
           switchOnSignInTab();

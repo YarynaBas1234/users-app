@@ -22,7 +22,8 @@
       "PASSWORD": "Password",
       "NAME": "Name",
       "EMAIL": "Email",
-      "REPEAT_PASSWORD": "Repeat Password"
+      "REPEAT_PASSWORD": "Repeat Password",
+      "USER_NOT_EXIST": "User does not exist" 
     },
     "ABOUT_US_PAGE": {
       "TITLE_1": "Who we are",

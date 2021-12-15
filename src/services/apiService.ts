@@ -8,8 +8,11 @@ export const apiServiceCreator = (apiUrl: string) => {
 };
 
 export const mockApiServiceCreator = () => {
-  return (params: any) => new Promise(resolve => {
+  return (params: any) => new Promise((resolve, reject) => {
     setTimeout(() => {
+      if (params.error) {
+        return reject(params.error);
+      }
       return resolve(params);
     }, 500);
   });

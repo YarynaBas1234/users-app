@@ -6,11 +6,13 @@ import { Field, Form, Formik } from 'formik';
 import { styled } from '../../styles';
 import { validationUtil } from '../../utils';
 import { RoutePathConst } from '../../consts';
+import { IHandleRegistrationAction } from '../../store/auth';
 import {
   ButtonLong,
   FormWrapper,
   InputField,
-  PasswordInputField
+  PasswordInputField,
+  H6
 } from '../../components';
 
 const LinkWrapper = styled.div`
@@ -19,15 +21,31 @@ const LinkWrapper = styled.div`
     margin-top: 8px;
 `;
 
-export const SignInForm = () => {
+const ErrorWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  height: 16px;
+`;
+
+const Error = styled(H6)`
+  color: ${({ theme }) => theme.colors.red};
+`;
+
+interface ISignInForm {
+  onLoginAction: IHandleRegistrationAction;
+  loginError: string;
+}
+
+export const SignInForm: React.FC<ISignInForm> = (props) => {
+  const { onLoginAction, loginError } = props;
   const { t } = useTranslation();
 
   return (
     <FormWrapper text={t('AUTH.TITLE_LOGIN_FORM')}>
       <Formik
         initialValues={{ userName: '', password: '' }}
-        onSubmit={(_, { resetForm }) => {
-          resetForm();
+        onSubmit={({ userName, password }) => {
+          onLoginAction({ userName, password });
         }}
       >
         {({ handleSubmit, isValid, dirty }) => (
@@ -36,8 +54,8 @@ export const SignInForm = () => {
               name='userName'
               validate={
                 validationUtil.combineValidators(
-                validationUtil.required,
-              )}
+                  validationUtil.required,
+                )}
               label={t('LABELS.NAME')}
               component={InputField}
             />
@@ -49,7 +67,14 @@ export const SignInForm = () => {
               label={t('LABELS.PASSWORD')}
               component={PasswordInputField}
             />
-            <ButtonLong text={t('AUTH.LOGIN')} onClick={handleSubmit} isDisabled={!isValid || !dirty}/>
+            <ButtonLong
+              text={t('AUTH.LOGIN')}
+              onClick={handleSubmit}
+              isDisabled={!isValid || !dirty}
+            />
+            <ErrorWrapper>
+              {loginError && <Error>{t(loginError)}</Error>}
+            </ErrorWrapper>
             <LinkWrapper>
               <Link to={RoutePathConst.ForgotPassword}>{t('AUTH.FORGOT_PASSWORD')}</Link>
             </LinkWrapper>
