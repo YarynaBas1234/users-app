@@ -87,7 +87,7 @@ const ContactData: React.FC<IContactData> = (props) => {
   );
 };
 
-export const AboutUs = () => {
+export const AboutUs: React.FC = () => {
   const { t } = useTranslation();
   const { FACEBOOK_LINK, SKYPE, PHONE } = envConfigs;
 

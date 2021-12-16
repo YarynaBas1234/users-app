@@ -8,7 +8,7 @@ import { LanguagesConst } from '../../consts';
 import { AuthorizedRoot } from './AuthorizedRoot';
 import { UnauthorizedRoot } from './UnauthorizedRoot';
 
-export const Root = () => {
+export const Root: React.FC = () => {
   const { isLoggedIn } = useSelector((state: IStore) => state.auth);
 
   languageService.changeLanguage(LanguagesConst.English);

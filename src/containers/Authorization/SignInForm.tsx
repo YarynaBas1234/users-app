@@ -19,7 +19,7 @@ const LinkWrapper = styled.div`
     margin-top: 8px;
 `;
 
-export const SignInForm = () => {
+export const SignInForm: React.FC = () => {
   const { t } = useTranslation();
 
   return (
