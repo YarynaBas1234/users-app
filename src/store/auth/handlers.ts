@@ -12,7 +12,9 @@ export const handleLoginAction: IHandleLoginActionType = ({userName, password}) 
   return api.loginApi({userName, password}).then(() => dispatch(authActions.loginSuccess({ userName, password })));
 };
 
-export const handleLogoutAction: IFunctionTemplate = () => {
+type IHandleLogoutActionType = () => void;
+
+export const handleLogoutAction: IHandleLogoutActionType = () => {
   api.logoutApi().then(() => authActions.logoutSuccess());
 };
 
