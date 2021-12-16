@@ -1,10 +1,10 @@
 import { mockApiService, localStorageService } from 'services';
 
-import { IAuthorisationActionValues } from './types';
+import { ILoginActionValues, IRegistrationActionValues } from './types';
 
-type ILoginApiType = (userName: string, password: string) => Promise<any>;
+type ILoginApiType = (loginData: ILoginActionValues) => Promise<any>;
 
-export const loginApi: ILoginApiType = (userName, password) => {
+export const loginApi: ILoginApiType = ({ userName, password }) => {
   const userPassword = localStorageService.getFromLocalStorage(userName);
 
   if (userPassword && userPassword === password) {
@@ -18,7 +18,7 @@ type ILogoutApiType = () => Promise<any>;
 export const logoutApi: ILogoutApiType = () =>
   mockApiService({});
 
-type IRegistrationApiType = (authorisationData: IAuthorisationActionValues) => Promise<any>;
+type IRegistrationApiType = (registrationData: IRegistrationActionValues) => Promise<any>;
 
 export const registerApi: IRegistrationApiType = ({ userName, password }) => {
   localStorageService.addToLocalStorage(userName, password);

@@ -3,9 +3,17 @@ export type IAuthStore = {
   currentUser: string | null
 }
 
-export interface IAuthorisationActionValues {
+export interface ILoginActionValues {
   userName: string,
   password: string,
 }
 
-export type IHandleAuthorisationAction = (authorisationData: IAuthorisationActionValues) => void;
+export interface IRegistrationActionValues {
+  userName: string,
+  password: string,
+}
+
+export type IHandleLoginAction = (loginData: ILoginActionValues) => void;
+
+export type IHandleRegistrationAction = (registrationData: IRegistrationActionValues) => void;
+

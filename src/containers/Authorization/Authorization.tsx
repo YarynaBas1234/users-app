@@ -3,7 +3,7 @@ import React from 'react';
 import { styled } from '../../styles';
 import { Container } from '../../components';
 import backgroundImage from '../../images/background.jpg';
-import { IHandleAuthorisationAction } from '../../store/auth';
+import { IHandleLoginAction, IHandleRegistrationAction } from '../../store/auth';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
@@ -35,8 +35,8 @@ interface IAuthorization {
   setActiveTab: ISetActiveTab;
   activeTab: TabConst;
   switchOnSignInTab: () => void;
-  onRegisterAction: IHandleAuthorisationAction;
-  onLoginAction: IHandleAuthorisationAction;
+  onRegistrationClick: IHandleRegistrationAction;
+  onLoginClick: IHandleLoginAction;
   loginError: string | null;
 }
 
@@ -45,8 +45,8 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
     setActiveTab,
     activeTab,
     switchOnSignInTab,
-    onRegisterAction,
-    onLoginAction,
+    onRegistrationClick,
+    onLoginClick,
     loginError
   } = props;
 
@@ -54,8 +54,8 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
     <Main>
       <ContainerStyled>
         {activeTab === TabConst.SignIn
-          ? <SignInForm onLoginAction={onLoginAction} loginError={loginError} />
-          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegisterAction={onRegisterAction} />
+          ? <SignInForm onLoginClick={onLoginClick} loginError={loginError} />
+          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegistrationClick={onRegistrationClick} />
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </ContainerStyled>

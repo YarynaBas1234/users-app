@@ -4,7 +4,7 @@ import { Field, Formik, Form } from 'formik';
 
 import { validationUtil } from '../../utils';
 import { CommonConst } from '../../consts';
-import { IAuthorisationActionValues, IHandleAuthorisationAction } from '../../store/auth';
+import { IRegistrationActionValues, IHandleRegistrationAction } from '../../store/auth';
 import {
   FormWrapper,
   ButtonLong,
@@ -14,11 +14,11 @@ import {
 
 interface ISignUpForm {
   switchOnSignInTab: () => void;
-  onRegisterAction: IHandleAuthorisationAction;
+  onRegistrationClick: IHandleRegistrationAction;
 }
 
 export const SignUpForm: React.FC<ISignUpForm> = (props) => {
-  const { switchOnSignInTab, onRegisterAction } = props;
+  const { switchOnSignInTab, onRegistrationClick } = props;
   const { t } = useTranslation();
 
   return (
@@ -30,8 +30,8 @@ export const SignUpForm: React.FC<ISignUpForm> = (props) => {
           password: '',
           repeatPassword: '',
         }}
-        onSubmit={({ userName, password }: IAuthorisationActionValues, { resetForm }) => {
-          onRegisterAction({userName, password});
+        onSubmit={({ userName, password }: IRegistrationActionValues, { resetForm }) => {
+          onRegistrationClick({userName, password});
           resetForm();
           switchOnSignInTab();
         }}
