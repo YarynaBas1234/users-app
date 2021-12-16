@@ -5,7 +5,7 @@ import { styled } from '../../styles';
 const CardWrapper = styled.div`
   width: 296px;
   height: 296px;
-  background-color: #f2f4f5;
+  background-color:  ${({ theme }) => theme.colors.lightBlue};
   display: flex;
   flex-direction: column;
   padding: 16px;
