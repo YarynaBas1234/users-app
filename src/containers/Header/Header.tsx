@@ -4,7 +4,7 @@ import { styled } from '../../styles';
 import { H5 } from '../../components';
 import logo from '../../images/logo.jpg';
 
-const HeaderComponent = styled.div`
+const HeaderWrapper = styled.div`
   width: 100%;
   padding: 8px 24px;
   display: flex;
@@ -31,9 +31,9 @@ export const Header: React.FC<IHeaderProps> = (props) => {
   const { currentUser } = props;
 
   return (
-    <HeaderComponent>
+    <HeaderWrapper>
       <Logo />
       <H5>{currentUser}</H5>
-    </HeaderComponent>
+    </HeaderWrapper>
   );
 };
