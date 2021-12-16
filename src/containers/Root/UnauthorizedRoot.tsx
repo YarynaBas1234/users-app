@@ -6,7 +6,7 @@ import { RoutePathConst } from '../../consts';
 import { AuthorizationContainer } from '../Authorization';
 import { AboutUs } from '../AboutUs';
 
-export const UnauthorizedRoot = () => {
+export const UnauthorizedRoot: React.FC = () => {
 
   return (
     <Switch>
