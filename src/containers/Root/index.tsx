@@ -16,12 +16,12 @@ export const Root: React.FC = () => {
 
   return (
     <>
-      {isLoggedIn
-        ? <>
+      {isLoggedIn 
+      ? <>
           <Header currentUser={currentUser} />
           <AuthorizedRoot />
         </>
-        : <UnauthorizedRoot />}
+      : <UnauthorizedRoot />}
     </>
   );
 };
