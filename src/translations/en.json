@@ -35,6 +35,9 @@
       "PHONE": "Phone:",
       "SKYPE": "Skype:",
       "FACEBOOK": "Facebook:"
+    },
+    "HOME": {
+      "USERS_CARD": "User card"
     }
   }
 }
