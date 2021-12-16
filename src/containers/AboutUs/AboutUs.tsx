@@ -6,7 +6,7 @@ import { styled } from '../../styles';
 import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
 
-const Main = styled.div`
+const AboutUsWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -92,7 +92,7 @@ export const AboutUs: React.FC = () => {
   const { FACEBOOK_LINK, SKYPE, PHONE } = envConfigs;
 
   return (
-    <Main>
+    <AboutUsWrapper>
       <ContainerStyled>
         <AboutOurCompany>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
@@ -114,6 +114,6 @@ export const AboutUs: React.FC = () => {
           </ContactUs>
         </Footer>
       </ContainerStyled>
-    </Main>
+    </AboutUsWrapper>
   );
 };
