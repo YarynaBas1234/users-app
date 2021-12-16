@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 
 import * as api from './api';
 import authActions from './slice';
+import { IFunctionTemplate } from '../../types';
 
 import { IHandleRegistrationAction, ILoginActionValues } from './types';
 
@@ -11,9 +12,7 @@ export const handleLoginAction: IHandleLoginActionType = ({userName, password}) 
   return api.loginApi({userName, password}).then(() => dispatch(authActions.loginSuccess({ userName, password })));
 };
 
-type IHandleLogoutActionType = () => void;
-
-export const handleLogoutAction: IHandleLogoutActionType = () => {
+export const handleLogoutAction: IFunctionTemplate = () => {
   api.logoutApi().then(() => authActions.logoutSuccess());
 };
 
