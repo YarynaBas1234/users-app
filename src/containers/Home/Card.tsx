@@ -1,12 +1,6 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../styles';
-
-const Main = styled.div`
-  display: flex;
-  padding: 8px;
-`;
 
 const CardWrapper = styled.div`
   width: 296px;
@@ -22,11 +16,8 @@ const CardWrapper = styled.div`
 `;
 
 export const Card: React.FC = () => {
-  const { t } = useTranslation();
 
   return (
-    <Main>
-      <CardWrapper>{t('HOME.USERS_CARD')}</CardWrapper>
-    </Main>
+    <CardWrapper>User`s card</CardWrapper>
   );
 }
