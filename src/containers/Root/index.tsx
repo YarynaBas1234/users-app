@@ -5,19 +5,23 @@ import { IStore } from 'store';
 import { languageService } from '../../services';
 import { LanguagesConst } from '../../consts';
 
+import { Header } from './Header';
 import { AuthorizedRoot } from './AuthorizedRoot';
 import { UnauthorizedRoot } from './UnauthorizedRoot';
 
 export const Root: React.FC = () => {
-  const { isLoggedIn } = useSelector((state: IStore) => state.auth);
+  const { isLoggedIn, currentUser } = useSelector((state: IStore) => state.auth);
 
   languageService.changeLanguage(LanguagesConst.English);
-  
+
   return (
     <>
-      {isLoggedIn 
-      ? <AuthorizedRoot /> 
-      : <UnauthorizedRoot />}
+      {isLoggedIn
+        ? <>
+          <Header currentUser={currentUser} />
+          <AuthorizedRoot />
+        </>
+        : <UnauthorizedRoot />}
     </>
   );
 };
