@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import {
   handleRegistrationAction,
-  handleLoginAction, IHandleLoginAction,
+  handleLoginAction, 
+  IHandleLoginAction,
   IHandleRegistrationAction
 } from '../../store/auth';
 
