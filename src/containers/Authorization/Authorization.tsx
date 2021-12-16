@@ -46,7 +46,7 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
       <ContainerStyled>
         {activeTab === TabConst.SignIn
           ? <SignInForm />
-          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegisterAction={onRegisterAction}/>
+          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegisterAction={onRegisterAction} />
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </ContainerStyled>

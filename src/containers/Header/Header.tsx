@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { styled } from '../../styles';
+import { H5 } from '../../components';
 import logo from '../../images/logo.jpg';
 
-const Header = styled.div`
+const HeaderComponent = styled.div`
   width: 100%;
-  padding: 10px 40px;
+  padding: 8px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,8 +14,8 @@ const Header = styled.div`
 `;
 
 const Logo = styled.div`
-  width: 70px;
-  height: 70px;
+  width: 72px;
+  height: 72px;
   background-image: url(${logo});
   background-position: center;
   background-size: cover;
@@ -22,17 +23,17 @@ const Logo = styled.div`
   border-radius: 50%;
 `;
 
-type IHeaderComponent = {
+type IHeaderProps = {
   currentUser: string | null;
 };
 
-export const HeaderComponent: React.FC<IHeaderComponent> = (props) => {
+export const Header: React.FC<IHeaderProps> = (props) => {
   const { currentUser } = props;
 
   return (
-    <Header>
+    <HeaderComponent>
       <Logo />
-      <div>{currentUser}</div>
-    </Header>
+      <H5>{currentUser}</H5>
+    </HeaderComponent>
   );
 };
