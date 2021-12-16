@@ -11,7 +11,7 @@ import {
 import { Authorization } from './Authorization';
 import { TabConst } from './types';
 
-export const AuthorizationContainer = () => {
+export const AuthorizationContainer: React.FC = () => {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
   const [loginError, setLoginError] = React.useState(null);
