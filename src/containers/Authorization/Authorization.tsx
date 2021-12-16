@@ -3,7 +3,7 @@ import React from 'react';
 import { styled } from '../../styles';
 import { Container } from '../../components';
 import backgroundImage from '../../images/background.jpg';
-import { IHandleRegistrationAction } from '../../store/auth';
+import { IHandleLoginAction, IHandleRegistrationAction } from '../../store/auth';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
@@ -35,18 +35,27 @@ interface IAuthorization {
   setActiveTab: ISetActiveTab;
   activeTab: TabConst;
   switchOnSignInTab: () => void;
-  onRegisterAction: IHandleRegistrationAction;
+  onRegistrationClick: IHandleRegistrationAction;
+  onLoginClick: IHandleLoginAction;
+  loginError: string | null;
 }
 
 export const Authorization: React.FC<IAuthorization> = (props) => {
-  const { setActiveTab, activeTab, switchOnSignInTab, onRegisterAction } = props;
+  const {
+    setActiveTab,
+    activeTab,
+    switchOnSignInTab,
+    onRegistrationClick,
+    onLoginClick,
+    loginError
+  } = props;
 
   return (
     <Main>
       <ContainerStyled>
         {activeTab === TabConst.SignIn
-          ? <SignInForm />
-          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegisterAction={onRegisterAction} />
+          ? <SignInForm onLoginClick={onLoginClick} loginError={loginError} />
+          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegistrationClick={onRegistrationClick} />
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </ContainerStyled>
