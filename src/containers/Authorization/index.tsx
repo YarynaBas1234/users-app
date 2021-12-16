@@ -5,7 +5,7 @@ import { handleRegistrationAction, IHandleRegistrationAction } from '../../store
 import { Authorization } from './Authorization';
 import { TabConst } from './types';
 
-export const AuthorizationContainer = () => {
+export const AuthorizationContainer: React.FC = () => {
   const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
 
   const switchOnSignInTab = React.useCallback(() => {
