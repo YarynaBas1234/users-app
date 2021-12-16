@@ -8,7 +8,8 @@
       "LENGTH_BIGGER_THEN": "Field length should be more than {{length}} character(s)",
       "START_FROM_UPPERCASE": "First letter should be uppercase",
       "EMAIL": "Invalid email address",
-      "SAME_FIELDS": "Fields {{label}} and {{labelConfirm}} are not the same"
+      "SAME_FIELDS": "Fields {{label}} and {{labelConfirm}} are not the same",
+      "USER_NOT_EXIST": "User does not exist" 
     },
     "AUTH": {
       "TITLE_LOGIN_FORM": "Login",

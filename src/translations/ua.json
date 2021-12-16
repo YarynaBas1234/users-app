@@ -8,7 +8,8 @@
       "LENGTH_BIGGER_THEN": "Довжина поля повинна бути більше {{length}} символу(ів)",
       "START_FROM_UPPERCASE": "Поле повинне починатись з великої літери",
       "EMAIL": "Неправильна адреса електронної пошти",
-      "SAME_FIELDS": "Поля {{passwordLabel}} і {{repeatPasswordLabel}} не співпадають"
+      "SAME_FIELDS": "Поля {{passwordLabel}} і {{repeatPasswordLabel}} не співпадають",
+      "USER_NOT_EXIST": "Користувача не знайдено"
     },
     "AUTH": {
       "TITLE_LOGIN_FORM": "Вхід",

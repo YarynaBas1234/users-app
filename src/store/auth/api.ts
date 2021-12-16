@@ -1,11 +1,17 @@
-import { mockApiService, localStorageService } from "services";
+import { mockApiService, localStorageService } from 'services';
 
-import { IRegistrationActionValues } from './types';
+import { ILoginActionValues, IRegistrationActionValues } from './types';
 
-type ILoginApiType = (email: string, password: string) => Promise<any>;
+type ILoginApiType = (loginData: ILoginActionValues) => Promise<any>;
 
-export const loginApi: ILoginApiType = (email, password) =>
-  mockApiService({ email, password });
+export const loginApi: ILoginApiType = ({ userName, password }) => {
+  const userPassword = localStorageService.getFromLocalStorage(userName);
+
+  if (userPassword && userPassword === password) {
+    return mockApiService({ userName, password });
+  }
+  return mockApiService({ error: 'ERRORS.USER_NOT_EXIST' });
+};
 
 type ILogoutApiType = () => Promise<any>;
 

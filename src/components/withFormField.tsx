@@ -119,11 +119,11 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
       { label && <H5 className="label media-label">{ label }</H5> }
       { !isInvalid && hint && <H4 className="hint">{ hint }</H4> }
       <div className="error-wrapper">
-        <H6 className="error">
+        <H5 className="error">
           {typeof fieldError === 'string' && form.touched[field.name]
             ? t(fieldError || '')
             : t(fieldError?.error || '', { ...fieldError?.parameters })}
-        </H6>
+        </H5>
       </div>
     </Wrapper>
   );
