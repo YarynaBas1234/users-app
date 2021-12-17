@@ -1,1 +1,1 @@
-export type currentUser = string | null;
+export type IcurrentUser = string | null;

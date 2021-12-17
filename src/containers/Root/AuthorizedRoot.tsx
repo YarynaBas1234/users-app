@@ -4,11 +4,11 @@ import { BrowserRouter as Switch, Route } from 'react-router-dom';
 import { RoutePathConst } from '../../consts';
 
 import { Home } from '../Home';
-import { Header } from '../Header/Header';
-import { currentUser } from '../types';
+import { Header } from '../Header';
+import { IcurrentUser } from '../types';
 
 interface IAuthorizedRoot {
-  currentUser: currentUser;
+  currentUser: IcurrentUser;
 }
 
 export const AuthorizedRoot: React.FC<IAuthorizedRoot> = (props) => {
