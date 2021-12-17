@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled } from '../../styles';
-import { Container } from '../../components';
+import { Container, ContainerWrapper } from '../../components';
 import backgroundImage from '../../images/background.jpg';
 import { IHandleLoginAction, IHandleRegistrationAction } from '../../store/auth';
 import { IFunctionTemplate } from '../../types';
@@ -11,25 +11,15 @@ import { SignUpForm } from './SignUpForm';
 import { Navigation } from './Navigation';
 import { ISetActiveTab, TabConst, ILoginError } from './types';
 
-const AuthorizationWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const ContainerWrapperStyled = styled(ContainerWrapper)`
   background-image: url(${backgroundImage});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 const ContainerStyled = styled(Container)`
-  width: 100%;
   max-width: 400px;
-  min-height: 100px;
+  min-height: 400px;
   border-radius: 8px;
   justify-content: center;
-  padding: 32px;
 `;
 
 interface IAuthorization {
@@ -52,7 +42,7 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
   } = props;
 
   return (
-    <AuthorizationWrapper>
+    <ContainerWrapperStyled>
       <ContainerStyled>
         {activeTab === TabConst.SignIn
           ? <SignInForm onLoginClick={onLoginClick} loginError={loginError} />
@@ -60,6 +50,6 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </ContainerStyled>
-    </AuthorizationWrapper>
+    </ContainerWrapperStyled>
   );
 };

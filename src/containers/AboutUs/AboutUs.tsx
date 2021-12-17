@@ -1,29 +1,26 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { H1, H3, H4, H5, Container } from '../../components';
+import {
+  H1,
+  H3,
+  H4,
+  H5,
+  Container,
+  ContainerWrapper
+} from '../../components';
 import { styled } from '../../styles';
 import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
 
-const AboutUsWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const ContainerWrapperStyled = styled(ContainerWrapper)`
   background-image: url(${backgroundImage});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 const ContainerStyled = styled(Container)`
-  width: 100%;
   max-width: 600px;
   height: 100%;
   justify-content: space-between;
-  padding: 16px;
 `;
 
 const Footer = styled.div`
@@ -92,7 +89,7 @@ export const AboutUs: React.FC = () => {
   const { FACEBOOK_LINK, SKYPE, PHONE } = envConfigs;
 
   return (
-    <AboutUsWrapper>
+    <ContainerWrapperStyled>
       <ContainerStyled>
         <AboutOurCompany>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
@@ -114,6 +111,6 @@ export const AboutUs: React.FC = () => {
           </ContactUs>
         </Footer>
       </ContainerStyled>
-    </AboutUsWrapper>
+    </ContainerWrapperStyled>
   );
 };
