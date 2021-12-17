@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { styled } from '../../styles';
+import { styled, BackgroundImageStyles } from '../../styles';
 import { H5 } from '../../components';
 import logo from '../../images/logo.jpg';
+
+import { currentUser } from '../types';
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -13,18 +15,15 @@ const HeaderWrapper = styled.div`
   background-color:  ${({ theme }) => theme.colors.lightBlue};
 `;
 
-const Logo = styled.div`
+const Logo = styled(BackgroundImageStyles)`
   width: 72px;
   height: 72px;
   background-image: url(${logo});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 50%;
 `;
 
 type IHeaderProps = {
-  currentUser: string | null;
+  currentUser: currentUser;
 };
 
 export const Header: React.FC<IHeaderProps> = (props) => {

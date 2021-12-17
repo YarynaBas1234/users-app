@@ -5,7 +5,6 @@ import { IStore } from 'store';
 import { languageService } from '../../services';
 import { LanguagesConst } from '../../consts';
 
-import { Header } from './Header';
 import { AuthorizedRoot } from './AuthorizedRoot';
 import { UnauthorizedRoot } from './UnauthorizedRoot';
 
@@ -16,12 +15,9 @@ export const Root: React.FC = () => {
 
   return (
     <>
-      {isLoggedIn 
-      ? <>
-          <Header currentUser={currentUser} />
-          <AuthorizedRoot />
-        </>
-      : <UnauthorizedRoot />}
+      {isLoggedIn
+        ? <AuthorizedRoot currentUser={currentUser} />
+        : <UnauthorizedRoot />}
     </>
   );
 };
