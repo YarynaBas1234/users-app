@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { styled } from '../../styles';
+import '../../styles/globalStyles.css';
 import { Container, ContainerWrapper } from '../../components';
 import backgroundImage from '../../images/background.jpg';
 import { IHandleLoginAction, IHandleRegistrationAction } from '../../store/auth';
@@ -42,7 +43,7 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
   } = props;
 
   return (
-    <ContainerWrapperStyled>
+    <ContainerWrapperStyled className='background-default-config'>
       <ContainerStyled>
         {activeTab === TabConst.SignIn
           ? <SignInForm onLoginClick={onLoginClick} loginError={loginError} />

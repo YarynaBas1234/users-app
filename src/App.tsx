@@ -6,9 +6,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Root } from 'containers';
 import { queryClient } from 'services';
 import store from 'store';
-import { theme, ThemeProvider, GlobalStyles, styled } from 'styles';
+import { theme, ThemeProvider, styled } from 'styles';
 
-const WrapperRoot = styled.div`
+const RootWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
@@ -19,10 +19,9 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <Router>
         <QueryClientProvider client={queryClient}>
-          <GlobalStyles />
-          <WrapperRoot>
+          <RootWrapper>
             <Root />
-          </WrapperRoot>
+          </RootWrapper>
         </QueryClientProvider>
       </Router>
     </ThemeProvider>

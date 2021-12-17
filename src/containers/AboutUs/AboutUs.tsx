@@ -12,6 +12,7 @@ import {
 import { styled } from '../../styles';
 import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
+import '../../styles/globalStyles.css';
 
 const ContainerWrapperStyled = styled(ContainerWrapper)`
   background-image: url(${backgroundImage});
@@ -89,7 +90,7 @@ export const AboutUs: React.FC = () => {
   const { FACEBOOK_LINK, SKYPE, PHONE } = envConfigs;
 
   return (
-    <ContainerWrapperStyled>
+    <ContainerWrapperStyled className='background-default-config'>
       <ContainerStyled>
         <AboutOurCompany>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>

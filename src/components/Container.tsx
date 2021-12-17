@@ -1,6 +1,6 @@
-import { styled, BackgroundImageStyled } from 'styles';
+import { styled } from 'styles';
 
-export const ContainerWrapper = styled(BackgroundImageStyled)`
+export const ContainerWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
