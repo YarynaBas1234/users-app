@@ -2,7 +2,6 @@ import { Dispatch } from 'redux';
 
 import * as api from './api';
 import authActions from './slice';
-import { IFunctionTemplate } from '../../types';
 
 import { IHandleRegistrationAction, ILoginActionValues } from './types';
 
