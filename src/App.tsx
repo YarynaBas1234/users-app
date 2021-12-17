@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Root } from 'containers';
 import { queryClient } from 'services';
 import store from 'store';
-import { theme, ThemeProvider, styled } from 'styles';
+import { theme, ThemeProvider, styled, GlobalStyles } from 'styles';
 
 const RootWrapper = styled.div`
   width: 100vw;
@@ -19,6 +19,7 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <Router>
         <QueryClientProvider client={queryClient}>
+          <GlobalStyles />
           <RootWrapper>
             <Root />
           </RootWrapper>
