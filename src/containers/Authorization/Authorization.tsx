@@ -4,7 +4,7 @@ import { styled } from '../../styles';
 import { Container, ContainerWrapper } from '../../components';
 import backgroundImage from '../../images/background.jpg';
 import { IHandleLoginAction, IHandleRegistrationAction } from '../../store/auth';
-import { IFunctionTemplate } from '../../types';
+import { ISimpleFunction } from '../../types';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
@@ -25,7 +25,7 @@ const ContainerStyled = styled(Container)`
 interface IAuthorization {
   setActiveTab: ISetActiveTab;
   activeTab: TabConst;
-  switchOnSignInTab: IFunctionTemplate;
+  switchOnSignInTab: ISimpleFunction;
   onRegistrationClick: IHandleRegistrationAction;
   onLoginClick: IHandleLoginAction;
   loginError: ILoginError;

@@ -1,1 +1,1 @@
-export type IFunctionTemplate = () => void;
+export type ISimpleFunction = () => void;
