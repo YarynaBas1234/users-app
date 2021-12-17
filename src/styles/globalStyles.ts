@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export const BackgroundImageStyles = styled.div`
+export const BackgroundImageStyled = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

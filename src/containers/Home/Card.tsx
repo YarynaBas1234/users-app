@@ -20,4 +20,4 @@ export const Card: React.FC = () => {
   return (
     <CardWrapper>User`s card</CardWrapper>
   );
-}
+};

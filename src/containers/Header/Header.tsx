@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { styled, BackgroundImageStyles } from '../../styles';
+import { styled, BackgroundImageStyled } from '../../styles';
 import { H5 } from '../../components';
 import logo from '../../images/logo.jpg';
 
@@ -15,7 +15,7 @@ const HeaderWrapper = styled.div`
   background-color:  ${({ theme }) => theme.colors.lightBlue};
 `;
 
-const Logo = styled(BackgroundImageStyles)`
+const Logo = styled(BackgroundImageStyled)`
   width: 72px;
   height: 72px;
   background-image: url(${logo});
