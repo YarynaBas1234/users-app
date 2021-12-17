@@ -4,7 +4,7 @@ import { styled } from '../../styles';
 import { H5 } from '../../components';
 import logo from '../../images/logo.jpg';
 
-import { IcurrentUser } from '../types';
+import { ICurrentUser } from '../types';
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -23,7 +23,7 @@ const Logo = styled.div`
 `;
 
 type IHeaderProps = {
-  currentUser: IcurrentUser;
+  currentUser: ICurrentUser;
 };
 
 export const Header: React.FC<IHeaderProps> = (props) => {

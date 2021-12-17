@@ -5,10 +5,10 @@ import { RoutePathConst } from '../../consts';
 
 import { Home } from '../Home';
 import { Header } from '../Header';
-import { IcurrentUser } from '../types';
+import { ICurrentUser } from '../types';
 
 interface IAuthorizedRoot {
-  currentUser: IcurrentUser;
+  currentUser: ICurrentUser;
 }
 
 export const AuthorizedRoot: React.FC<IAuthorizedRoot> = (props) => {
