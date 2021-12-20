@@ -1,8 +1,10 @@
 import usersAction from './slice';
+
+import { ISimpleDispatchAction } from '../../types';
+
 import { getUsersApi } from './api';
-import { ISimpleDispatchAction } from '../types';
 
 export const handleGetUsersAction: ISimpleDispatchAction = async (dispatch) => {
   const users = await getUsersApi();
-  await dispatch(usersAction.saveUsers(users.data));
+  dispatch(usersAction.saveUsers(users.data));
 };
