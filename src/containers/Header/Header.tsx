@@ -4,6 +4,8 @@ import { styled } from '../../styles';
 import { H5 } from '../../components';
 import logo from '../../images/logo.jpg';
 
+import { ICurrentUser } from '../types';
+
 const HeaderWrapper = styled.div`
   width: 100%;
   padding: 8px 24px;
@@ -17,14 +19,11 @@ const Logo = styled.div`
   width: 72px;
   height: 72px;
   background-image: url(${logo});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 50%;
 `;
 
 type IHeaderProps = {
-  currentUser: string | null;
+  currentUser: ICurrentUser;
 };
 
 export const Header: React.FC<IHeaderProps> = (props) => {
