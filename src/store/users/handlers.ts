@@ -1,11 +1,8 @@
-import { Dispatch } from 'redux';
-
 import usersAction from './slice';
 import { getUsersApi } from './api';
+import { ISimpleDispatchAction } from '../types';
 
-type IHandleGetUsersAction = () => (dispatch: Dispatch) => void;
-
-export const handleGetUsersAction: IHandleGetUsersAction = () => async (dispatch) => {
+export const handleGetUsersAction: ISimpleDispatchAction = async (dispatch) => {
   const users = await getUsersApi();
   await dispatch(usersAction.saveUsers(users.data));
 };

@@ -9,7 +9,7 @@ export const HomeContainer: React.FC = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(handleGetUsersAction());
+    dispatch(handleGetUsersAction);
   }, []);
 
   return (
