@@ -9,15 +9,15 @@ import { AuthorizedRoot } from './AuthorizedRoot';
 import { UnauthorizedRoot } from './UnauthorizedRoot';
 
 export const Root: React.FC = () => {
-  const { isLoggedIn } = useSelector((state: IStore) => state.auth);
+  const { isLoggedIn, currentUser } = useSelector((state: IStore) => state.auth);
 
   languageService.changeLanguage(LanguagesConst.English);
-  
+
   return (
     <>
-      {isLoggedIn 
-      ? <AuthorizedRoot /> 
-      : <UnauthorizedRoot />}
+      {isLoggedIn
+        ? <AuthorizedRoot currentUser={currentUser} />
+        : <UnauthorizedRoot />}
     </>
   );
 };
