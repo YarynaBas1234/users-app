@@ -15,6 +15,8 @@ import {
   H5
 } from '../../components';
 
+import { ILoginError } from './types';
+
 const LinkWrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -33,7 +35,7 @@ const Error = styled(H5)`
 
 interface ISignInForm {
   onLoginClick: IHandleLoginAction;
-  loginError: string | null;
+  loginError: ILoginError;
 }
 
 export const SignInForm: React.FC<ISignInForm> = (props) => {
