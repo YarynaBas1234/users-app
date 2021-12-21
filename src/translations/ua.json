@@ -36,6 +36,7 @@
       "PHONE": "Телефон:",
       "SKYPE": "Skype:",
       "FACEBOOK": "Facebook:"
-    }
+    },
+    "LOGOUT": "Вихід"
   }
 }
