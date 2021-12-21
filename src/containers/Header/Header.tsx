@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { styled } from '../../styles';
+import { styled, backgroundDefaultConfig } from '../../styles';
 import { H5, ButtonText } from '../../components';
 import logo from '../../images/logo.jpg';
 import { ISimpleFunction } from '../../types';
@@ -22,6 +22,7 @@ const Logo = styled.div`
   height: 72px;
   background-image: url(${logo});
   border-radius: 50%;
+  ${backgroundDefaultConfig}
 `;
 
 const RightNavigation = styled.div`
