@@ -1,5 +1,5 @@
-import { IAuthStore } from "./auth";
+import { IAuthStore } from './auth';
 
 export type IStore = {
-  auth: IAuthStore
-}
+  auth: IAuthStore;
+};

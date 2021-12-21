@@ -5,6 +5,7 @@ import { Field, Formik, Form } from 'formik';
 import { validationUtil } from '../../utils';
 import { CommonConst } from '../../consts';
 import { IRegistrationActionValues, IHandleRegistrationAction } from '../../store/auth';
+import { ISimpleFunction } from '../../types';
 import {
   FormWrapper,
   ButtonLong,
@@ -13,7 +14,7 @@ import {
 } from '../../components';
 
 interface ISignUpForm {
-  switchOnSignInTab: () => void;
+  switchOnSignInTab: ISimpleFunction;
   onRegistrationClick: IHandleRegistrationAction;
 }
 
