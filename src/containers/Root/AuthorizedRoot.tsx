@@ -3,7 +3,7 @@ import { BrowserRouter as Switch, Route } from 'react-router-dom';
 
 import { RoutePathConst } from '../../consts';
 
-import { Home } from '../Home';
+import { HomeContainer } from '../Home';
 import { Header } from '../Header';
 import { ICurrentUser } from '../types';
 
@@ -18,7 +18,7 @@ export const AuthorizedRoot: React.FC<IAuthorizedRoot> = (props) => {
     <>
       <Header currentUser={currentUser} />
       <Switch>
-        <Route exact path={RoutePathConst.Home} component={Home} />
+        <Route exact path={RoutePathConst.Home} component={HomeContainer} />
       </Switch>
     </>
   );

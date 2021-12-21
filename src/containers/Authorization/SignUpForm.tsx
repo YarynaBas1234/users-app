@@ -11,9 +11,10 @@ import {
   InputField,
   PasswordInputField
 } from '../../components';
+import { ISimpleFunction } from '../../types';
 
 interface ISignUpForm {
-  switchOnSignInTab: () => void;
+  switchOnSignInTab: ISimpleFunction;
   onRegistrationClick: IHandleRegistrationAction;
 }
 
