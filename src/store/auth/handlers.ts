@@ -11,10 +11,10 @@ export const handleLoginAction: IHandleLoginAction = ({userName, password}) => d
   return api.loginApi({userName, password}).then(() => dispatch(authActions.loginSuccess({ userName, password })));
 };
 
-type IHandleLogoutAction = () => void;
+type IHandleLogoutAction = IDispatchAction;
 
-export const handleLogoutAction: IHandleLogoutAction = () => {
-  api.logoutApi().then(() => authActions.logoutSuccess());
+export const handleLogoutAction: IHandleLogoutAction = (dispatch) => {
+  api.logoutApi().then(() => dispatch(authActions.logoutSuccess()));
 };
 
 export const handleRegistrationAction: IHandleRegistrationAction = ({userName, password}) => {

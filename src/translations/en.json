@@ -35,6 +35,7 @@
       "PHONE": "Phone:",
       "SKYPE": "Skype:",
       "FACEBOOK": "Facebook:"
-    }
+    },
+    "LOGOUT": "Log Out"
   }
 }
