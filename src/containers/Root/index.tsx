@@ -15,7 +15,9 @@ export const Root: React.FC = () => {
 
   languageService.changeLanguage(LanguagesConst.English);
 
-  const onLogOutClick = () => dispatch(handleLogoutAction);
+  const onLogOutClick = React.useCallback(() => {
+    dispatch(handleLogoutAction)
+  }, []);
 
   return (
     <>

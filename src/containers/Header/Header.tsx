@@ -24,7 +24,7 @@ const Logo = styled.div`
   border-radius: 50%;
 `;
 
-const RightNav = styled.div`
+const RightNavigation = styled.div`
   display: flex;
 `;
 
@@ -56,12 +56,12 @@ export const Header: React.FC<IHeaderProps> = (props) => {
   return (
     <HeaderWrapper>
       <Logo />
-      <RightNav>
+      <RightNavigation>
         <H5>Welcome, {currentUser}</H5>
         <LogoutButton>
           <LogoutText onClick={onLogOutClick}>{t('LOGOUT')}</LogoutText>
         </LogoutButton>
-      </RightNav>
+      </RightNavigation>
     </HeaderWrapper>
   );
 };
