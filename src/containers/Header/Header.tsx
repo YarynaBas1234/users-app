@@ -4,8 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { styled } from '../../styles';
 import { H5, ButtonText } from '../../components';
 import logo from '../../images/logo.jpg';
+import { ISimpleFunction } from '../../types';
 
-import { ICurrentUser, IOnLogOutClick } from '../types';
+import { ICurrentUser } from '../types';
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -45,7 +46,7 @@ const LogoutText = styled(ButtonText)`
 
 type IHeaderProps = {
   currentUser: ICurrentUser;
-  onLogOutClick: IOnLogOutClick;
+  onLogOutClick: ISimpleFunction;
 };
 
 export const Header: React.FC<IHeaderProps> = (props) => {
