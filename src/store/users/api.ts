@@ -1,11 +1,11 @@
 import { apiService } from 'services';
 
-import { IResponseApi } from '../../types';
+import { IGetApiData } from '../../types';
 
 import { IUser } from './types';
 
-type IGetUsersApi = () => Promise<IResponseApi<IUser[]>>;
+type IGetUsersData = () => IGetApiData<IUser[]>;
 
-export const getUsersApi: IGetUsersApi = () => {
+export const getUsersApi: IGetUsersData = () => {
   return apiService.get('/users');
 };

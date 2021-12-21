@@ -4,7 +4,7 @@ export type ISimpleFunction = () => void;
 
 export type IDispatchAction = (dispatch: Dispatch) => void;
 
-export type IResponseApi<Type> = {
+export type IApiResponse<Type> = {
   data: Type;
   config: {
     baseURL: string;
@@ -24,3 +24,5 @@ export type IResponseApi<Type> = {
   status: number;
   statusText: string;
 };
+
+export type IGetApiData<Type> = Promise<IApiResponse<Type>>;
