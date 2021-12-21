@@ -1,19 +1,19 @@
-import { Dispatch } from 'redux';
+import { IDispatchAction } from '../../types';
 
 import * as api from './api';
 import authActions from './slice';
 
 import { IHandleRegistrationAction, ILoginActionValues } from './types';
 
-type IHandleLoginActionType = (loginData: ILoginActionValues) => (dispatch: Dispatch) => void;
+type IHandleLoginAction = (loginData: ILoginActionValues) => IDispatchAction;
 
-export const handleLoginAction: IHandleLoginActionType = ({userName, password}) => dispatch => {
+export const handleLoginAction: IHandleLoginAction = ({userName, password}) => dispatch => {
   return api.loginApi({userName, password}).then(() => dispatch(authActions.loginSuccess({ userName, password })));
 };
 
-type IHandleLogoutActionType = (dispatch: Dispatch) => void;
+type IHandleLogoutAction = IDispatchAction;
 
-export const handleLogoutAction: IHandleLogoutActionType = (dispatch) => {
+export const handleLogoutAction: IHandleLogoutAction = (dispatch) => {
   api.logoutApi().then(() => dispatch(authActions.logoutSuccess()));
 };
 
