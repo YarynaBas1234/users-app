@@ -18,9 +18,15 @@ import {
 import { ILoginError } from './types';
 
 const LinkWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+`;
+
+const LinkStyled = styled(Link)`
+  :not(:first-child) { 
+    margin-left: 16px;
+  }
 `;
 
 const ErrorWrapper = styled.div`
@@ -71,7 +77,8 @@ export const SignInForm: React.FC<ISignInForm> = (props) => {
               {loginError && <Error>{t(loginError)}</Error>}
             </ErrorWrapper>
             <LinkWrapper>
-              <Link to={RoutePathConst.ForgotPassword}>{t('AUTH.FORGOT_PASSWORD')}</Link>
+              <LinkStyled to={RoutePathConst.ForgotPassword}>{t('AUTH.FORGOT_PASSWORD')}</LinkStyled>
+              <LinkStyled to={RoutePathConst.AboutUs}>{t('ABOUT_US_PAGE.ABOUT_US')}</LinkStyled>
             </LinkWrapper>
           </Form>
         )}
