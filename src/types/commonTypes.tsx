@@ -2,9 +2,9 @@ import { Dispatch } from 'redux';
 
 export type ISimpleFunction = () => void;
 
-export type ISimpleDispatchAction = (dispatch: Dispatch) => void;
+export type IDispatchAction = (dispatch: Dispatch) => void;
 
-export type IDataApi<Type> = {
+export type IResponseApi<Type> = {
   data: Type;
   config: {
     baseURL: string;
