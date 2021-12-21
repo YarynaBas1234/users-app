@@ -36,6 +36,10 @@
       "SKYPE": "Skype:",
       "FACEBOOK": "Facebook:"
     },
+    "HOME_PAGE": {
+      "EMAIL": "email: ",
+      "PHONE_NUMBER": "phone number: "
+    },
     "LOGOUT": "Log Out"
   }
 }

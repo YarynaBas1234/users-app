@@ -1,9 +1,8 @@
 export interface IUser {
   id: number;
   name: string;
-  userName: string;
   email: string;
-  address: string;
+  phone: string;
 }
 
 export type IUsersStore = {

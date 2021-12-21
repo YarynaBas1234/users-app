@@ -1,21 +1,28 @@
 import React from 'react';
 
 import { styled } from '../../styles';
+import { IUser } from '../../store/users';
 
 import { Card } from './Card';
 
 const HomeWrapper = styled.div`
   display: flex;
-  padding: 8px;
-  margin-top: 16px;
-  border-radius: 8px;
+  flex-wrap: wrap;
+  padding: 16px;
 `;
 
-export const Home: React.FC = () => {
+interface IHome {
+  users: IUser[] | null;
+}
+
+export const Home: React.FC<IHome> = (props) => {
+  const { users } = props;
 
   return (
     <HomeWrapper>
-      <Card />
+      {users?.map(item => {
+        return <Card key={item.id} item={item}/>;
+      })}
     </HomeWrapper>
   );
 };

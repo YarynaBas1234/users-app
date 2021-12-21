@@ -36,6 +36,10 @@
       "SKYPE": "Skype:",
       "FACEBOOK": "Facebook:"
     },
+    "HOME_PAGE": {
+      "EMAIL": "логін: ",
+      "PHONE_NUMBER": "номер телефону: "
+    },
     "LOGOUT": "Вихід"
   }
 }
