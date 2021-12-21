@@ -25,4 +25,4 @@ export type IApiResponse<Type> = {
   statusText: string;
 };
 
-export type IGetApiData<Type> = Promise<IApiResponse<Type>>;
+export type IApiResult<Type> = Promise<IApiResponse<Type>>;
