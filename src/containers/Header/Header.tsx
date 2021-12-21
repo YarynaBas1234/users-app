@@ -5,7 +5,7 @@ import { styled } from '../../styles';
 import { H5, ButtonText } from '../../components';
 import logo from '../../images/logo.jpg';
 
-import { ICurrentUser } from '../types';
+import { ICurrentUser, IOnLogOutClick } from '../types';
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -45,10 +45,11 @@ const LogoutText = styled(ButtonText)`
 
 type IHeaderProps = {
   currentUser: ICurrentUser;
+  onLogOutClick: IOnLogOutClick;
 };
 
 export const Header: React.FC<IHeaderProps> = (props) => {
-  const { currentUser } = props;
+  const { currentUser, onLogOutClick } = props;
   const { t } = useTranslation();
 
   return (
@@ -57,7 +58,7 @@ export const Header: React.FC<IHeaderProps> = (props) => {
       <RightNav>
         <H5>Welcome, {currentUser}</H5>
         <LogoutButton>
-          <LogoutText onClick={() => console.log('ok')}>{t('LOGOUT')}</LogoutText>
+          <LogoutText onClick={onLogOutClick}>{t('LOGOUT')}</LogoutText>
         </LogoutButton>
       </RightNav>
     </HeaderWrapper>
