@@ -5,6 +5,7 @@ import { handleGetUsersAction } from '../../store/users';
 import { IStore } from '../../store';
 
 import { Home } from './Home';
+import { Card } from './Card';
 
 export const HomeContainer: React.FC = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,9 @@ export const HomeContainer: React.FC = () => {
     dispatch(handleGetUsersAction);
   }, []);
 
-  return (
-    <Home 
-      users={users}
-    />
-  );
-}
+  const CreateUsersCard = React.useMemo(() => {  
+    return users?.map((user) => <Card key={user.id} user={user} />);
+  }, [users]);
+
+  return <Home CreateUsersCard={CreateUsersCard}/>;
+};
