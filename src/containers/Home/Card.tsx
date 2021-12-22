@@ -12,42 +12,42 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 16px;
-  margin: 16px 16px 0 0;
+  margin: 16px 16px 0 16px;
 `;
 
-const UserName = styled(H4)`
+const Title = styled(H4)`
   text-align: center;
 `;
 
-const Data = styled(H5)`
+const UserDataWrapper = styled(H5)`
   margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
 `;
 
-const DataTitle = styled(H5)`
-  margin-right: 8px;
+const UserData = styled(H5)`
+  margin-left: 8px;
 `;
 
 interface ICard {
-  item: IUser;
+  user: IUser;
 }
 
 export const Card: React.FC<ICard> = (props) => {
-  const { item } = props;
+  const { user } = props;
   const { t } = useTranslation();
 
   return (
     <CardWrapper>
-      <UserName>{item.name}</UserName>
-      <Data>
-        <DataTitle isBold={true}>{t('HOME_PAGE.EMAIL')}</DataTitle>
-        <H5>{item.email}</H5>
-      </Data>
-      <Data>
-        <DataTitle isBold={true}>{t('HOME_PAGE.PHONE_NUMBER')}</DataTitle>
-        <H5>{item.phone}</H5>
-      </Data>
+      <Title>{user.name}</Title>
+      <UserDataWrapper>
+        <H5 isBold={true}>{t('HOME_PAGE.EMAIL')}</H5>
+        <UserData>{user.email}</UserData>
+      </UserDataWrapper>
+      <UserDataWrapper>
+        <H5 isBold={true}>{t('HOME_PAGE.PHONE_NUMBER')}</H5>
+        <UserData>{user.phone}</UserData>
+      </UserDataWrapper>
     </CardWrapper>
   );
 };

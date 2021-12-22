@@ -38,7 +38,7 @@
       "FACEBOOK": "Facebook:"
     },
     "HOME_PAGE": {
-      "EMAIL": "логін: ",
+      "EMAIL": "електронна пошта: ",
       "PHONE_NUMBER": "номер телефону: "
     },
     "LOGOUT": "Вихід"
