@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { handleGetUsersAction } from '../../store/users';
+import { handleGetUsersAction, IUser } from '../../store/users';
 import { IStore } from '../../store';
 
 import { Home } from './Home';
@@ -15,9 +15,9 @@ export const HomeContainer: React.FC = () => {
     dispatch(handleGetUsersAction);
   }, []);
 
-  const CreateUsersCard = React.useMemo(() => {  
-    return users?.map((user) => <Card key={user.id} user={user} />);
+  const createUsersCard = React.useMemo(() => {  
+    return users?.map((user: IUser) => <Card key={user.id} user={user} />);
   }, [users]);
 
-  return <Home CreateUsersCard={CreateUsersCard}/>;
+  return <Home createUsersCard={createUsersCard}/>;
 };

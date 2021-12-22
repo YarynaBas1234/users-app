@@ -10,15 +10,15 @@ const HomeWrapper = styled.div`
 `;
 
 interface IHome {
-  CreateUsersCard: JSX.Element[] | undefined;
+  createUsersCard: JSX.Element[] | undefined;
 }
 
 export const Home: React.FC<IHome> = (props) => {
-  const { CreateUsersCard } = props;
+  const { createUsersCard } = props;
 
   return (
     <HomeWrapper>
-      {CreateUsersCard}
+      {createUsersCard}
     </HomeWrapper>
   );
 };
