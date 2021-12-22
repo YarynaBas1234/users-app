@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { styled } from '../../styles';
+import { IUser } from '../../store/users';
+import { Card } from './Card';
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -9,16 +11,21 @@ const HomeWrapper = styled.div`
   justify-content: space-around;
 `;
 
-interface IHome {
-  createUsersCard: JSX.Element[] | undefined;
+interface IHomeProps {
+  users: IUser[] | null;
 }
 
-export const Home: React.FC<IHome> = (props) => {
-  const { createUsersCard } = props;
+export const Home: React.FC<IHomeProps> = (props) => {
+  const { users } = props;
 
-  return (
-    <HomeWrapper>
-      {createUsersCard}
-    </HomeWrapper>
+  const UserCards: React.ReactElement = React.useMemo(() => (
+      <>
+        {users?.map((user: IUser) => (
+          <Card key={user.id} user={user} />
+        ))}
+      </>
+    ), [users]
   );
+
+  return <HomeWrapper>{UserCards}</HomeWrapper>;
 };
