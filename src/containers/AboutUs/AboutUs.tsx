@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import {
   H1,
@@ -12,6 +13,7 @@ import {
 import { styled, backgroundDefaultConfig } from '../../styles';
 import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
+import { RoutePathConst } from '../../consts';
 
 const ContainerWrapperStyled = styled(ContainerWrapper)`
   background-image: url(${backgroundImage});
@@ -68,6 +70,23 @@ const Contact = styled.div`
   width: 160px;
 `;
 
+const LinkStyled = styled(Link)`
+  width: 96px;
+  height: 40px;
+  background-color: ${({theme}) => theme.colors.white};
+  align-self: flex-start;
+  text-decoration: none;
+  color: ${({theme}) => theme.colors.black};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  
+  &:hover {
+    background-color: ${({theme}) => theme.colors.lightGray};
+  }
+`;
+
 interface IContactData {
   title: string;
   data?: string;
@@ -91,6 +110,7 @@ export const AboutUs: React.FC = () => {
 
   return (
     <ContainerWrapperStyled>
+      <LinkStyled to={RoutePathConst.Login}><H5>Back</H5></LinkStyled>
       <ContainerStyled>
         <AboutOurCompany>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
