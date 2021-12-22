@@ -19,13 +19,13 @@ const Title = styled(H4)`
   text-align: center;
 `;
 
-const UsersDataWrapper = styled(H5)`
+const UsersDataWrapper = styled.div`
   margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
 `;
 
-const UsersData = styled(H5)`
+const UsersInformation = styled(H5)`
   margin-left: 8px;
 `;
 
@@ -42,11 +42,11 @@ export const Card: React.FC<ICard> = (props) => {
       <Title>{user.name}</Title>
       <UsersDataWrapper>
         <H5 isBold={true}>{t('HOME_PAGE.EMAIL')}</H5>
-        <UsersData>{user.email}</UsersData>
+        <UsersInformation>{user.email}</UsersInformation>
       </UsersDataWrapper>
       <UsersDataWrapper>
         <H5 isBold={true}>{t('HOME_PAGE.PHONE_NUMBER')}</H5>
-        <UsersData>{user.phone}</UsersData>
+        <UsersInformation>{user.phone}</UsersInformation>
       </UsersDataWrapper>
     </CardWrapper>
   );
