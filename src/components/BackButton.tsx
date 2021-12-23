@@ -17,7 +17,6 @@ const LinkStyled = styled(Link)`
   align-self: flex-start;
   align-items: center;
   border-radius: 8px;
-  
   &:hover {
     background-color: ${({theme}) => theme.colors.lightGray};
   }
