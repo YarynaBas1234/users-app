@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { handleGetUsersAction } from 'store/users';
+import { handleGetUsersAction } from '../../store/users';
 
 import { Home } from './Home';
 

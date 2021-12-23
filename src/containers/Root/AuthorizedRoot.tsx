@@ -7,6 +7,7 @@ import { ISimpleFunction } from '../../types';
 import { HomeContainer } from '../Home';
 import { Header } from '../Header';
 import { ICurrentUser } from '../types';
+import { Profile } from '../Profile';
 
 interface IAuthorizedRoot {
   currentUser: ICurrentUser;
@@ -21,6 +22,7 @@ export const AuthorizedRoot: React.FC<IAuthorizedRoot> = (props) => {
       <Header currentUser={currentUser} onLogOutClick={onLogOutClick} />
       <Switch>
         <Route exact path={RoutePathConst.Home} component={HomeContainer} />
+        <Route exact path={RoutePathConst.Profile} component={Profile} />
       </Switch>
     </>
   );
