@@ -4,9 +4,7 @@ import { IUsersStore } from './types';
 
 const slice = createSlice({
   name: 'users',
-  initialState: {
-    users: null,
-  } as IUsersStore,
+  initialState: { } as IUsersStore,
   reducers: {
     saveUsers: (state, action) => {
       state.users = action.payload;

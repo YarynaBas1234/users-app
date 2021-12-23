@@ -6,5 +6,5 @@ export interface IUser {
 }
 
 export type IUsersStore = {
-  users: IUser[] | null;
+  users?: IUser[];
 };

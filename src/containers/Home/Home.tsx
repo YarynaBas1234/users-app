@@ -12,7 +12,7 @@ const HomeWrapper = styled.div`
 `;
 
 interface IHomeProps {
-  users: IUser[] | null;
+  users?: IUser[];
 }
 
 export const Home: React.FC<IHomeProps> = (props) => {
