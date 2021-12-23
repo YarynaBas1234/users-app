@@ -16,4 +16,3 @@ export interface IRegistrationActionValues {
 export type IHandleLoginAction = (loginData: ILoginActionValues) => void;
 
 export type IHandleRegistrationAction = (registrationData: IRegistrationActionValues) => void;
-
