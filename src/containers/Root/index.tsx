@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 import { IStore } from 'store';
 import { languageService } from '../../services';
@@ -13,7 +13,9 @@ import { UnauthorizedRoot } from './UnauthorizedRoot';
 export const Root: React.FC = () => {
   const dispatch = useDispatch();
   let history = useHistory();
-  const { isLoggedIn, currentUser } = useSelector((state: IStore) => state.auth);
+  const { isLoggedIn, currentUser } = useSelector(
+    (state: IStore) => state.auth
+  );
 
   languageService.changeLanguage(LanguagesConst.English);
 
@@ -24,9 +26,14 @@ export const Root: React.FC = () => {
 
   return (
     <>
-      {isLoggedIn
-        ? <AuthorizedRoot currentUser={currentUser} onLogOutClick={onLogOutClick} />
-        : <UnauthorizedRoot />}
+      {isLoggedIn ? (
+        <AuthorizedRoot
+          currentUser={currentUser}
+          onLogOutClick={onLogOutClick}
+        />
+      ) : (
+        <UnauthorizedRoot />
+      )}
     </>
   );
 };
