@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 import {
   H1,
@@ -8,7 +7,8 @@ import {
   H4,
   H5,
   Container,
-  ContainerWrapper
+  ContainerWrapper,
+  BackButton
 } from '../../components';
 import { styled, backgroundDefaultConfig } from '../../styles';
 import { envConfigs } from '../../services';
@@ -70,23 +70,6 @@ const Contact = styled.div`
   width: 160px;
 `;
 
-const LinkStyled = styled(Link)`
-  width: 96px;
-  height: 40px;
-  background-color: ${({theme}) => theme.colors.white};
-  align-self: flex-start;
-  text-decoration: none;
-  color: ${({theme}) => theme.colors.black};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  
-  &:hover {
-    background-color: ${({theme}) => theme.colors.lightGray};
-  }
-`;
-
 interface IContactData {
   title: string;
   data?: string;
@@ -110,7 +93,7 @@ export const AboutUs: React.FC = () => {
 
   return (
     <ContainerWrapperStyled>
-      <LinkStyled to={RoutePathConst.Login}><H5>Back</H5></LinkStyled>
+      <BackButton path={RoutePathConst.Login} />
       <ContainerStyled>
         <AboutOurCompany>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
