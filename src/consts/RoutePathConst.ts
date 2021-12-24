@@ -3,5 +3,5 @@ export enum RoutePathConst {
   ForgotPassword = '/forgot-password',
   AboutUs = '/about-us',
   Home = '/',
-  Profile = '/user/'
+  Profile = '/profile/'
 };
