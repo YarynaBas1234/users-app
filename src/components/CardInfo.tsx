@@ -6,9 +6,11 @@ import { styled } from '../styles';
 import { H5 } from './Text';
 
 const CardInfoRow = styled.div`
-  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
+  :not(:first-child) {
+    margin-top: 16px;
+  }
 `;
 
 const UsersValue = styled(H5)`

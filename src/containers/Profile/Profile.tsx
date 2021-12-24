@@ -31,8 +31,9 @@ const Title = styled(H3)`
 const ProfileInfo = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  margin-top: 32px;
+  height: 100%;
 `;
 
 interface IProfileProps {
