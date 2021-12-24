@@ -41,6 +41,7 @@
       "EMAIL": "email: ",
       "PHONE_NUMBER": "phone number: "
     },
+    "BACK": "Back",
     "LOGOUT": "Log Out"
   }
 }

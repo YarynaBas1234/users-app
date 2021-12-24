@@ -7,11 +7,13 @@ import {
   H4,
   H5,
   Container,
-  ContainerWrapper
+  ContainerWrapper,
+  BackButton
 } from '../../components';
 import { styled, backgroundDefaultConfig } from '../../styles';
 import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
+import { RoutePathConst } from '../../consts';
 
 const ContainerWrapperStyled = styled(ContainerWrapper)`
   background-image: url(${backgroundImage});
@@ -91,6 +93,7 @@ export const AboutUs: React.FC = () => {
 
   return (
     <ContainerWrapperStyled>
+      <BackButton path={RoutePathConst.Login} />
       <ContainerStyled>
         <AboutOurCompany>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
