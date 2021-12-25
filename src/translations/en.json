@@ -39,7 +39,11 @@
     },
     "HOME_PAGE": {
       "EMAIL": "email: ",
-      "PHONE_NUMBER": "phone number: "
+      "PHONE_NUMBER": "phone number: ",
+      "USERNAME": "nickname: ",
+      "COMPANY_NAME": "company: ",
+      "WEBSITE": "website: ",
+      "ADDRESS": "address: "
     },
     "BACK": "Back",
     "LOGOUT": "Log Out"

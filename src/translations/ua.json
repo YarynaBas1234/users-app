@@ -39,7 +39,11 @@
     },
     "HOME_PAGE": {
       "EMAIL": "електронна пошта: ",
-      "PHONE_NUMBER": "номер телефону: "
+      "PHONE_NUMBER": "номер телефону: ",
+      "USERNAME": "нік: ",
+      "COMPANY_NAME": "компанія: ",
+      "WEBSITE": "веб сайт: ",
+      "ADDRESS": "адреса: "
     },
     "BACK": "Назад",
     "LOGOUT": "Вихід"
