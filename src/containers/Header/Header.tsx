@@ -2,9 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { styled, backgroundDefaultConfig } from '../../styles';
-import { H5, ButtonText } from '../../components';
+import { H5, ButtonText, DropDown } from '../../components';
 import logo from '../../images/logo.jpg';
-import { ISimpleFunction } from '../../types';
+import { languages } from '../../consts';
+import { ISimpleFunction, ISelectEventFunction } from '../../types';
 
 import { ICurrentUser } from '../types';
 
@@ -14,7 +15,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color:  ${({ theme }) => theme.colors.lightBlue};
+  background-color: ${({ theme }) => theme.colors.lightBlue};
 `;
 
 const Logo = styled.div`
@@ -25,8 +26,17 @@ const Logo = styled.div`
   ${backgroundDefaultConfig}
 `;
 
+const LeftNavigation = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const RightNavigation = styled.div`
   display: flex;
+`;
+
+const DropDownWrapper = styled.div`
+  margin: 0 16px;
 `;
 
 const LogoutButton = styled.div`
@@ -48,17 +58,23 @@ const LogoutText = styled(ButtonText)`
 type IHeaderProps = {
   currentUser: ICurrentUser;
   onLogOutClick: ISimpleFunction;
+  onSelectOptionChange: ISelectEventFunction;
 };
 
 export const Header: React.FC<IHeaderProps> = (props) => {
-  const { currentUser, onLogOutClick } = props;
+  const { currentUser, onLogOutClick, onSelectOptionChange } = props;
   const { t } = useTranslation();
 
   return (
     <HeaderWrapper>
-      <Logo />
+      <LeftNavigation>
+        <Logo />
+        <DropDownWrapper>
+          <DropDown onChange={onSelectOptionChange} options={languages}/>
+        </DropDownWrapper>
+      </LeftNavigation>
       <RightNavigation>
-        <H5>Welcome, {currentUser}</H5>
+        <H5>{t('WELCOME')} {currentUser}</H5>
         <LogoutButton>
           <LogoutText onClick={onLogOutClick}>{t('LOGOUT')}</LogoutText>
         </LogoutButton>

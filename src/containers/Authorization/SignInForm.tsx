@@ -5,14 +5,16 @@ import { Field, Form, Formik } from 'formik';
 
 import { styled } from '../../styles';
 import { validationUtil } from '../../utils';
-import { RoutePathConst } from '../../consts';
+import { RoutePathConst, languages } from '../../consts';
 import { IHandleLoginAction } from '../../store/auth';
+import { ISelectEventFunction } from '../../types';
 import {
   ButtonLong,
   FormWrapper,
   InputField,
   PasswordInputField,
   H5,
+  DropDown,
 } from '../../components';
 
 import { ILoginError } from './types';
@@ -39,17 +41,26 @@ const Error = styled(H5)`
   color: ${({ theme }) => theme.colors.red};
 `;
 
+const DropDownWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 interface ISignInForm {
   onLoginClick: IHandleLoginAction;
   loginError: ILoginError;
+  onSelectOptionChange: ISelectEventFunction;
 }
 
 export const SignInForm: React.FC<ISignInForm> = (props) => {
-  const { onLoginClick, loginError } = props;
+  const { onLoginClick, loginError, onSelectOptionChange } = props;
   const { t } = useTranslation();
 
   return (
     <FormWrapper text={t('AUTH.TITLE_LOGIN_FORM')}>
+      <DropDownWrapper>
+        <DropDown onChange={onSelectOptionChange} options={languages}/>
+      </DropDownWrapper>
       <Formik
         initialValues={{ userName: '', password: '' }}
         onSubmit={({ userName, password }) => onLoginClick({ userName, password })}
