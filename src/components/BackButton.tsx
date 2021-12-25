@@ -9,16 +9,16 @@ import { H5 } from './Text';
 const LinkStyled = styled(Link)`
   width: 96px;
   height: 40px;
-  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 8px 0 0 8px;
+  background-color: ${({ theme }) => theme.colors.lightGray1};
   text-decoration: none;
-  color: ${({theme}) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.black};
   display: flex;
   justify-content: center;
   align-self: flex-start;
   align-items: center;
-  border-radius: 8px;
   &:hover {
-    background-color: ${({theme}) => theme.colors.lightGray};
+    background-color: ${({ theme }) => theme.colors.lightGray2};
   }
 `;
 

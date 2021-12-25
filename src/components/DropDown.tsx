@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled } from '../styles';
 import { ISelectEventFunction } from '../types';
-import { currentLanguage } from '../consts';
+import { localStorageService } from 'services';
 
 const SelectWrapper = styled.select`
   max-height: 24px;
@@ -23,7 +23,9 @@ export const DropDown: React.FC<IDropDownProps> = (props) => {
   return (
     <SelectWrapper onChange={onChange}>
       {options.map(option => {
-        return <option value={option.value} selected={option.value === currentLanguage}>
+        let isSelected = option.value === localStorageService.getFromLocalStorage('language');
+        
+        return <option value={option.value} selected={isSelected}>
           {option.label}
         </option>
       })}

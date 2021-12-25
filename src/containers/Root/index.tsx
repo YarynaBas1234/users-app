@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import { IStore } from 'store';
 import { languageService, localStorageService } from '../../services';
-import { LanguagesConst, currentLanguage, defaultLanguage } from '../../consts';
+import { LanguagesConst, defaultLanguage } from '../../consts';
 import { handleLogoutAction } from '../../store/auth';
 import { ISelectEventFunction } from '../../types';
 
@@ -16,6 +16,8 @@ export const Root: React.FC = () => {
   let history = useHistory();
 
   React.useEffect(() => {
+    const currentLanguage = localStorageService.getFromLocalStorage('language');
+
     !currentLanguage && localStorageService.addToLocalStorage('language', defaultLanguage);
     languageService.changeLanguage(currentLanguage as LanguagesConst);
   }, []);

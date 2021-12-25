@@ -16,6 +16,4 @@ export const languages = [
   },
 ];
 
-export const currentLanguage = localStorageService.getFromLocalStorage('language');
-
 export const defaultLanguage = LanguagesConst.English;
