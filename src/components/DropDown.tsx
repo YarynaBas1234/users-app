@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled } from '../styles';
 import { ISelectEventFunction } from '../types';
-import { localStorageService } from 'services';
+import { localStorageService } from '../services';
 
 const SelectWrapper = styled.select`
   max-height: 24px;
