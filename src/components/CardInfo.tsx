@@ -7,10 +7,15 @@ import { H5 } from './Text';
 
 const CardInfoRow = styled.div`
   display: flex;
-  flex-wrap: wrap;
   :not(:first-child) {
     margin-top: 16px;
-  }
+  };
+  @media screen and (max-width: 370px) {
+    flex-direction: column;
+    :not(:first-child) {
+      margin-top: 8px;
+    };
+  };
 `;
 
 const UsersValue = styled(H5)`

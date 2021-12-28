@@ -4,10 +4,11 @@ import { useTranslation } from 'react-i18next';
 import {
   H1,
   H3,
-  H4,
   H5,
+  H6,
   Container,
   ContainerWrapper,
+  ContainerFixedImage,
   BackButton
 } from '../../components';
 import { styled, backgroundDefaultConfig } from '../../styles';
@@ -15,27 +16,49 @@ import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
 import { RoutePathConst } from '../../consts';
 
-const ContainerWrapperStyled = styled(ContainerWrapper)`
+const ContainerImageStyled = styled(ContainerFixedImage)`
   background-image: url(${backgroundImage});
   ${backgroundDefaultConfig};
 `;
 
+const ContainerWrapperStyled = styled(ContainerWrapper)`
+  align-items: flex-start;
+  height: 100%;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  } ;
+`;
+
 const ContainerStyled = styled(Container)`
   max-width: 600px;
-  height: 100%;
-  justify-content: space-between;
+  @media screen and (max-width: 700px) {
+    max-width: unset;
+    justify-content: space-between;
+    flex-grow: 3;
+  } ;
 `;
 
 const Footer = styled.div`
-  width: 100%;
-  padding: 16px;
+  width: calc(100%-32px);
+  padding: 8px;
+  margin: 16px;
   background-color: ${({ theme }) => theme.colors.lightGreen};
+  @media screen and (max-width: 700px) {
+    margin: 0;
+  } ;
 `;
 
 const ContactUs = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-top: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const ContactUsBlock = styled.div`
+  display: flex;
+  max-width: 400px;
+  width: 100%;
 `;
 
 const FooterTitle = styled(H3)`
@@ -44,12 +67,13 @@ const FooterTitle = styled(H3)`
 `;
 
 const AboutOurCompany = styled.div`
-  width: 100%;
+  width: calc(100%-32px);
   display: flex;
   flex-direction: column;
+  margin: 16px;
 `;
 
-const TitleToDescription = styled(H4)`
+const TitleToDescription = styled(H5)`
   display: block;
   margin-bottom: 8px;
 `;
@@ -58,7 +82,7 @@ const AboutUsContainer = styled.div`
   margin-top: 8px;
 `;
 
-const Description = styled(H5)`
+const Description = styled(H6)`
   text-indent: 20px;
 `;
 
@@ -67,7 +91,8 @@ const Contact = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 160px;
+  max-width: 200px;
+  width: 100%;
 `;
 
 interface IContactData {
@@ -92,29 +117,34 @@ export const AboutUs: React.FC = () => {
   const { FACEBOOK_LINK, SKYPE, PHONE } = envConfigs;
 
   return (
-    <ContainerWrapperStyled>
-      <BackButton path={RoutePathConst.Login} />
-      <ContainerStyled>
-        <AboutOurCompany>
-          <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
-          <AboutUsContainer>
-            <Description>{t('ABOUT_US_PAGE.PARAGRAPH_1')}</Description>
-            <Description>{t('ABOUT_US_PAGE.PARAGRAPH_2')}</Description>
-          </AboutUsContainer>
-          <AboutUsContainer>
-            <TitleToDescription isBold={true}>{t('ABOUT_US_PAGE.SUBTITLE_1')}</TitleToDescription>
-            <Description>{t('ABOUT_US_PAGE.PARAGRAPH_3')}</Description>
-          </AboutUsContainer>
-        </AboutOurCompany>
-        <Footer>
-          <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
-          <ContactUs>
-            <ContactData title='ABOUT_US_PAGE.CONTACT_US' data={PHONE} />
-            <ContactData title='ABOUT_US_PAGE.SKYPE' data={SKYPE} />
-            <ContactData title='ABOUT_US_PAGE.FACEBOOK' data={FACEBOOK_LINK} />
-          </ContactUs>
-        </Footer>
-      </ContainerStyled>
-    </ContainerWrapperStyled>
+    <>
+      <ContainerImageStyled />
+      <ContainerWrapperStyled>
+        <BackButton path={RoutePathConst.Login} />
+        <ContainerStyled>
+          <AboutOurCompany>
+            <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
+            <AboutUsContainer>
+              <Description>{t('ABOUT_US_PAGE.PARAGRAPH_1')}</Description>
+              <Description>{t('ABOUT_US_PAGE.PARAGRAPH_2')}</Description>
+            </AboutUsContainer>
+            <AboutUsContainer>
+              <TitleToDescription isBold={true}>{t('ABOUT_US_PAGE.SUBTITLE_1')}</TitleToDescription>
+              <Description>{t('ABOUT_US_PAGE.PARAGRAPH_3')}</Description>
+            </AboutUsContainer>
+          </AboutOurCompany>
+          <Footer>
+            <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
+            <ContactUs>
+              <ContactUsBlock>
+                <ContactData title='ABOUT_US_PAGE.CONTACT_US' data={PHONE} />
+                <ContactData title='ABOUT_US_PAGE.SKYPE' data={SKYPE} />
+              </ContactUsBlock>
+              <ContactData title='ABOUT_US_PAGE.FACEBOOK' data={FACEBOOK_LINK} />
+            </ContactUs>
+          </Footer>
+        </ContainerStyled>
+      </ContainerWrapperStyled>
+    </>
   );
 };

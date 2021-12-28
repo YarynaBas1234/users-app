@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled, backgroundDefaultConfig } from '../../styles';
-import { Container, ContainerWrapper } from '../../components';
+import { Container, ContainerWrapper, ContainerFixedImage } from '../../components';
 import backgroundImage from '../../images/background.jpg';
 import { IHandleLoginAction, IHandleRegistrationAction } from '../../store/auth';
 import { ISimpleFunction } from '../../types';
@@ -11,16 +11,19 @@ import { SignUpForm } from './SignUpForm';
 import { Navigation } from './Navigation';
 import { ISetActiveTab, TabConst, ILoginError } from './types';
 
-const ContainerWrapperStyled = styled(ContainerWrapper)`
+const ContainerImageStyled = styled(ContainerFixedImage)`
   background-image: url(${backgroundImage});
   ${backgroundDefaultConfig}
 `;
 
 const ContainerStyled = styled(Container)`
   max-width: 400px;
-  min-height: 400px;
+  min-height: 300px;
   border-radius: 8px;
-  justify-content: center;
+  padding: 32px;
+  @media screen and (max-height: 370px), screen and (max-width: 400px) {
+    padding: 16px;
+  };
 `;
 
 interface IAuthorization {
@@ -39,18 +42,21 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
     switchOnSignInTab,
     onRegistrationClick,
     onLoginClick,
-    loginError
+    loginError,
   } = props;
 
   return (
-    <ContainerWrapperStyled>
-      <ContainerStyled>
-        {activeTab === TabConst.SignIn
-          ? <SignInForm onLoginClick={onLoginClick} loginError={loginError} />
-          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegistrationClick={onRegistrationClick} />
-        }
-        <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
-      </ContainerStyled>
-    </ContainerWrapperStyled>
+    <>
+      <ContainerImageStyled />
+      <ContainerWrapper>
+        <ContainerStyled>
+          {activeTab === TabConst.SignIn
+            ? <SignInForm onLoginClick={onLoginClick} loginError={loginError} />
+            : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegistrationClick={onRegistrationClick} />
+          }
+          <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
+        </ContainerStyled>
+      </ContainerWrapper>
+    </>
   );
 };

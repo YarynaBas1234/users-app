@@ -9,23 +9,33 @@ const ProfileWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 24px;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  };
 `;
 
 const ProfileCard = styled.div`
-  width: 600px;
-  max-width: 100%;
+  max-width: 600px;
+  width: 100%;
   height: 400px;
-  max-height: 100%;
   padding: 16px;
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.lightBlue};
   box-shadow: 0 0 16px ${({ theme }) => theme.colors.lightGray2};
+  @media screen and (max-width: 700px) {
+    max-width: unset;
+  };
 `;
 
 const Title = styled(H3)`
   margin-top: 24px;
   text-align: center;
+  @media screen and (max-height: 414px) {
+    margin-top: 0;
+  };
 `;
 
 const ProfileInfo = styled.div`
@@ -34,6 +44,23 @@ const ProfileInfo = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: unset;
+    margin: 32px 0;
+  };
+`;
+
+const RightBlock = styled.div`
+  margin-left: 8px;
+  @media screen and (max-width: 700px) {
+    margin-top: 16px;
+    margin-left: 0;
+  };
+  @media screen and (max-width: 370px) {
+    margin-top: 8px;
+  };
 `;
 
 interface IProfileProps {
@@ -56,11 +83,11 @@ export const Profile: React.FC<IProfileProps> = (props) => {
             <CardInfo title='HOME_PAGE.COMPANY_NAME' value={company.name} />
             <CardInfo title='HOME_PAGE.WEBSITE' value={website} />
           </div>
-          <div>
+          <RightBlock>
             <CardInfo title='HOME_PAGE.ADDRESS' value={fullAddress} />
             <CardInfo title='HOME_PAGE.EMAIL' value={email} />
             <CardInfo title='HOME_PAGE.PHONE_NUMBER' value={phone} />
-          </div>
+          </RightBlock>
         </ProfileInfo>
       </ProfileCard>
     </ProfileWrapper>

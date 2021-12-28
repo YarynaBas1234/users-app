@@ -17,8 +17,7 @@ const CardWrapper = styled(Link)`
   text-decoration: none;
   color: ${({theme}) => theme.colors.black};
   margin: 16px 16px 0 16px;
-
-  @media screen and (max-width: 956px) {
+  @media screen and (max-width: 700px) {
     max-width: unset;
   };
 `;
