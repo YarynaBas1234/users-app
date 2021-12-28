@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { styled, backgroundDefaultConfig } from '../../styles';
 import { H5, ButtonText, DropDown } from '../../components';
 import logo from '../../images/logo.jpg';
-import { languages } from '../../consts';
+import { languages, ResponseScreen } from '../../consts';
 import { ISimpleFunction } from '../../types';
 import { useChangeLanguage } from '../../hooks';
 
@@ -34,9 +34,9 @@ const LeftNavigation = styled.div`
 
 const RightNavigation = styled.div`
   display: flex;
-
-  @media screen and (max-width: 370px) {
+  @media screen and (${ResponseScreen.maxWidth400}) {
     flex-direction: column;
+    align-items: flex-end;
   };
 `;
 
@@ -53,8 +53,7 @@ const LogoutButton = styled.div`
   :active {
     font-weight: bold;
   };
-
-  @media screen and (max-width: 370px) {
+  @media screen and (${ResponseScreen.maxWidth370}) {
     margin-top: 8px;
   };
 `;

@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { FieldProps, FormikErrors, FormikHandlers, FormikProps, getIn } from 'formik';
 
 import { styled, theme } from '../styles';
+import { ResponseScreen } from '../consts';
 
-import { H4, H5, H6 } from './Text';
+import { H4, H5 } from './Text';
 
 export interface IFormFieldProps {
   label?: string;
@@ -86,7 +87,7 @@ const Wrapper = styled.div<IWrapperProps>`
     ${ ({ disabled }) => disabled && 'opacity: 0.5;' }
   }
 
-  @media screen and (max-height: 370px) {
+  @media screen and (${ResponseScreen.maxHeight370}) {
     margin-top: 0;
   };
 `;

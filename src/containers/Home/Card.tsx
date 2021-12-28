@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { styled } from '../../styles';
 import { H4, CardInfo } from '../../components';
 import { IUser } from '../../store/users';
-import { RoutePathConst } from '../../consts';
+import { ResponseScreen, RoutePathConst } from '../../consts';
 
 const CardWrapper = styled(Link)`
   max-width: 430px;
@@ -17,7 +17,7 @@ const CardWrapper = styled(Link)`
   text-decoration: none;
   color: ${({theme}) => theme.colors.black};
   margin: 16px 16px 0 16px;
-  @media screen and (max-width: 700px) {
+  @media screen and (${ResponseScreen.maxWidth700}) {
     max-width: unset;
   };
 `;

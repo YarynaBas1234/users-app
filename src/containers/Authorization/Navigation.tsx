@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../styles';
 import { ButtonText } from '../../components';
+import { ResponseScreen } from '../../consts';
 
 import { ISetActiveTab, TabConst } from './types';
 
@@ -11,8 +12,7 @@ const Menu = styled.div`
     margin-top: 16px;
     display: flex;
     justify-content: space-between;
-
-    @media screen and (max-width: 400px) {
+    @media screen and (${ResponseScreen.maxWidth400}) {
       padding: 0 8px;
     }
 `;

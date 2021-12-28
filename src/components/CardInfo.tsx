@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { styled } from '../styles';
+import { ResponseScreen } from 'consts';
 
 import { H5 } from './Text';
 
@@ -10,7 +11,7 @@ const CardInfoRow = styled.div`
   :not(:first-child) {
     margin-top: 16px;
   };
-  @media screen and (max-width: 370px) {
+  @media screen and (${ResponseScreen.maxWidth370}) {
     flex-direction: column;
     :not(:first-child) {
       margin-top: 8px;

@@ -5,6 +5,7 @@ import { Container, ContainerWrapper, ContainerFixedImage } from '../../componen
 import backgroundImage from '../../images/background.jpg';
 import { IHandleLoginAction, IHandleRegistrationAction } from '../../store/auth';
 import { ISimpleFunction } from '../../types';
+import { ResponseScreen } from '../../consts';
 
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
@@ -21,7 +22,7 @@ const ContainerStyled = styled(Container)`
   min-height: 300px;
   border-radius: 8px;
   padding: 32px;
-  @media screen and (max-height: 370px), screen and (max-width: 400px) {
+  @media screen and (${ResponseScreen.maxHeight370}), screen and (${ResponseScreen.maxWidth400}) {
     padding: 16px;
   };
 `;

@@ -5,8 +5,7 @@ import { ISelectEventFunction } from '../types';
 import { localStorageService } from '../services';
 
 const Select = styled.select`
-  max-height: 24px;
-  height: 100%;
+  min-height: 25px;
 `;
 
 interface IDropDownProps {

@@ -3,13 +3,13 @@ import React from 'react';
 import { IUser } from '../../store/users';
 import { styled } from '../../styles';
 import { H3, CardInfo, BackButton } from '../../components';
-import { RoutePathConst } from '../../consts';
+import { ResponseScreen, RoutePathConst } from '../../consts';
 
 const ProfileWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 24px;
-  @media screen and (max-width: 700px) {
+  @media screen and (${ResponseScreen.maxWidth700}) {
     flex-direction: column;
     align-items: center;
     margin-top: 0;
@@ -25,7 +25,7 @@ const ProfileCard = styled.div`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.lightBlue};
   box-shadow: 0 0 16px ${({ theme }) => theme.colors.lightGray2};
-  @media screen and (max-width: 700px) {
+  @media screen and (${ResponseScreen.maxWidth700}) {
     max-width: unset;
   };
 `;
@@ -33,7 +33,7 @@ const ProfileCard = styled.div`
 const Title = styled(H3)`
   margin-top: 24px;
   text-align: center;
-  @media screen and (max-height: 414px) {
+  @media screen and (${ResponseScreen.maxHeight414}) {
     margin-top: 0;
   };
 `;
@@ -44,7 +44,7 @@ const ProfileInfo = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  @media screen and (max-width: 700px) {
+  @media screen and (${ResponseScreen.maxWidth700}) {
     flex-direction: column;
     justify-content: unset;
     align-items: unset;
@@ -54,11 +54,11 @@ const ProfileInfo = styled.div`
 
 const RightBlock = styled.div`
   margin-left: 8px;
-  @media screen and (max-width: 700px) {
+  @media screen and (${ResponseScreen.maxWidth700}) {
     margin-top: 16px;
     margin-left: 0;
   };
-  @media screen and (max-width: 370px) {
+  @media screen and (${ResponseScreen.maxWidth370}) {
     margin-top: 8px;
   };
 `;

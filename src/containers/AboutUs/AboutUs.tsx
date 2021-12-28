@@ -14,7 +14,7 @@ import {
 import { styled, backgroundDefaultConfig } from '../../styles';
 import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
-import { RoutePathConst } from '../../consts';
+import { ResponseScreen, RoutePathConst } from '../../consts';
 
 const ContainerImageStyled = styled(ContainerFixedImage)`
   background-image: url(${backgroundImage});
@@ -24,7 +24,7 @@ const ContainerImageStyled = styled(ContainerFixedImage)`
 const ContainerWrapperStyled = styled(ContainerWrapper)`
   align-items: flex-start;
   height: 100%;
-  @media screen and (max-width: 700px) {
+  @media screen and (${ResponseScreen.maxWidth700}) {
     flex-direction: column;
     justify-content: flex-start;
   };
@@ -32,7 +32,7 @@ const ContainerWrapperStyled = styled(ContainerWrapper)`
 
 const ContainerStyled = styled(Container)`
   max-width: 600px;
-  @media screen and (max-width: 700px) {
+  @media screen and (${ResponseScreen.maxWidth700}) {
     max-width: unset;
     justify-content: space-between;
     flex-grow: 3;
@@ -44,7 +44,7 @@ const Footer = styled.div`
   padding: 8px;
   margin: 16px;
   background-color: ${({ theme }) => theme.colors.lightGreen};
-  @media screen and (max-width: 700px) {
+  @media screen and (${ResponseScreen.maxWidth700}) {
     margin: 0;
   };
 `;
