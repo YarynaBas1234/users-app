@@ -12,8 +12,8 @@ const Menu = styled.div`
     display: flex;
     justify-content: space-between;
 
-    @media screen and (max-width: 430px) {
-        padding: 0 8px;
+    @media screen and (max-width: 400px) {
+      padding: 0 8px;
     }
 `;
 

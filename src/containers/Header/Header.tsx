@@ -27,6 +27,10 @@ const Logo = styled.div`
 
 const RightNavigation = styled.div`
   display: flex;
+
+  @media screen and (max-width: 370px) {
+    flex-direction: column;
+  };
 `;
 
 const LogoutButton = styled.div`
@@ -35,10 +39,13 @@ const LogoutButton = styled.div`
   justify-content: flex-end;
   margin-top: 0;
   cursor: pointer;
-
   :active {
     font-weight: bold;
-  }
+  };
+
+  @media screen and (max-width: 370px) {
+    margin-top: 8px;
+  };
 `;
 
 const LogoutText = styled(ButtonText)`

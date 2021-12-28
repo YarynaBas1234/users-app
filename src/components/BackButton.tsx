@@ -9,7 +9,6 @@ import { H5 } from './Text';
 const LinkStyled = styled(Link)`
   width: 96px;
   height: 40px;
-  border-radius: 8px 0 0 8px;
   background-color: ${({ theme }) => theme.colors.lightGray1};
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};

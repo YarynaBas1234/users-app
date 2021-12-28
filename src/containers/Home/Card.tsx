@@ -7,7 +7,7 @@ import { IUser } from '../../store/users';
 import { RoutePathConst } from '../../consts';
 
 const CardWrapper = styled(Link)`
-  max-width: 344px;
+  max-width: 430px;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.lightBlue};
   display: flex;
@@ -17,6 +17,10 @@ const CardWrapper = styled(Link)`
   text-decoration: none;
   color: ${({theme}) => theme.colors.black};
   margin: 16px 16px 0 16px;
+
+  @media screen and (max-width: 956px) {
+    max-width: unset;
+  };
 `;
 
 const Title = styled(H4)`
