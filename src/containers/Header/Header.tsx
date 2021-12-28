@@ -5,7 +5,8 @@ import { styled, backgroundDefaultConfig } from '../../styles';
 import { H5, ButtonText, DropDown } from '../../components';
 import logo from '../../images/logo.jpg';
 import { languages } from '../../consts';
-import { ISimpleFunction, ISelectEventFunction } from '../../types';
+import { ISimpleFunction } from '../../types';
+import { useChangeLanguage } from '../../hooks';
 
 import { ICurrentUser } from '../types';
 
@@ -58,11 +59,10 @@ const LogoutText = styled(ButtonText)`
 type IHeaderProps = {
   currentUser: ICurrentUser;
   onLogOutClick: ISimpleFunction;
-  onSelectOptionChange: ISelectEventFunction;
 };
 
 export const Header: React.FC<IHeaderProps> = (props) => {
-  const { currentUser, onLogOutClick, onSelectOptionChange } = props;
+  const { currentUser, onLogOutClick } = props;
   const { t } = useTranslation();
 
   return (
@@ -70,7 +70,7 @@ export const Header: React.FC<IHeaderProps> = (props) => {
       <LeftNavigation>
         <Logo />
         <DropDownWrapper>
-          <DropDown onChange={onSelectOptionChange} options={languages}/>
+          <DropDown onChange={useChangeLanguage()} options={languages}/>
         </DropDownWrapper>
       </LeftNavigation>
       <RightNavigation>

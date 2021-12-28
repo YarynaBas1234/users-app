@@ -7,7 +7,7 @@ import { styled } from '../../styles';
 import { validationUtil } from '../../utils';
 import { RoutePathConst, languages } from '../../consts';
 import { IHandleLoginAction } from '../../store/auth';
-import { ISelectEventFunction } from '../../types';
+import { useChangeLanguage } from '../../hooks';
 import {
   ButtonLong,
   FormWrapper,
@@ -49,17 +49,16 @@ const DropDownWrapper = styled.div`
 interface ISignInForm {
   onLoginClick: IHandleLoginAction;
   loginError: ILoginError;
-  onSelectOptionChange: ISelectEventFunction;
 }
 
 export const SignInForm: React.FC<ISignInForm> = (props) => {
-  const { onLoginClick, loginError, onSelectOptionChange } = props;
+  const { onLoginClick, loginError } = props;
   const { t } = useTranslation();
 
   return (
     <FormWrapper text={t('AUTH.TITLE_LOGIN_FORM')}>
       <DropDownWrapper>
-        <DropDown onChange={onSelectOptionChange} options={languages}/>
+        <DropDown onChange={useChangeLanguage()} options={languages}/>
       </DropDownWrapper>
       <Formik
         initialValues={{ userName: '', password: '' }}

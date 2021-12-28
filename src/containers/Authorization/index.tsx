@@ -7,17 +7,11 @@ import {
   IHandleLoginAction,
   IHandleRegistrationAction
 } from '../../store/auth';
-import { ISelectEventFunction } from '../../types';
 
 import { Authorization } from './Authorization';
 import { TabConst } from './types';
 
-interface IAuthorizationContainerProps {
-  onSelectOptionChange: ISelectEventFunction;
-}
-
-export const AuthorizationContainer: React.FC<IAuthorizationContainerProps> = (props) => {
-  const { onSelectOptionChange } = props;
+export const AuthorizationContainer: React.FC = () => {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
   const [loginError, setLoginError] = React.useState(null);
@@ -43,7 +37,6 @@ export const AuthorizationContainer: React.FC<IAuthorizationContainerProps> = (p
       onLoginClick={onLoginClick}
       switchOnSignInTab={switchOnSignInTab}
       loginError={loginError}
-      onSelectOptionChange={onSelectOptionChange}
     />
   );
 };
