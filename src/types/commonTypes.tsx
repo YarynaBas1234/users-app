@@ -2,6 +2,8 @@ import { Dispatch } from 'redux';
 
 export type ISimpleFunction = () => void;
 
+export type ISelectEventFunction = (event: React.FormEvent<HTMLSelectElement>) => void;
+
 export type IDispatchAction = (dispatch: Dispatch) => void;
 
 export type IApiResponse<Type> = {
