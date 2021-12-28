@@ -54,11 +54,12 @@ interface ISignInForm {
 export const SignInForm: React.FC<ISignInForm> = (props) => {
   const { onLoginClick, loginError } = props;
   const { t } = useTranslation();
+  const onLanguageChange = useChangeLanguage();
 
   return (
     <FormWrapper text={t('AUTH.TITLE_LOGIN_FORM')}>
       <DropDownWrapper>
-        <DropDown onChange={useChangeLanguage()} options={languages}/>
+        <DropDown onChange={onLanguageChange} options={languages}/>
       </DropDownWrapper>
       <Formik
         initialValues={{ userName: '', password: '' }}

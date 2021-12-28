@@ -64,13 +64,14 @@ type IHeaderProps = {
 export const Header: React.FC<IHeaderProps> = (props) => {
   const { currentUser, onLogOutClick } = props;
   const { t } = useTranslation();
+  const onLanguageChange = useChangeLanguage();
 
   return (
     <HeaderWrapper>
       <LeftNavigation>
         <Logo />
         <DropDownWrapper>
-          <DropDown onChange={useChangeLanguage()} options={languages}/>
+          <DropDown onChange={onLanguageChange} options={languages}/>
         </DropDownWrapper>
       </LeftNavigation>
       <RightNavigation>
