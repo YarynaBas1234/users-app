@@ -109,7 +109,7 @@ export const AboutUs: React.FC = () => {
         <Footer>
           <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
           <ContactUs>
-            <ContactData title='ABOUT_US_PAGE.CONTACT_US' data={PHONE} />
+            <ContactData title='ABOUT_US_PAGE.PHONE_NUMBER' data={PHONE} />
             <ContactData title='ABOUT_US_PAGE.SKYPE' data={SKYPE} />
             <ContactData title='ABOUT_US_PAGE.FACEBOOK' data={FACEBOOK_LINK} />
           </ContactUs>

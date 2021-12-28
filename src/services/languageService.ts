@@ -6,7 +6,7 @@ import { en, ua } from 'translations';
 
 export const changeLanguage = (language: LanguagesConst) => {
   i18n.changeLanguage(language);
-}
+};
 
 const resources = { en, ua };
 

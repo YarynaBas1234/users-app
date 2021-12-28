@@ -39,7 +39,7 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
     switchOnSignInTab,
     onRegistrationClick,
     onLoginClick,
-    loginError
+    loginError,
   } = props;
 
   return (
