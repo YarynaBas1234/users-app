@@ -12,7 +12,7 @@ export const ButtonText = styled.span<IButtonTextProps>`
   color: ${({ theme, isPrimary }) => isPrimary ? theme.colors.primary : theme.colors.black};
   @media screen and (max-height: 414px), screen and (max-width: 700px) {
     font-size: 14px;
-  }
+  };
 `;
 
 export const H1 = styled.span<IButtonTextProps>`
@@ -22,7 +22,7 @@ export const H1 = styled.span<IButtonTextProps>`
   line-height: 44px;
   @media screen and (max-height: 414px), screen and (max-width: 700px) {
     font-size: 32px;
-  }
+  };
 `;
 
 export const H2 = styled.span<IButtonTextProps>`
@@ -32,7 +32,7 @@ export const H2 = styled.span<IButtonTextProps>`
   line-height: 42px;
   @media screen and (max-height: 414px), screen and (max-width: 700px) {
     font-size: 26px;
-  }
+  };
 `;
 
 export const H3 = styled.span<IButtonTextProps>`
@@ -42,7 +42,7 @@ export const H3 = styled.span<IButtonTextProps>`
   letter-spacing: 0.0025em;
   @media screen and (max-height: 414px), screen and (max-width: 700px) {
     font-size: 20px;
-  }
+  };
 `;
 
 export const H4 = styled.span<IButtonTextProps>`
@@ -52,7 +52,7 @@ export const H4 = styled.span<IButtonTextProps>`
   line-height: 26px;
   @media screen and (max-height: 414px), screen and (max-width: 700px) {
     font-size: 18px;
-  }
+  };
 `;
 
 export const H5 = styled.span<IButtonTextProps>`
@@ -62,7 +62,7 @@ export const H5 = styled.span<IButtonTextProps>`
   line-height: 20px;
   @media screen and (max-height: 414px), screen and (max-width: 700px) {
     font-size: 14px;
-  }
+  };
 `;
 
 export const H6 = styled.span<IButtonTextProps>`
@@ -72,5 +72,5 @@ export const H6 = styled.span<IButtonTextProps>`
   line-height: 16px;
   @media screen and (max-height: 414px), screen and (max-width: 700px) {
     font-size: 10px;
-  }
+  };
 `;

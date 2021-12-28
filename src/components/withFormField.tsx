@@ -88,7 +88,7 @@ const Wrapper = styled.div<IWrapperProps>`
 
   @media screen and (max-height: 370px) {
     margin-top: 0;
-  }
+  };
 `;
 
 export const withFormField = <OriginalProps extends {}>(Component: React.ComponentType<IFormComponent | OriginalProps>) => (props: IWithFormFieldProps) => {

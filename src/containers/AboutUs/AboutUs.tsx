@@ -27,7 +27,7 @@ const ContainerWrapperStyled = styled(ContainerWrapper)`
   @media screen and (max-width: 700px) {
     flex-direction: column;
     justify-content: flex-start;
-  } ;
+  };
 `;
 
 const ContainerStyled = styled(Container)`
@@ -36,7 +36,7 @@ const ContainerStyled = styled(Container)`
     max-width: unset;
     justify-content: space-between;
     flex-grow: 3;
-  } ;
+  };
 `;
 
 const Footer = styled.div`
@@ -46,19 +46,13 @@ const Footer = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGreen};
   @media screen and (max-width: 700px) {
     margin: 0;
-  } ;
+  };
 `;
 
 const ContactUs = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-`;
-
-const ContactUsBlock = styled.div`
-  display: flex;
-  max-width: 400px;
-  width: 100%;
 `;
 
 const FooterTitle = styled(H3)`
