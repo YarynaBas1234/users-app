@@ -8,7 +8,6 @@ import {
   H6,
   Container,
   ContainerWrapper,
-  ContainerFixedImage,
   BackButton
 } from '../../components';
 import { styled, backgroundDefaultConfig } from '../../styles';
@@ -16,22 +15,19 @@ import { envConfigs } from '../../services';
 import backgroundImage from '../../images/about-us-background.jpg';
 import { ResponseScreen, RoutePathConst } from '../../consts';
 
-const ContainerImageStyled = styled(ContainerFixedImage)`
+const ContainerWrapperStyled = styled(ContainerWrapper)`
   background-image: url(${backgroundImage});
   ${backgroundDefaultConfig};
-`;
-
-const ContainerWrapperStyled = styled(ContainerWrapper)`
-  align-items: flex-start;
-  height: 100%;
   @media screen and (${ResponseScreen.maxWidth700}) {
     flex-direction: column;
-    justify-content: flex-start;
   };
 `;
 
 const ContainerStyled = styled(Container)`
   max-width: 600px;
+  height: 100%;
+  justify-content: space-between;
+  overflow-y: auto;
   @media screen and (${ResponseScreen.maxWidth700}) {
     max-width: unset;
     justify-content: space-between;
@@ -111,32 +107,29 @@ export const AboutUs: React.FC = () => {
   const { FACEBOOK_LINK, SKYPE, PHONE } = envConfigs;
 
   return (
-    <>
-      <ContainerImageStyled />
-      <ContainerWrapperStyled>
-        <BackButton path={RoutePathConst.Login} />
-        <ContainerStyled>
-          <AboutOurCompany>
-            <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
-            <AboutUsContainer>
-              <Description>{t('ABOUT_US_PAGE.PARAGRAPH_1')}</Description>
-              <Description>{t('ABOUT_US_PAGE.PARAGRAPH_2')}</Description>
-            </AboutUsContainer>
-            <AboutUsContainer>
-              <TitleToDescription isBold={true}>{t('ABOUT_US_PAGE.SUBTITLE_1')}</TitleToDescription>
-              <Description>{t('ABOUT_US_PAGE.PARAGRAPH_3')}</Description>
-            </AboutUsContainer>
-          </AboutOurCompany>
-          <Footer>
-            <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
-            <ContactUs>
-              <ContactData title='ABOUT_US_PAGE.PHONE_NUMBER' data={PHONE} />
-              <ContactData title='ABOUT_US_PAGE.SKYPE' data={SKYPE} />
-              <ContactData title='ABOUT_US_PAGE.FACEBOOK' data={FACEBOOK_LINK} />
-            </ContactUs>
-          </Footer>
-        </ContainerStyled>
-      </ContainerWrapperStyled>
-    </>
+    <ContainerWrapperStyled>
+      <BackButton path={RoutePathConst.Login} />
+      <ContainerStyled>
+        <AboutOurCompany>
+          <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
+          <AboutUsContainer>
+            <Description>{t('ABOUT_US_PAGE.PARAGRAPH_1')}</Description>
+            <Description>{t('ABOUT_US_PAGE.PARAGRAPH_2')}</Description>
+          </AboutUsContainer>
+          <AboutUsContainer>
+            <TitleToDescription isBold={true}>{t('ABOUT_US_PAGE.SUBTITLE_1')}</TitleToDescription>
+            <Description>{t('ABOUT_US_PAGE.PARAGRAPH_3')}</Description>
+          </AboutUsContainer>
+        </AboutOurCompany>
+        <Footer>
+          <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
+          <ContactUs>
+            <ContactData title='ABOUT_US_PAGE.PHONE_NUMBER' data={PHONE} />
+            <ContactData title='ABOUT_US_PAGE.SKYPE' data={SKYPE} />
+            <ContactData title='ABOUT_US_PAGE.FACEBOOK' data={FACEBOOK_LINK} />
+          </ContactUs>
+        </Footer>
+      </ContainerStyled>
+    </ContainerWrapperStyled>
   );
 };

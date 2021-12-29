@@ -2,19 +2,11 @@ import { styled } from 'styles';
 
 export const ContainerWrapper = styled.div`
   width: 100%;
-  min-height: 100%;
+  height: 100%;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-export const ContainerFixedImage = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
 `;
 
 export const Container = styled.div`
