@@ -8,7 +8,7 @@ import {
   H6,
   Container,
   ContainerWrapper,
-  BackButton
+  BackButton,
 } from '../../components';
 import { styled, backgroundDefaultConfig } from '../../styles';
 import { envConfigs } from '../../services';
@@ -35,7 +35,7 @@ const ContainerStyled = styled(Container)`
   };
 `;
 
-const Footer = styled.div`
+const FooterWrapper = styled.div`
   width: calc(100%-32px);
   padding: 8px;
   margin: 16px;
@@ -102,9 +102,24 @@ const ContactData: React.FC<IContactData> = (props) => {
   );
 };
 
-export const AboutUs: React.FC = () => {
+const Footer: React.FC = () => {
   const { t } = useTranslation();
   const { FACEBOOK_LINK, SKYPE, PHONE } = envConfigs;
+
+  return (
+    <FooterWrapper>
+      <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
+      <ContactUsBlock>
+        <ContactData title='ABOUT_US_PAGE.PHONE_NUMBER' data={PHONE} />
+        <ContactData title='ABOUT_US_PAGE.SKYPE' data={SKYPE} />
+        <ContactData title='ABOUT_US_PAGE.FACEBOOK' data={FACEBOOK_LINK} />
+      </ContactUsBlock>
+    </FooterWrapper>
+  );
+};
+
+export const AboutUs: React.FC = () => {
+  const { t } = useTranslation();
 
   return (
     <ContainerWrapperStyled>
@@ -121,14 +136,7 @@ export const AboutUs: React.FC = () => {
             <Description>{t('ABOUT_US_PAGE.PARAGRAPH_3')}</Description>
           </AboutUsContainer>
         </CompanyDescriptionBlock>
-        <Footer>
-          <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
-          <ContactUsBlock>
-            <ContactData title='ABOUT_US_PAGE.PHONE_NUMBER' data={PHONE} />
-            <ContactData title='ABOUT_US_PAGE.SKYPE' data={SKYPE} />
-            <ContactData title='ABOUT_US_PAGE.FACEBOOK' data={FACEBOOK_LINK} />
-          </ContactUsBlock>
-        </Footer>
+        <Footer />
       </ContainerStyled>
     </ContainerWrapperStyled>
   );
