@@ -13,7 +13,7 @@ const Menu = styled.div`
     display: flex;
     justify-content: space-between;
     @media screen and (${ResponseScreen.maxWidth400}) {
-      padding: 0 8px;
+      padding: 0;
     }
 `;
 

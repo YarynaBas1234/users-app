@@ -33,7 +33,7 @@ const ProfileCard = styled.div`
 const Title = styled(H3)`
   margin-top: 24px;
   text-align: center;
-  @media screen and (${ResponseScreen.maxHeight414}) {
+  @media screen and (${ResponseScreen.maxWidth400}) {
     margin-top: 0;
   };
 `;

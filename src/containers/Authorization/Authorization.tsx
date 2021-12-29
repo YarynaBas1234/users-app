@@ -25,9 +25,6 @@ const ContainerStyled = styled(Container)`
   overflow-y: auto;
   padding: 32px;
   justify-content: space-between;
-  @media screen and (${ResponseScreen.maxHeight370}), screen and (${ResponseScreen.maxWidth400}) {
-    padding: 16px;
-  };
 `;
 
 interface IAuthorization {

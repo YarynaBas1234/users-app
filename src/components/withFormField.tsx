@@ -86,10 +86,6 @@ const Wrapper = styled.div<IWrapperProps>`
     color: ${ theme.colors.gray };
     ${ ({ disabled }) => disabled && 'opacity: 0.5;' }
   }
-
-  @media screen and (${ResponseScreen.maxHeight370}) {
-    margin-top: 0;
-  };
 `;
 
 export const withFormField = <OriginalProps extends {}>(Component: React.ComponentType<IFormComponent | OriginalProps>) => (props: IWithFormFieldProps) => {
