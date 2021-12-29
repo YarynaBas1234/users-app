@@ -10,7 +10,8 @@ type ITheme = {
     lightGreen: string;
     primaryGray: string;
     lightBlue: string;
-  }
+  },
+  maxPercentWithoutMargin: string;
 };
 
 export const theme: ITheme = {
@@ -25,5 +26,6 @@ export const theme: ITheme = {
     lightGreen: '#e6f0e6',
     primaryGray: '#53697f',
     lightBlue: '#f0f5f5'
-  }
+  },
+  maxPercentWithoutMargin: 'calc(100%-32px)',
 }

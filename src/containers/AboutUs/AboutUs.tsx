@@ -36,7 +36,7 @@ const ContainerStyled = styled(Container)`
 `;
 
 const FooterWrapper = styled.div`
-  width: calc(100%-32px);
+  width: ${({ theme }) => theme.maxPercentWithoutMargin};
   padding: 8px;
   margin: 16px;
   background-color: ${({ theme }) => theme.colors.lightGreen};
@@ -57,7 +57,7 @@ const FooterTitle = styled(H3)`
 `;
 
 const CompanyDescriptionBlock = styled.div`
-  width: calc(100%-32px);
+  width: ${({ theme }) => theme.maxPercentWithoutMargin};
   display: flex;
   flex-direction: column;
   margin: 16px;
