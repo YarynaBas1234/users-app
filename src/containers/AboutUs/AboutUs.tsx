@@ -45,7 +45,7 @@ const Footer = styled.div`
   };
 `;
 
-const ContactUs = styled.div`
+const ContactUsBlock = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -56,14 +56,14 @@ const FooterTitle = styled(H3)`
   justify-content: center;
 `;
 
-const AboutOurCompany = styled.div`
+const CompanyDescriptionBlock = styled.div`
   width: calc(100%-32px);
   display: flex;
   flex-direction: column;
   margin: 16px;
 `;
 
-const TitleToDescription = styled(H5)`
+const TitleDescription = styled(H5)`
   display: block;
   margin-bottom: 8px;
 `;
@@ -110,24 +110,24 @@ export const AboutUs: React.FC = () => {
     <ContainerWrapperStyled>
       <BackButton path={RoutePathConst.Login} />
       <ContainerStyled>
-        <AboutOurCompany>
+        <CompanyDescriptionBlock>
           <H1 isBold={true}>{t('ABOUT_US_PAGE.TITLE_1')}</H1>
           <AboutUsContainer>
             <Description>{t('ABOUT_US_PAGE.PARAGRAPH_1')}</Description>
             <Description>{t('ABOUT_US_PAGE.PARAGRAPH_2')}</Description>
           </AboutUsContainer>
           <AboutUsContainer>
-            <TitleToDescription isBold={true}>{t('ABOUT_US_PAGE.SUBTITLE_1')}</TitleToDescription>
+            <TitleDescription isBold={true}>{t('ABOUT_US_PAGE.SUBTITLE_1')}</TitleDescription>
             <Description>{t('ABOUT_US_PAGE.PARAGRAPH_3')}</Description>
           </AboutUsContainer>
-        </AboutOurCompany>
+        </CompanyDescriptionBlock>
         <Footer>
           <FooterTitle isBold={true}>{t('ABOUT_US_PAGE.CONTACT_US')}</FooterTitle>
-          <ContactUs>
+          <ContactUsBlock>
             <ContactData title='ABOUT_US_PAGE.PHONE_NUMBER' data={PHONE} />
             <ContactData title='ABOUT_US_PAGE.SKYPE' data={SKYPE} />
             <ContactData title='ABOUT_US_PAGE.FACEBOOK' data={FACEBOOK_LINK} />
-          </ContactUs>
+          </ContactUsBlock>
         </Footer>
       </ContainerStyled>
     </ContainerWrapperStyled>

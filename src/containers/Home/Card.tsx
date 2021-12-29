@@ -7,7 +7,7 @@ import { IUser } from '../../store/users';
 import { ResponseScreen, RoutePathConst } from '../../consts';
 
 const CardWrapper = styled(Link)`
-  max-width: 430px;
+  max-width: 432px;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.lightBlue};
   display: flex;
