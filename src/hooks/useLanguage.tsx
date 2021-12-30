@@ -6,7 +6,7 @@ import { ISelectEventFunction } from '../types';
 
 export const useChangeLanguage = () => {
   React.useEffect(() => {
-    const currentLanguage = localStorageService.getFromLocalStorage('language');
+    const currentLanguage = localStorageService.getFromLocalStorage<string | null>('language');
 
     !currentLanguage && localStorageService.addToLocalStorage('language', defaultLanguage);
     languageService.changeLanguage(currentLanguage as LanguagesConst);
