@@ -3,6 +3,6 @@ export enum TabConst {
   SignUp = 'SIGN_UP',
 }
 
-export type ILoginError = string | null;
+export type IAuthorizationError = string | null;
 
 export type ISetActiveTab = (value: TabConst) => void;

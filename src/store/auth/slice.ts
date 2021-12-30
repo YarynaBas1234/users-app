@@ -1,16 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-import { IAuthStore } from "./types";
+import { localStorageService } from '../../services';
 
 const slice = createSlice({
   name: 'auth',
   initialState: {
-    isLoggedIn: false,
-    currentUser: null,
-  } as IAuthStore,
+    isLoggedIn: localStorageService.getFromLocalStorage<boolean | null>('isLoggedIn'),
+  },
   reducers: {
     loginSuccess: (state, action) => {
-      state.currentUser = action.payload.userName;
       state.isLoggedIn = true;
     },
     logoutSuccess: (state) => {

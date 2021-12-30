@@ -25,3 +25,5 @@ export interface IUser {
 export type IUsersStore = {
   users?: IUser[];
 };
+
+export type IUsers = IUser[] | null;

@@ -9,7 +9,7 @@ import { ISimpleFunction } from '../../types';
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 import { Navigation } from './Navigation';
-import { ISetActiveTab, TabConst, ILoginError } from './types';
+import { ISetActiveTab, TabConst, IAuthorizationError } from './types';
 
 const ContainerWrapperStyled = styled(ContainerWrapper)`
   background-image: url(${backgroundImage});
@@ -29,7 +29,8 @@ interface IAuthorization {
   switchOnSignInTab: ISimpleFunction;
   onRegistrationClick: IHandleRegistrationAction;
   onLoginClick: IHandleLoginAction;
-  loginError: ILoginError;
+  loginError: IAuthorizationError;
+  registrationError: IAuthorizationError;
 }
 
 export const Authorization: React.FC<IAuthorization> = (props) => {
@@ -40,6 +41,7 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
     onRegistrationClick,
     onLoginClick,
     loginError,
+    registrationError,
   } = props;
 
   return (
@@ -47,7 +49,7 @@ export const Authorization: React.FC<IAuthorization> = (props) => {
       <ContainerStyled>
         {activeTab === TabConst.SignIn
           ? <SignInForm onLoginClick={onLoginClick} loginError={loginError} />
-          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegistrationClick={onRegistrationClick} />
+          : <SignUpForm switchOnSignInTab={switchOnSignInTab} onRegistrationClick={onRegistrationClick} registrationError={registrationError}/>
         }
         <Navigation setActiveTab={setActiveTab} activeTab={activeTab} />
       </ContainerStyled>

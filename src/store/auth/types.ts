@@ -1,6 +1,5 @@
 export type IAuthStore = {
   isLoggedIn: boolean;
-  currentUser: string | null
 }
 
 export interface ILoginActionValues {
@@ -15,4 +14,4 @@ export interface IRegistrationActionValues {
 
 export type IHandleLoginAction = (loginData: ILoginActionValues) => void;
 
-export type IHandleRegistrationAction = (registrationData: IRegistrationActionValues) => void;
+export type IHandleRegistrationAction = (registrationData: IRegistrationActionValues) => Promise<any>;

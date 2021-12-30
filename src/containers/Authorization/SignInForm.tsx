@@ -17,7 +17,7 @@ import {
   DropDown,
 } from '../../components';
 
-import { ILoginError } from './types';
+import { IAuthorizationError } from './types';
 
 const LinkWrapper = styled.div`
   display: flex;
@@ -48,7 +48,7 @@ const DropDownWrapper = styled.div`
 
 interface ISignInForm {
   onLoginClick: IHandleLoginAction;
-  loginError: ILoginError;
+  loginError: IAuthorizationError;
 }
 
 export const SignInForm: React.FC<ISignInForm> = (props) => {

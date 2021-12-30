@@ -9,7 +9,8 @@
       "START_FROM_UPPERCASE": "Поле повинне починатись з великої літери",
       "EMAIL": "Неправильна адреса електронної пошти",
       "SAME_FIELDS": "Поля {{passwordLabel}} і {{repeatPasswordLabel}} не співпадають",
-      "USER_NOT_EXIST": "Користувача не знайдено"
+      "USER_NOT_EXIST": "Користувача не знайдено",
+      "USER_NAME_EXISTS": "Користувач з таким іменем вже існує"
     },
     "AUTH": {
       "TITLE_LOGIN_FORM": "Вхід",

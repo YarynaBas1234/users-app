@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { styled } from '../../styles';
-import { IUser } from '../../store/users';
+import { IUser, IUsers } from '../../store/users';
+
 import { Card } from './Card';
 
 const HomeWrapper = styled.div`
@@ -12,7 +13,7 @@ const HomeWrapper = styled.div`
 `;
 
 interface IHomeProps {
-  users?: IUser[];
+  users?: IUsers;
 }
 
 export const Home: React.FC<IHomeProps> = (props) => {

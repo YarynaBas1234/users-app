@@ -9,7 +9,8 @@
       "START_FROM_UPPERCASE": "First letter should be uppercase",
       "EMAIL": "Invalid email address",
       "SAME_FIELDS": "Fields {{label}} and {{labelConfirm}} are not the same",
-      "USER_NOT_EXIST": "User does not exist" 
+      "USER_NOT_EXIST": "User does not exist",
+      "USER_NAME_EXISTS": "User with this name already exists"
     },
     "AUTH": {
       "TITLE_LOGIN_FORM": "Login",
