@@ -1,11 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { localStorageService } from '../../services';
-
 const slice = createSlice({
   name: 'auth',
   initialState: {
-    isLoggedIn: localStorageService.getFromLocalStorage<boolean | null>('isLoggedIn'),
+    isLoggedIn: false,
   },
   reducers: {
     loginSuccess: (state) => {
