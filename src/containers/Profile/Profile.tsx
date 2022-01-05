@@ -37,29 +37,28 @@ const ProfileInfo = styled.div`
 `;
 
 interface IProfileProps {
-  user: IUser;
+  user: IUser | null;
 }
 
 export const Profile: React.FC<IProfileProps> = (props) => {
   const { user } = props;
-  const { name, username, company, website, address, email, phone } = user;
-  const fullAddress = address.city + ', ' + address.street;
+  const fullAddress = user?.address.city + ', ' + user?.address.street;
 
   return (
     <ProfileWrapper>
       <BackButton path={RoutePathConst.Home} />
       <ProfileCard>
-        <Title>{name}</Title>
+        <Title>{user?.name}</Title>
         <ProfileInfo>
           <div>
-            <CardInfo title='HOME_PAGE.USERNAME' value={username} />
-            <CardInfo title='HOME_PAGE.COMPANY_NAME' value={company.name} />
-            <CardInfo title='HOME_PAGE.WEBSITE' value={website} />
+            <CardInfo title='HOME_PAGE.USERNAME' value={user?.username} />
+            <CardInfo title='HOME_PAGE.COMPANY_NAME' value={user?.company.name} />
+            <CardInfo title='HOME_PAGE.WEBSITE' value={user?.website} />
           </div>
           <div>
             <CardInfo title='HOME_PAGE.ADDRESS' value={fullAddress} />
-            <CardInfo title='HOME_PAGE.EMAIL' value={email} />
-            <CardInfo title='HOME_PAGE.PHONE_NUMBER' value={phone} />
+            <CardInfo title='HOME_PAGE.EMAIL' value={user?.email} />
+            <CardInfo title='HOME_PAGE.PHONE_NUMBER' value={user?.phone} />
           </div>
         </ProfileInfo>
       </ProfileCard>

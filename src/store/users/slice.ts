@@ -1,13 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IUsersStore } from './types';
+import { localStorageService } from '../../services';
+
+import { IUsers, IUsersStore } from './types';
 
 const slice = createSlice({
   name: 'users',
-  initialState: { } as IUsersStore,
+  initialState: {
+    users: localStorageService.getFromLocalStorage<IUsers>('users'),
+    chosenUser: null,
+  } as IUsersStore,
   reducers: {
     saveUsers: (state, action) => {
       state.users = action.payload;
+    },
+    saveChosenUser: (state, action) => {
+      state.chosenUser = action.payload;
     },
   },
 });
