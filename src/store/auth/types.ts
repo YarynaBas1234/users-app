@@ -1,8 +1,7 @@
-import { IUsers } from "../../store/users";
+import { IUsers } from '../../store/users';
 
 export type IAuthStore = {
   isLoggedIn: boolean;
-  currentUser: string | null
 }
 
 export interface ILoginActionValues {

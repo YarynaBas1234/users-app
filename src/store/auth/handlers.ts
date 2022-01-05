@@ -8,7 +8,7 @@ import { IHandleRegistrationAction, ILoginActionValues } from './types';
 type IHandleLoginAction = (loginData: ILoginActionValues) => IDispatchAction;
 
 export const handleLoginAction: IHandleLoginAction = ({userName, password}) => dispatch => {
-  return api.loginApi({userName, password}).then(() => dispatch(authActions.loginSuccess({ userName, password })));
+  return api.loginApi({userName, password}).then(() => dispatch(authActions.loginSuccess()));
 };
 
 type IHandleLogoutAction = IDispatchAction;
