@@ -1,14 +1,14 @@
-type IAddToLocalStorage = (key: string, value: string) => void;
+type IAddToLocalStorage = (key: string, value: any) => void;
 
 const addToLocalStorage: IAddToLocalStorage = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-type IGetFromLocalStorage = (key: string) => string | null;
+type IGetFromLocalStorage = <Type>(key: string) => Type;
 
 const getFromLocalStorage: IGetFromLocalStorage = key => {
-  const storageKey = localStorage.getItem(key);
-  return storageKey ? JSON.parse(storageKey) : null;
+  const value = localStorage.getItem(key);
+  return value ? JSON.parse(value) : value;
 };
 
 type IDeleteFromLocalStorage = (key: string) => void;

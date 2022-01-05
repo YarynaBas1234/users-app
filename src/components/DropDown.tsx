@@ -23,7 +23,7 @@ export const DropDown: React.FC<IDropDownProps> = (props) => {
   return (
     <Select onChange={onChange}>
       {options.map(option => {
-        let isSelected = option.value === localStorageService.getFromLocalStorage('language');
+        let isSelected = option.value === localStorageService.getFromLocalStorage<string | null>('language');
         
         return (
           <option value={option.value} selected={isSelected}>
