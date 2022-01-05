@@ -29,10 +29,10 @@ interface ICardProps {
 
 export const Card: React.FC<ICardProps> = (props) => {
   const { user } = props;
-  const { name, email, phone } = user;
+  const { id, email, phone } = user;
 
   return (
-    <CardWrapper to={RoutePathConst.Profile + name}>
+    <CardWrapper to={`${RoutePathConst.Profile}/${id}`}>
       <Title>{user.name}</Title>
       <CardInfo title='HOME_PAGE.EMAIL' value={email}/>
       <CardInfo title='HOME_PAGE.PHONE_NUMBER' value={phone}/>
