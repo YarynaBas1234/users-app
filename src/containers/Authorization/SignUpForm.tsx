@@ -6,20 +6,35 @@ import { validationUtil } from '../../utils';
 import { CommonConst } from '../../consts';
 import { IRegistrationActionValues, IHandleRegistrationClick } from '../../store/auth';
 import { ISimpleFunction } from '../../types';
+import { styled } from '../../styles';
 import {
   FormWrapper,
   ButtonLong,
   InputField,
-  PasswordInputField
+  PasswordInputField,
+  H5
 } from '../../components';
 
-interface ISignUpForm {
+import { IAuthorizationError } from './types';
+
+const ErrorWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  height: 16px;
+`;
+
+const Error = styled(H5)`
+  color: ${({ theme }) => theme.colors.red};
+`;
+
+interface ISignUpFormProps {
   switchOnSignInTab: ISimpleFunction;
   onRegistrationClick: IHandleRegistrationClick;
+  registrationError: IAuthorizationError;
 }
 
-export const SignUpForm: React.FC<ISignUpForm> = (props) => {
-  const { switchOnSignInTab, onRegistrationClick } = props;
+export const SignUpForm: React.FC<ISignUpFormProps> = (props) => {
+  const { switchOnSignInTab, onRegistrationClick, registrationError } = props;
   const { t } = useTranslation();
 
   return (
@@ -33,8 +48,10 @@ export const SignUpForm: React.FC<ISignUpForm> = (props) => {
         }}
         onSubmit={({ userName, password }: IRegistrationActionValues, { resetForm }) => {
           onRegistrationClick({userName, password});
-          resetForm();
-          switchOnSignInTab();
+          if(registrationError){
+            resetForm();
+            switchOnSignInTab();
+          }
         }}
       >
         {({ handleSubmit, values, isValid, dirty }) =>
@@ -82,6 +99,9 @@ export const SignUpForm: React.FC<ISignUpForm> = (props) => {
               component={PasswordInputField}
             />
             <ButtonLong text={t('AUTH.SIGN_UP')} onClick={handleSubmit} isDisabled={!isValid || !dirty}/>
+            <ErrorWrapper>
+              {registrationError && <Error>{t(registrationError)}</Error>}
+            </ErrorWrapper>
           </Form>
         }
       </Formik>

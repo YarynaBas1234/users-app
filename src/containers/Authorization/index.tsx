@@ -1,6 +1,8 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { IStore } from '../../store';
+import { handleGetUsersAction } from '../../store/users';
 import {
   handleRegistrationAction,
   handleLoginAction, 
@@ -13,16 +15,23 @@ import { TabConst } from './types';
 
 export const AuthorizationContainer: React.FC = () => {
   const dispatch = useDispatch();
+  const { users } = useSelector((state: IStore) => state.users);
   const [activeTab, setActiveTab] = React.useState<TabConst>(TabConst.SignIn);
   const [loginError, setLoginError] = React.useState(null);
+  const [registrationError, setRegistrationError] = React.useState(null);
+
+  React.useEffect(() => {
+    dispatch(handleGetUsersAction());
+  }, []);
 
   const switchOnSignInTab = React.useCallback(() => {
     setActiveTab(TabConst.SignIn);
   }, []);
 
   const onRegistrationClick: IHandleRegistrationClick = React.useCallback(({ userName, password }) => {
-    handleRegistrationAction({ userName, password });
-  }, []);
+    // @ts-ignore
+    handleRegistrationAction({ userName, password }, users).then(() => setRegistrationError(null)).catch((error) => setRegistrationError(error));
+  }, [users]);
 
   const onLoginClick: IHandleLoginAction = React.useCallback(({ userName, password }) => {
     // @ts-ignore
@@ -37,6 +46,7 @@ export const AuthorizationContainer: React.FC = () => {
       onLoginClick={onLoginClick}
       switchOnSignInTab={switchOnSignInTab}
       loginError={loginError}
+      registrationError={registrationError}
     />
   );
 };

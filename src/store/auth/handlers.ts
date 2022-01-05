@@ -3,7 +3,7 @@ import { IDispatchAction } from '../../types';
 import * as api from './api';
 import authActions from './slice';
 
-import { IHandleRegistrationClick, ILoginActionValues } from './types';
+import { IHandleRegistrationAction, ILoginActionValues } from './types';
 
 type IHandleLoginAction = (loginData: ILoginActionValues) => IDispatchAction;
 
@@ -17,6 +17,6 @@ export const handleLogoutAction: IHandleLogoutAction = (dispatch) => {
   api.logoutApi().then(() => dispatch(authActions.logoutSuccess()));
 };
 
-export const handleRegistrationAction: IHandleRegistrationClick = ({userName, password}) => {
-  api.registerApi({userName, password});
+export const handleRegistrationAction: IHandleRegistrationAction = ({userName, password}, users) => {
+  return api.registerApi({userName, password}, users);
 };

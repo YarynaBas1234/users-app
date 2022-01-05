@@ -1,3 +1,4 @@
+import { IUsers } from '../../store/users';
 import { mockApiService, localStorageService } from '../../services';
 
 import { ILoginActionValues, IRegistrationActionValues } from './types';
@@ -23,9 +24,14 @@ export const logoutApi: ILogoutApiType = () => {
   return mockApiService({});
 };
 
-type IRegistrationApiType = (registrationData: IRegistrationActionValues) => Promise<any>;
+type IRegistrationApiType = (registrationData: IRegistrationActionValues, users: IUsers) => Promise<any>;
 
-export const registerApi: IRegistrationApiType = ({ userName, password }) => {
-  localStorageService.addToLocalStorage(userName, password);
-  return mockApiService({ userName, password });
+export const registerApi: IRegistrationApiType = ({ userName, password }, users) => {
+  const isExistUser = users?.some(user => (user.username === userName));
+
+  if(!isExistUser){
+    localStorageService.addToLocalStorage(userName, password);
+    return mockApiService({ userName, password });
+  }
+  return mockApiService({ error: 'ERRORS.USER_NAME_EXISTS' });
 };
