@@ -23,7 +23,8 @@ export interface IUser {
 }
 
 export type IUsersStore = {
-  users?: IUser[];
+  users: IUsers;
+  chosenUser: IUser | null;
 };
 
 export type IUsers = IUser[] | null;

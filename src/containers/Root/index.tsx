@@ -13,9 +13,7 @@ import { ICurrentUser } from '../types';
 export const Root: React.FC = () => {
   const dispatch = useDispatch();
   let history = useHistory();
-
   const { isLoggedIn } = useSelector((state: IStore) => state.auth);
-
   const currentUser = localStorageService.getFromLocalStorage<ICurrentUser>('currentUser');
 
   const onLogOutClick = React.useCallback(() => {

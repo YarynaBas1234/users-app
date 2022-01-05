@@ -4,7 +4,7 @@ import { Field, Formik, Form } from 'formik';
 
 import { validationUtil } from '../../utils';
 import { CommonConst } from '../../consts';
-import { IRegistrationActionValues, IHandleRegistrationAction } from '../../store/auth';
+import { IRegistrationActionValues, IHandleRegistrationClick } from '../../store/auth';
 import { ISimpleFunction } from '../../types';
 import { styled } from '../../styles';
 import {
@@ -29,7 +29,7 @@ const Error = styled(H5)`
 
 interface ISignUpForm {
   switchOnSignInTab: ISimpleFunction;
-  onRegistrationClick: IHandleRegistrationAction;
+  onRegistrationClick: IHandleRegistrationClick;
   registrationError: IAuthorizationError;
 }
 
