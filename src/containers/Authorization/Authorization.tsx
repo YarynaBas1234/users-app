@@ -3,7 +3,7 @@ import React from 'react';
 import { styled, backgroundDefaultConfig } from '../../styles';
 import { Container, ContainerWrapper } from '../../components';
 import backgroundImage from '../../images/background.jpg';
-import { IHandleLoginAction, IHandleRegistrationAction } from '../../store/auth';
+import { IHandleLoginAction, IHandleRegistrationClick } from '../../store/auth';
 import { ISimpleFunction } from '../../types';
 
 import { SignInForm } from './SignInForm';
@@ -27,7 +27,7 @@ interface IAuthorization {
   setActiveTab: ISetActiveTab;
   activeTab: TabConst;
   switchOnSignInTab: ISimpleFunction;
-  onRegistrationClick: IHandleRegistrationAction;
+  onRegistrationClick: IHandleRegistrationClick;
   onLoginClick: IHandleLoginAction;
   loginError: ILoginError;
 }

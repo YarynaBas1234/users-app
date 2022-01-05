@@ -11,7 +11,7 @@ export const HomeContainer: React.FC = () => {
   const { users } = useSelector((state: IStore) => state.users);
 
   React.useEffect(() => {
-    dispatch(handleGetUsersAction);
+    dispatch(handleGetUsersAction());
   }, []);
 
   return <Home users={users} />;

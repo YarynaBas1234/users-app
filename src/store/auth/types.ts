@@ -1,3 +1,5 @@
+import { IUsers } from "../../store/users";
+
 export type IAuthStore = {
   isLoggedIn: boolean;
   currentUser: string | null
@@ -15,4 +17,6 @@ export interface IRegistrationActionValues {
 
 export type IHandleLoginAction = (loginData: ILoginActionValues) => void;
 
-export type IHandleRegistrationAction = (registrationData: IRegistrationActionValues) => void;
+export type IHandleRegistrationClick = (registrationData: IRegistrationActionValues) => void;
+
+export type IHandleRegistrationAction = (registrationData: IRegistrationActionValues, users: IUsers) => void;

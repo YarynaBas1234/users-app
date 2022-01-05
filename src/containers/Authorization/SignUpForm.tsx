@@ -4,7 +4,7 @@ import { Field, Formik, Form } from 'formik';
 
 import { validationUtil } from '../../utils';
 import { CommonConst } from '../../consts';
-import { IRegistrationActionValues, IHandleRegistrationAction } from '../../store/auth';
+import { IRegistrationActionValues, IHandleRegistrationClick } from '../../store/auth';
 import { ISimpleFunction } from '../../types';
 import {
   FormWrapper,
@@ -15,7 +15,7 @@ import {
 
 interface ISignUpForm {
   switchOnSignInTab: ISimpleFunction;
-  onRegistrationClick: IHandleRegistrationAction;
+  onRegistrationClick: IHandleRegistrationClick;
 }
 
 export const SignUpForm: React.FC<ISignUpForm> = (props) => {

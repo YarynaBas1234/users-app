@@ -19,7 +19,7 @@ const UsersValue = styled(H5)`
 
 interface ICardInfoProps {
   title: string;
-  value: string;
+  value?: string;
 }
 
 export const CardInfo: React.FC<ICardInfoProps> = (props) => {

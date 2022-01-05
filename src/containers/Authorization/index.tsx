@@ -5,7 +5,7 @@ import {
   handleRegistrationAction,
   handleLoginAction, 
   IHandleLoginAction,
-  IHandleRegistrationAction
+  IHandleRegistrationClick
 } from '../../store/auth';
 
 import { Authorization } from './Authorization';
@@ -20,7 +20,7 @@ export const AuthorizationContainer: React.FC = () => {
     setActiveTab(TabConst.SignIn);
   }, []);
 
-  const onRegistrationClick: IHandleRegistrationAction = React.useCallback(({ userName, password }) => {
+  const onRegistrationClick: IHandleRegistrationClick = React.useCallback(({ userName, password }) => {
     handleRegistrationAction({ userName, password });
   }, []);
 
