@@ -17,6 +17,6 @@ export const handleLogoutAction: IHandleLogoutAction = (dispatch) => {
   api.logoutApi().then(() => dispatch(authActions.logoutSuccess()));
 };
 
-export const handleRegistrationAction: IHandleRegistrationAction = ({userName, password}) => {
-  api.registerApi({userName, password});
+export const handleRegistrationAction: IHandleRegistrationAction = ({userName, password}, users) => {
+  return api.registerApi({userName, password}, users);
 };

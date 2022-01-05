@@ -48,8 +48,10 @@ export const SignUpForm: React.FC<ISignUpForm> = (props) => {
         }}
         onSubmit={({ userName, password }: IRegistrationActionValues, { resetForm }) => {
           onRegistrationClick({userName, password});
-          // resetForm();
-          // switchOnSignInTab();
+          if(registrationError){
+            resetForm();
+            switchOnSignInTab();
+          }
         }}
       >
         {({ handleSubmit, values, isValid, dirty }) =>
